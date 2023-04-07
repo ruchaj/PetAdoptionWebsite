@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace ContosoCrafts.WebSite.Pages
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    //Comment comment
     public class ErrorModel : PageModel
     {
         public string RequestId { get; set; }
