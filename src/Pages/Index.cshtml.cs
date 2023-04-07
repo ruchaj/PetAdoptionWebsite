@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
-
+//Giao made a change here
 namespace ContosoCrafts.WebSite.Pages
 {
     public class IndexModel : PageModel
