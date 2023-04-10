@@ -8,6 +8,9 @@ using ContosoCrafts.WebSite.Services;
 //Comment comment
 namespace ContosoCrafts.WebSite.Pages
 {
+    /// <summary>
+    ///  Michi Tsuji (hw3)
+    /// </summary>
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
