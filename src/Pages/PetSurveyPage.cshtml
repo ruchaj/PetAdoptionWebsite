@@ -83,10 +83,18 @@
             bestPet = 'Dog';
         } else if (size === 'large' && energyLevel === 'high' && climate === 'cold' && lifestyle === 'active') {
             bestPet = 'Reptile';
+        }else{
+            bestPet = '';
+
         }
 
-        // Display the best pet to the user
-        document.getElementById('result').textContent = 'Your best pet is a ' + bestPet + '!';
+        // Display the best pet to the user, or an error message.
+        if(bestPet != ''){
+            document.getElementById('result').textContent = 'Your best pet is a ' + bestPet + '!';
+        }
+        else{
+            document.getElementById('result').textContent = 'Unfortunately, we cannot find the best pet for you based on your responses. You can try again, or check out our other options!';
+        }
 
         // Reset the form
         event.target.reset();
@@ -96,6 +104,7 @@
 
 <h1>Pet Adoption Survey</h1>
 <form onsubmit="submitForm(event)">
+  <!--Adds a form of radio options for each category. Clicking on them will register with the JavaScript once submit is pressed, and it takes the information to configure the best pet response.-->
     <h2>What size pet are you looking for?</h2>
     <label for="small">
         <input type="radio" id="small" name="size" value="small" required> Small (under 20 lbs)
