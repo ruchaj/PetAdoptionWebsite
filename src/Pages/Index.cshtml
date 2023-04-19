@@ -9,4 +9,8 @@
 
 @(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 
+<div>
+    @Html.Partial("PetSurveyPage")
+</div>
+
 <script src="_framework/blazor.server.js"></script>
