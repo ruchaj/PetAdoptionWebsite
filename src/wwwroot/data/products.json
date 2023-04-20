@@ -15,7 +15,9 @@
     "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
     "Title": "Gamma",
     "Description": "Gamma will bring a lot of joy and happiness to your family.",
-    "Ratings": null
+    "Ratings": [
+      5
+    ]
   },
   {
     "Id": "jenlooper-lightshow",
@@ -74,10 +76,10 @@
   {
     "Id": "selinazawacki-soi-shirt",
     "Maker": "selinazawacki",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf1JfKUSLVZBGqBKyWmyfZNR3eKatRTp_Dbw&usqp=CAU",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf1JfKUSLVZBGqBKyWmyfZNR3eKatRTp_Dbw\u0026usqp=CAU",
     "Url": "https://www.instagram.com/p/BNvESj-j8PI/",
     "Title": "Tiger",
-    "Description": "Even though I am tiger, I don't bite!!'",
+    "Description": "Even though I am tiger, I don\u0027t bite!!\u0027",
     "Ratings": null
   },
   {
