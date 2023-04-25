@@ -115,7 +115,7 @@
   },
   {
     "Id": "11",
-    "Name": "Dragonscale Betta",
+    "Name": "Dragonscale",
     "Age": "Full-size adult",
     "img": "https://s7d2.scene7.com/is/image/PetSmart/5164011?$CLEARjpg$",
     "Breed": "Betta splendens",
@@ -126,7 +126,7 @@
   },
   {
     "Id": "12",
-    "Name": "Fancy Goldfish",
+    "Name": "Goldfish",
     "Age": "Full-size adult",
     "img": "https://s7d2.scene7.com/is/image/PetSmart/4032741?$CLEARjpg$",
     "Breed": "Carassius auratus",
@@ -137,7 +137,7 @@
   },
   {
     "Id": "13",
-    "Name": "Platinum Betta",
+    "Name": "Platinum",
     "Age": "Full-size adult",
     "img": "https://s7d2.scene7.com/is/image/PetSmart/5285564?$CLEARjpg$",
     "Breed": "Betta splendens",
