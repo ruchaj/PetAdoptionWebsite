@@ -3,8 +3,9 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 
+@*This function keeps the original design of showing name, image, and breed from previous sprint, but modifies it to pull the pets from featured pets*@
 <div class="card-columns">
-@foreach (var product in ProductService.GetProducts())
+@foreach (var product in ProductService.GetFeaturedProducts())
 {
     <div class="card">
         <div class="card-img" style="background-image: url('@product.Image');">
