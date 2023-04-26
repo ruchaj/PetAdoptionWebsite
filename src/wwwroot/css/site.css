@@ -52,6 +52,13 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
 }
+/*Adds a style element for the card columns, centering them on the page and displaying them as only two per row*/
+.card-columns {
+    display: flex-grid;
+    column-count: 2;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Provide sufficient contrast against white background */
 a {
