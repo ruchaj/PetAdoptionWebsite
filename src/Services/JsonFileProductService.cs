@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,6 +34,16 @@ namespace ContosoCrafts.WebSite.Services
                         PropertyNameCaseInsensitive = true
                     });
             }
+        }
+
+        //Precondition: A modified version of GetProducts() that only pulls four pets to be featured on the homepage.
+        //What the function does: Gets the list produced by getProducts, and with a new instance of the Random class, grabs four random items, and returns them in a new list.
+        //Postcondition: creates a list of pets that are limited to four and returns it to be displayed.
+        public IEnumerable<ProductModel> GetRandomProducts()
+        {
+            var random = new Random(); //creates a new Random instance
+            var products = GetProducts().OrderBy(x => random.Next()).Take(4); //gets the list produced by GetProducts, and in the span of it, grabs four items and puts them in a new list.
+            return products; //returns the list
         }
 
         public void AddRating(string productId, int rating)
