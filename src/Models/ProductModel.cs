@@ -5,6 +5,7 @@ namespace ContosoCrafts.WebSite.Models
 {
     public class ProductModel
     {
+        //attributes of a pet
         public string Id { get; set; }
         public string Name { get; set; }
         public string Age { get; set; }
