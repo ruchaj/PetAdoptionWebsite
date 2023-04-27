@@ -8,9 +8,17 @@
     <h1>All available pets:</h1>
 </header>
 
-@foreach (var pet in Model.Pets)
-{
-    <h2>
-        @pet.Name
-    </h2>
-}
+<table>
+    <tr>
+        <th width="20">Name</th>
+        <th>Age</th>
+        <th>Breed</th>
+        <th>Location</th>
+        <th>Cost to Adopt</th>
+        <th>Photo</th>
+    </tr>
+    <tr>
+        <!-- A row for a single pet. Can add more rows for more pets.-->
+    </tr>
+</table>
+
