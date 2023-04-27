@@ -20,7 +20,7 @@
 <header>
     <h1>All available pets:</h1>
 </header>
-
+<!--Table of available pets-->
 <table>
     <thead>
         <tr>
@@ -31,13 +31,14 @@
         </tr>
     </thead>
     <tbody>
-        
+        <!--Headers and information-->
         @foreach (var pet in Model.Pets)
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => @pet.Name)</td>
                 <td>@Html.DisplayFor(modelItem => @pet.Breed)</td>
                 <td>@Html.DisplayFor(modelItem => @pet.Location)</td>
+                <!--Link to pet information page when it is clicked-->
                 <td><a asp-page="PetInformation" asp-route-id="@pet.Id">Read</a></td>
             </tr>
         }
