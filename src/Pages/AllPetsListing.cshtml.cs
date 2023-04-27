@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
+// MT: This page will show all available pets.
+
 namespace ContosoCrafts.WebSite.Pages
 {
     public class AllPetsListingModel : PageModel
