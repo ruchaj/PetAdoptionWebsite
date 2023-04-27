@@ -2,11 +2,9 @@
 @using ContosoCrafts.WebSite.Services
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Index1Model
-
 @{
     ViewData["Title"] = "Pet Description";
 }
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,17 +14,16 @@
 
 
 <body>
-<!--Image of pet as placeholder-->
-    <img id="petimg" src="https://st3.depositphotos.com/2289871/19419/i/450/depositphotos_194191522-stock-photo-blue-eyes-siberian-husky-puppy.jpg" alt="{Add Image description}" />
+<!--Image of pet-->
+    <img id="petimg" src="@Model.Product.Image" alt="{Add Image description}" />
 
 <div>
-    <!--Headers and {} as placeholder for information to be linked (e.g. Cost: @Model.Product.Cost)-->
-    <p>Cost: {Add Cost} </p>
-    <p>Name: {Pet Name Here}, {Age Here}</p>
-    <p>Breed: {Pet Breed Here}</p>
-    <p>Gender: {Pet Gender Here}</p>
-    <p>Location: {Location of Pet Here} </p>
-    <p>Description: {Pet Description Here}</p>
+    <!--Headers and information-->
+    <p>Cost: @Model.Product.Cost</p>
+    <p>Name: @Model.Product.Name, @Model.Product.Age</p>
+    <p>Breed: @Model.Product.Breed</p>
+    <p>Location: @Model.Product.Location</p>
+    <p>Description: @Model.Product.Description</p>
 </div>
 </body>
 
