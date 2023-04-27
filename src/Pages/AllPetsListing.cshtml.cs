@@ -1,3 +1,4 @@
+using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,11 +11,17 @@ namespace ContosoCrafts.WebSite.Pages
     {
         private readonly ILogger<AllPetsListingModel> _logger;
         public JsonFileProductService PetService;
+        public IEnumerable<ProductModel> Pets { get; private set; }
 
         public AllPetsListingModel(ILogger<AllPetsListingModel> logger,
             JsonFileProductService petService)
         {
             _logger = logger;
+        }
+
+        public void OnGet()
+        {
+            Pets = PetService.GetProducts();
         }
     }
 }

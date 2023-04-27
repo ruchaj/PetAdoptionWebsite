@@ -8,4 +8,11 @@
     <h1>All available pets:</h1>
 </header>
 
+@foreach (var pet in Model.Pets)
+{
+    <h2>
+        @pet.Name
+    </h2>
+}
+
 // MT: This page will be our listing of all available pets.
