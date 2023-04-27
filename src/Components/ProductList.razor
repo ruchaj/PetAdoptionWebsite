@@ -23,28 +23,28 @@
     </div>
 }
 </div>
-
+<!--Adds the petinfo class to the card, giving it the same styling as the petinfo page.-->
 @if(selectedProduct != null)
 {
   <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header petinfo">
           <h5 class="modal-title" id="productTitle">@selectedProduct.Name</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body petinfo">
           <div class="card">
             <div class="card-img" style="background-image: url('@selectedProduct.Image');">
             </div>
-            <div class="card-body">
+            <div class="card-body petinfo">
                 <p class="card-text">@selectedProduct.Description</p>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer petinfo">
           @if(voteCount == 0)
           {
             <span>Be the first to vote!</span>
