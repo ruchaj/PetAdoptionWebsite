@@ -10,7 +10,8 @@ namespace ContosoCrafts.WebSite.Pages
     {
         private readonly ILogger<AllPetsListingModel> _logger;
 
-        public AllPetsListingModel(ILogger<AllPetsListingModel> logger)
+        public AllPetsListingModel(ILogger<AllPetsListingModel> logger,
+            JsonFileProductService petService)
         {
             _logger = logger;
         }
