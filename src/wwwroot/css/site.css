@@ -44,6 +44,7 @@ for details on configuring this project to bundle and minify static web assets. 
     background: #fbfafd;
 }
 
+/*Adds background color, uniform font, and some font styling to the petinfo pages.*/
 .petinfo {
     background-color: #48a7d5;
     font-family: 'Nunito', sans-serif;
