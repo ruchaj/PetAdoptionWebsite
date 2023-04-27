@@ -25,23 +25,23 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Age</th>
             <th>Breed</th>
             <th>Location</th>
-            <th>Cost to Adopt</th>
-            <th>Photo</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <!-- MT: I think we can add in rows for our pets like this, feel free to use something different...
+        
         @foreach (var pet in Model.Pets)
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => @pet.Name)</td>
-                <td>@Html.DisplayFor(modelItem => @pet.Age)</td>
+                <td>@Html.DisplayFor(modelItem => @pet.Breed)</td>
+                <td>@Html.DisplayFor(modelItem => @pet.Location)</td>
+                <td><a asp-page="Read" asp-route-id="@pet.Id">Read</a></td>
             </tr>
         }
-        -->
+       
     </tbody>
 </table>
 </html>
