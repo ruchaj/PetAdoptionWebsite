@@ -1,7 +1,7 @@
 ﻿@page
 @using ContosoCrafts.WebSite.Services
 @inject JsonFileProductService ProductService
-@model ContosoCrafts.WebSite.Pages.Index1Model
+@model ContosoCrafts.WebSite.Pages.Product.PetInformation
 @{
     ViewData["Title"] = "Pet Description";
 }
@@ -25,6 +25,11 @@
     <p>Location: @Model.Product.Location</p>
     <p>Description: @Model.Product.Description</p>
 </div>
+<!--Add two buttons for deleting and updating activities-->
+    <div class="row">
+        <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary">Update</a>
+        <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
+    </div>
 </body>
 
 </html>
