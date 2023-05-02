@@ -9,7 +9,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
     /// <summary>
     /// Pet information page
     /// </summary>
-    public class Index1Model : PageModel
+    public class PetInformation : PageModel
     {
         //Data middle tier
         public JsonFileProductService ProductService { get; }
@@ -18,7 +18,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Constructor
         /// </summary>
         /// <param name="productService"></param>
-        public Index1Model(JsonFileProductService productService)
+        public PetInformation(JsonFileProductService productService)
         {
             ProductService = productService;
         }
