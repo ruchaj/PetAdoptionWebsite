@@ -72,5 +72,49 @@ namespace ContosoCrafts.WebSite.Services
                 );
             }
         }
+
+        /// <summary>
+        /// Remove the item from the system
+        /// </summary>
+        /// <returns></returns>
+        public ProductModel DeleteData(string id)
+        {
+            // Get the current set, and append the new record to it
+            var dataSet = GetProducts();
+
+            // Get the selected data by compare with the given ProductID
+            var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
+
+            // Creat new dataset after removing the selected data
+            var newDataSet = GetProducts().Where(m => m.Id.Equals(id) == false);
+
+
+            //Save the new Dataset to the database
+            SaveData(newDataSet);
+
+
+            //return the deleted data
+            return data;
+        }
+
+
+        /// <summary>
+        /// Save All products data to storage
+        /// </summary>
+        private void SaveData(IEnumerable<ProductModel> products)
+        {
+
+            using (var outputStream = File.Create(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    products
+                );
+            }
+        }
     }
 }
