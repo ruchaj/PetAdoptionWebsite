@@ -1,0 +1,77 @@
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@model ContosoCrafts.WebSite.Pages.UpdateModel
+@{
+}
+<!-- header -->
+<h1>Update</h1>
+
+<div class="container">
+    <!-- update form -->
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(x => x.Product.Id)
+
+        <!--group for name-->
+        <div class="form-group">
+            <label asp-for="Product.Name" class="control-label"></label>
+            <input asp-for="Product.Name" class="form-control" />
+            <span asp-validation-for="Product.Name" class="text-danger"></span>
+        </div>
+
+        <!--group for description-->
+        <div class="form-group">
+            <label asp-for="Product.Description" class="control-label"></label>
+            <input asp-for="Product.Description" class="form-control" />
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
+        </div>
+
+        <!--group for age-->
+        <div class="form-group">
+            <label asp-for="Product.Age" class="control-label"></label>
+            <input asp-for="Product.Age" class="form-control" />
+            <span asp-validation-for="Product.Age" class="text-danger"></span>
+        </div>
+
+        <!--group for breed-->
+        <div class="form-group">
+            <label asp-for="Product.Breed" class="control-label"></label>
+            <input asp-for="Product.Breed" class="form-control" />
+            <span asp-validation-for="Product.Breed" class="text-danger"></span>
+        </div>
+
+        <!--group for cost-->
+        <div class="form-group">
+            <label asp-for="Product.Cost" class="control-label"></label>
+            <input asp-for="Product.Cost" class="form-control" />
+            <span asp-validation-for="Product.Cost" class="text-danger"></span>
+        </div>
+
+        <!--group for location-->
+        <div class="form-group">
+            <label asp-for="Product.Location" class="control-label"></label>
+            <input asp-for="Product.Location" class="form-control" />
+            <span asp-validation-for="Product.Location" class="text-danger"></span>
+        </div>
+
+
+        <!--group for image-->
+        <div class="form-group">
+            <label asp-for="Product.Image" class="control-label"></label>
+            <input asp-for="Product.Image" class="form-control" />
+            <span asp-validation-for="Product.Image" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
