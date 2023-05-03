@@ -40,6 +40,8 @@
                 <td>@Html.DisplayFor(modelItem => @pet.Location)</td>
                 <!--Link to pet information page when it is clicked-->
                 <td><a asp-page="PetInformation" asp-route-id="@pet.Id">Read</a></td>
+                <!--Link to update pet information page when it is clicked-->
+                <td><a asp-page="Update" asp-route-id="@pet.Id">Update</a></td>
             </tr>
         }
        
