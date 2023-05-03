@@ -71,7 +71,39 @@ namespace ContosoCrafts.WebSite.Services
                     products
                 );
             }
+
+
         }
+
+        //Updates pet data function
+        public ProductModel UpdateData(ProductModel data)
+        {
+            //Get data records 
+            var products = GetProducts();
+            var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
+            if (productData == null)
+            {
+                return null;
+            }
+
+            //Append data to new data
+            productData.Id = data.Id;
+            productData.Description = data.Description;
+            productData.Location = data.Location;
+            productData.Cost= data.Cost;
+            productData.Age = data.Age;
+            productData.Breed = data.Breed;
+            productData.Name = data.Name;
+            productData.Ratings = data.Ratings;
+            productData.Image = data.Image;
+
+            //Save
+            SaveData(products);
+
+            //Return product data
+            return productData;
+        }
+        
 
         /// <summary>
         /// Remove the item from the system
