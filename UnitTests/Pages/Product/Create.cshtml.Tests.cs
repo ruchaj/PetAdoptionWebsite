@@ -6,6 +6,9 @@ using ContosoCrafts.WebSite.Pages.Product;
 
 namespace UnitTests.Pages.Product.Create
 {
+    /// <summary>
+    /// A class to test the Create method.
+    /// </summary>
     public class CreateTests
     {
         #region TestSetup
