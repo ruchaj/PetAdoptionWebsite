@@ -76,46 +76,33 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Creates a new pet.
+        /// Creates a new pet using default values.
+        /// After create, the user can update to set the values.
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public ProductModel CreateData(ProductModel data)
+        public ProductModel CreateData()
         {
             // Create a new pet ProductModel.
-            var newPet = new ProductModel();
-
-            // Assign the new pet's attributes based on the user's input. Ratings are not assigned upon creation.
-            newPet.Description= data.Description;
-            newPet.Location = data.Location;
-            newPet.Cost = data.Cost;
-            newPet.Age = data.Age;
-            newPet.Breed = data.Breed;
-            newPet.Name = data.Name;
-            newPet.Image = data.Image;
-
-            // Get the last sequential pet ID.
-            var pets = GetProducts();
-            var lastId = pets.Last().Id;
-            
-            // Increment the last sequential pet ID to get the new pet's ID.
-            var newId = lastId + 1;
-
-            // If the new pet's ID is already in use, continue to increment by 1 until an available ID is found.
-            while (pets.FirstOrDefault(x => x.Id.Equals(newId)) != null)
+            var newPet = new ProductModel()
             {
-                newId += 1;
-            }
+                Id = System.Guid.NewGuid().ToString(),
+                Name = "Enter Name",
+                Description = "Enter Description",
+                Location = "Enter Location",
+                Age = "Enter Age",
+                Breed = "Enter Breed",
+                Cost = "Enter Cost",
+                Image = "",
+            };
 
-            // Assign the available ID to the new pet.
-            newPet.Id = newId;
+            // Get the current set, and append the new record to it.
+            var dataSet = GetProducts();
+            dataSet = dataSet.Append(newPet);
 
-            // Save the new pet.
-            SaveData(pets);
+            SaveData(dataSet);
 
-            // Return the new pet.
             return newPet;
-
         }
 
         //Updates pet data function
