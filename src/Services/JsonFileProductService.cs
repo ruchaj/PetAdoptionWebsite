@@ -82,7 +82,40 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns></returns>
         public ProductModel CreateData(ProductModel data)
         {
+            // Create a new pet ProductModel.
             var newPet = new ProductModel();
+
+            // Assign the new pet's attributes based on the user's input. Ratings are not assigned upon creation.
+            newPet.Description= data.Description;
+            newPet.Location = data.Location;
+            newPet.Cost = data.Cost;
+            newPet.Age = data.Age;
+            newPet.Breed = data.Breed;
+            newPet.Name = data.Name;
+            newPet.Image = data.Image;
+
+            // Get the last sequential pet ID.
+            var pets = GetProducts();
+            var lastId = pets.Last().Id;
+            
+            // Increment the last sequential pet ID to get the new pet's ID.
+            var newId = lastId + 1;
+
+            // If the new pet's ID is already in use, continue to increment by 1 until an available ID is found.
+            while (pets.FirstOrDefault(x => x.Id.Equals(newId)) != null)
+            {
+                newId += 1;
+            }
+
+            // Assign the available ID to the new pet.
+            newPet.Id = newId;
+
+            // Save the new pet.
+            SaveData(pets);
+
+            // Return the new pet.
+            return newPet;
+
         }
 
         //Updates pet data function
