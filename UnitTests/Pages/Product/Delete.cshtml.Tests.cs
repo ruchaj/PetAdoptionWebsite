@@ -40,7 +40,26 @@ namespace UnitTests.Pages.Product.Delete
         #endregion OnGet
 
         #region OnPostAsync
-        
+        [Test]
+        public void OnPostAsync_Valid_Should_Return_Products()
+        {
+            // Arrange
+
+            // First Create the product to delete
+            pageModel.Product = TestHelper.ProductService.CreateData();
+            pageModel.Product.Name = "Example to Delete";
+            TestHelper.ProductService.UpdateData(pageModel.Product);
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("AllPetsListing"));
+
+            // Confirm the item is deleted
+            Assert.AreEqual(null, TestHelper.ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
+        }
 
         [Test]
         public void OnPostAsync_InValid_Model_NotValid_Return_Page()
