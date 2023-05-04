@@ -3,7 +3,9 @@ using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 // MT: This page will show all available pets.
 
@@ -11,20 +13,19 @@ namespace ContosoCrafts.WebSite.Pages.Product
 {
     public class AllPetsListingModel : PageModel
     {
-        private readonly ILogger<AllPetsListingModel> _logger;
-        public JsonFileProductService PetService;
+        public JsonFileProductService PetService { get; }
         public IEnumerable<ProductModel> Pets { get; private set; }
 
-        public AllPetsListingModel(ILogger<AllPetsListingModel> logger,
-            JsonFileProductService petService)
+        //model to initialize AllPetsListingModel
+        public AllPetsListingModel(JsonFileProductService petService)
         {
-            _logger = logger;
-            PetService = petService;
-        }
 
+                PetService = petService;
+        }
         public void OnGet()
         {
             Pets = PetService.GetProducts();
         }
+
     }
 }
