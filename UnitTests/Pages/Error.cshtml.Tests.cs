@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
-namespace UnitTests.Pages
+using Microsoft.Extensions.Logging;
+
+using NUnit.Framework;
+
+using Moq;
+
+using ContosoCrafts.WebSite.Pages;
+
+namespace UnitTests.Pages.Error
 {
-    internal class Class1
+    public class ErrorTests
     {
+
     }
 }
