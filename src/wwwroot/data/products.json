@@ -167,5 +167,16 @@
     "Description": "I am a Elliot Chameleon. I can crawl *wink*. I am easy!",
     "Cost": "$50",
     "Ratings": null
+  },
+  {
+    "Id": "4a04210f-bc63-47c6-bc08-f6ca7e5c5b96",
+    "Name": "Enter Name",
+    "Age": "Enter Age",
+    "img": "",
+    "Breed": "Enter Breed",
+    "Location": "Enter Location",
+    "Description": "Enter Description",
+    "Cost": "Enter Cost",
+    "Ratings": null
   }
 ]
