@@ -135,10 +135,6 @@ namespace ContosoCrafts.WebSite.Services
             //Get data records 
             var products = GetProducts();
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
-            if (productData == null)
-            {
-                return null;
-            }
 
             //Append data to new data
             productData.Id = data.Id;
