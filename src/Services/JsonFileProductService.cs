@@ -75,6 +75,16 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
+        /// <summary>
+        /// Creates a new pet.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public ProductModel CreateData(ProductModel data)
+        {
+            var newPet = new ProductModel();
+        }
+
         //Updates pet data function
         public ProductModel UpdateData(ProductModel data)
         {
