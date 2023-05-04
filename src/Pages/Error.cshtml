@@ -4,17 +4,20 @@
     ViewData["Title"] = "Error";
 }
 
+<!--Default message if an error occured while a request of any kind on the user's end is being processed-->
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
+<!--Gives the id of the request so that it can be debugged-->
 @if (Model.ShowRequestId)
 {
     <p>
         <strong>Request ID:</strong> <code>@Model.RequestId</code>
     </p>
 }
-//Hello
-// my name is Rucha
+
+<!--Development environment test - only for the developers, so they can see all the error information to fix.-->
+
 <h3>Development Mode</h3>
 <p>
     Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
