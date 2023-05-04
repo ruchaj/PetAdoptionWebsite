@@ -4,12 +4,6 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Text;
-// using System.Threading.Tasks;
-
 namespace UnitTests.Pages.Product.Create
 {
     public class CreateTests
