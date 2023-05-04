@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 using NUnit.Framework;
+using Moq;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
@@ -22,7 +23,6 @@ namespace UnitTests.Pages.Product.AddRating
         public void AddRating_InValid_Product_Null_Should_Return_False()
         {
             // Arrange
-            
 
             // Act
             //Test null and invalid product id
@@ -33,7 +33,6 @@ namespace UnitTests.Pages.Product.AddRating
             // Assert
             Assert.AreEqual(false, result);
             Assert.AreEqual(false, result2);
-
         }
 
         [Test]
@@ -74,18 +73,6 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(true, result1);
         }
         #endregion AddRating
-
-        #region GetFeaturedProdect
-        #endregion GetFeaturedProduct
-
-        #region Update
-        #endregion Update
-
-        #region Delete
-        #endregion Delete
-
-        #region Create
-        #endregion Create
 
     }
 }
