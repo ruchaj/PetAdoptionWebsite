@@ -75,6 +75,36 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
+        /// <summary>
+        /// Creates a new pet using default values.
+        /// After create, the user can update to set the values.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public ProductModel CreateData()
+        {
+            // Create a new pet ProductModel.
+            var newPet = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Name = "Enter Name",
+                Description = "Enter Description",
+                Location = "Enter Location",
+                Age = "Enter Age",
+                Breed = "Enter Breed",
+                Cost = "Enter Cost",
+                Image = "",
+            };
+
+            // Get the current set, and append the new record to it.
+            var dataSet = GetProducts();
+            dataSet = dataSet.Append(newPet);
+
+            SaveData(dataSet);
+
+            return newPet;
+        }
+
         //Updates pet data function
         public ProductModel UpdateData(ProductModel data)
         {
