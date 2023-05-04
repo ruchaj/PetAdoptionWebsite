@@ -13,22 +13,14 @@ namespace ContosoCrafts.WebSite.Pages.Product
 {
     public class AllPetsListingModel : PageModel
     {
-        private readonly ILogger<AllPetsListingModel> _logger;
         public JsonFileProductService PetService { get; }
         public IEnumerable<ProductModel> Pets { get; private set; }
 
-        //model to initialize AllPetSlISTINGmODEL
+        //model to initialize AllPetsListingModel
         public AllPetsListingModel(JsonFileProductService petService)
         {
 
                 PetService = petService;
-        }
-
-        public AllPetsListingModel(ILogger<AllPetsListingModel> logger,
-            JsonFileProductService petService)
-        {
-            _logger = logger;
-            PetService = petService;
         }
         public void OnGet()
         {
