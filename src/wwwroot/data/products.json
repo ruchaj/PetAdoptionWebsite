@@ -7,12 +7,13 @@
     "Breed": "Husky",
     "Location": "Seatte, WA",
     "Description": "Playful,  Socialable, Curiosity",
-    "Cost": "$150",
+    "Cost": "$500",
     "Ratings": [
       5,
       2,
       3
-    ]
+    ],
+    "Category": "large breeds"
   },
   {
     "Id": "2",
@@ -22,8 +23,9 @@
     "Breed": "Golden Retriever",
     "Location": "Bellevue, WA",
     "Description": "Intelligent, Friendly, Devoted",
-    "Cost": "$120",
-    "Ratings": null
+    "Cost": "$500",
+    "Ratings": null,
+    "Category": "large breeds"
   },
   {
     "Id": "3",
@@ -33,8 +35,9 @@
     "Breed": "Akita",
     "Location": "Seattle, WA",
     "Description": "Dignified, Courageous, Profoundly Loyal",
-    "Cost": "$120",
-    "Ratings": null
+    "Cost": "$400",
+    "Ratings": null,
+    "Category": "medium breeds"
   },
   {
     "Id": "4",
@@ -44,8 +47,9 @@
     "Breed": "Australian Shepherd",
     "Location": "Renton, WA",
     "Description": "Smart, Work-oriented, Exuberant",
-    "Cost": "$120",
-    "Ratings": null
+    "Cost": "$450",
+    "Ratings": null,
+    "Category": "medium breeds"
   },
   {
     "Id": "5",
@@ -55,8 +59,9 @@
     "Breed": "Samoyed",
     "Location": "Austin, TX",
     "Description": "Friendly, Gentle, Adaptable",
-    "Cost": "$150",
-    "Ratings": null
+    "Cost": "$650",
+    "Ratings": null,
+    "Category": "large breeds"
   },
   {
     "Id": "6",
@@ -66,8 +71,9 @@
     "Breed": "Domestic medium-hair cat",
     "Location": "Seattle, WA",
     "Description": "Playful, Affectionate, and Independent",
-    "Cost": "$100",
-    "Ratings": null
+    "Cost": "$135",
+    "Ratings": null,
+    "Category": "domestic"
   },
   {
     "Id": "7",
@@ -77,8 +83,9 @@
     "Breed": "Norwegian Forest",
     "Location": "Jersey City, NJ",
     "Description": "Playful, Sweet, Family-oriented, Affectionate",
-    "Cost": "$100",
-    "Ratings": null
+    "Cost": "$230",
+    "Ratings": null,
+    "Category": "domestic"
   },
   {
     "Id": "8",
@@ -89,7 +96,8 @@
     "Location": "St.Louis, MO",
     "Description": "Sweet, Easygoing, Gentle, Relaxed",
     "Cost": "$100",
-    "Ratings": null
+    "Ratings": null,
+    "Category": "domestic"
   },
   {
     "Id": "9",
@@ -99,8 +107,9 @@
     "Breed": "Munchkin",
     "Location": "Seattle, WA",
     "Description": "Sweet, Friendly, Curious, Playful",
-    "Cost": "$100",
-    "Ratings": null
+    "Cost": "$75",
+    "Ratings": null,
+    "Category": "domestic"
   },
   {
     "Id": "10",
@@ -111,7 +120,8 @@
     "Location": "San Diego,  CA",
     "Description": "Playful, Affectionate, Sociable, Intelligent",
     "Cost": "$100",
-    "Ratings": null
+    "Ratings": null,
+    "Category": "domestic"
   },
   {
     "Id": "11",
@@ -122,7 +132,8 @@
     "Location": "Seattle, WA",
     "Description": "Aggressive towards con-specifics",
     "Cost": "$9.99",
-    "Ratings": null
+    "Ratings": null,
+    "Category": "small-freshwater"
   },
   {
     "Id": "12",
@@ -133,7 +144,8 @@
     "Location": "Seattle, WA",
     "Description": "Peaceful",
     "Cost": "$33.99",
-    "Ratings": null
+    "Ratings": null,
+    "Category": "small-freshwater"
   },
   {
     "Id": "13",
@@ -144,7 +156,8 @@
     "Location": "Redmond, WA",
     "Description": "Aggressive towards con-specifics",
     "Cost": "$19.99",
-    "Ratings": null
+    "Ratings": null,
+    "Category": "small-freshwater"
   },
   {
     "Id": "14",
@@ -155,7 +168,8 @@
     "Location": "Tukwilla, WA",
     "Description": "They are most active at dawn and dusk.",
     "Cost": "$199.99",
-    "Ratings": null
+    "Ratings": null,
+    "Category": "other-pet"
   },
   {
     "Id": "15",
@@ -166,17 +180,7 @@
     "Location": "Seattle, WA",
     "Description": "I am a Elliot Chameleon. I can crawl *wink*. I am easy!",
     "Cost": "$50",
-    "Ratings": null
-  },
-  {
-    "Id": "4a04210f-bc63-47c6-bc08-f6ca7e5c5b96",
-    "Name": "Enter Name",
-    "Age": "Enter Age",
-    "img": "",
-    "Breed": "Enter Breed",
-    "Location": "Enter Location",
-    "Description": "Enter Description",
-    "Cost": "Enter Cost",
-    "Ratings": null
+    "Ratings": null,
+    "Category": "other-pet"
   }
 ]
