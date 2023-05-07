@@ -37,6 +37,9 @@ namespace ContosoCrafts.WebSite.Models
         //Defines the ratings array, which will dynamically change with the ratings added to the website
         public int[] Ratings { get; set; }
 
+        //Defines the category of the pets such as dogs, cat, fishes or other smaller pets. 
+        public string Category { get; set; }
+
         /// <summary>
         /// Overrides any default to turn the information into a string.
         /// </summary>
