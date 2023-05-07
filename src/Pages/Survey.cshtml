@@ -5,61 +5,56 @@
     ViewData["Title"] = "Survey";
 }
 
-@{
-    var questions = new List<Question>
-    {
-        new Question {  Text = "1. In the event of unexpected expenses, what is the maximum amount you are willing to"+ 
-                             "spend annually on your pet?",
-                        Choices = new List<string> { "a) $50 - $150", "b) $100 - $600", "c) $500 - $1000",
-                                "d) $700 - $1500", "e) $1000 - $3500" } },
-        new Question {  Text = "2. How much time are you willing to spend cleaning up after your pets each day/week without"+
-                                "feeling frustrated?", 
-                        Choices = new List<string> { "a) 30 mins – up to 1 hour per week", "b) 15 mins – up to 30 minutes per day", 
-                                "c)	30 mins- up to 2 hours per day" } },
-        new Question {  Text = "3. How much time can you dedicate to spending with your pets after a busy day?",
-                        Choices = new List<string> { "a) 0 hour ", "b) 0 hour but needs toys and plenty of space to move around and play", 
-                                "c) 10-15 minutes of playtime per day", "d) 30 minutes to 2 hours of playtime and exercise per day" } },
-        new Question {  Text = "4. Are you comfortable allowing your pet to roam free in your living space or do they need to be kept in"+
-                                "a cage or tank?", 
-                        Choices = new List<string> { "a) No, they should be kept in their cage or tank", 
-                                "b) Yes, I am comfortable with them roaming free" } },
-        new Question {  Text = "5. What is the reason behind your desire to have a pet?",
-                        Choices = new List<string> { "a) I enjoy the soothing effect of watching my pets swim", 
-                                "b) I want a companion that can teach me about responsibility and caring for others while being easy for beginners like me to handle",
-                                "c) I need an independent companion that can help reduce stress and anxiety, even lower blood pressure", 
-                                "d) I want a best friend that can provide a sense of security and protection, help me stay active and healthy"+
-                                "through regular exercise, and perform specific tasks such as guiding the blind,"+
-                                "assisting people with disabilities, and serving as therapy animals" } }
-        
-    };
-}
 
-<h2>Survey</h2>
 
-@using (Html.BeginForm())
+
+@if (!string.IsNullOrEmpty(ViewData["Message"] as string))
 {
-    @Html.AntiForgeryToken()
-
-    for (int i = 0; i < questions.Count; i++)
-    {
-        var question = questions[i];
-        var name = $"answer_{i}";
-
-        <div>
-            <h3>@question.Text</h3>
-            @for (int j = 0; j < question.Choices.Count; j++)
-            {
-                var choice = question.Choices[j];
-                <div>
-                    <label>
-                        <input type="radio" name="@name" value="@choice" />
-                        @choice
-                    </label>
-                </div>
-            }
-        </div>
-    }
-
-    <button type="submit">Submit</button>
+    <h1>Result</h1>
+    <div>
+        <p>@ViewData["Message"]</p>
+    </div>
 }
+
+else
+{
+        <h1>Survey</h1>
+    <form method="post">
+        <p>@Model.Question1</p>
+        <input type="radio" name="q1" value="smallfish" />a) $50 - $150 <br />
+        <input type="radio" name="q1" value="largefish,other" />b) $100 - $600 <br />
+        <input type="radio" name="q1" value="smalldog,cat" />c) $500 - $1000 <br />
+        <input type="radio" name="q1" value="mediumdog,cat" />d) $700 - $1500 <br />
+        <input type="radio" name="q1" value="largedog" />e) $1000 - $3500<br />
+
+        <br />
+        <p>@Model.Question2</p>
+            <input type="radio" name="q2" value="smallfish,largefish" /> a) 30 minutes - 1 hour per week<br />
+        <input type="radio" name="q2" value="cat,other" /> b) 15 minutes - 30 minutes per day<br />
+        <input type="radio" name="q2" value="smalldog,mediumdog,largedog" />c) 30 minutes - 2 hours per day<br />
+        <br />
+         <p>@Model.Question3</p>
+        <input type="radio" name="q3" value="smallfish,largefish" /> a) 0 hours<br />
+        <input type="radio" name="q3" value="other" /> b) 0 hours but providing toys and ample space to move around and play<br />
+        <input type="radio" name="q3" value="cat" /> c) 10-15 minutes of playtime per day<br />
+        <input type="radio" name="q3" value="smalldog,mediumdog,largedog" /> d) 30 minutes - 2 hours of playtime and exercise per day<br />
+        <br />
+         <p>@Model.Question4</p>
+        <input type="radio" name="q4" value="smallfish,largefish,other" /> a) No, they should be kept in their cage or tank <br />
+        <input type="radio" name="q4" value="cat,smalldog,mediumdog,largedog" /> b) Yes, I am comfortable with them roaming free<br />
+
+        <br />
+         <p>@Model.Question5</p>
+        <input type="radio" name="q5" value="smallfish,largefish" /> a) I enjoy the soothing effect of watching my pets swim<br />
+        <input type="radio" name="q5" value="other" /> b) I want a companion that can teach me about responsibility and caring for others while being easy for beginners like me to handle<br />
+        <input type="radio" name="q5" value="cat" /> c) I need an independent companion that can help reduce stress and anxiety, even lower blood pressure<br />
+        <input type="radio" name="q5" value="cat,smalldog,mediumdog,largedog" /> d) I want a best friend that can provide a sense of security and protection, help me stay active and healthy through regular exercise, and perform specific tasks such as guiding the blind, assisting people with disabilities, and serving as therapy animals<br />
+
+
+        <br />
+        <input type="submit" value="Submit" />
+    </form>
+
+}
+
 
