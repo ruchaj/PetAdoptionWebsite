@@ -61,11 +61,11 @@ namespace ContosoCrafts.WebSite.Pages
 
             string result = null;
 
-            if(point <= 30)
+            if(point <= 25)
             {
                 result = $"Your perfect pet can be a fish or a lot of fishes! They are cute and very easy to take care of";
             }
-            else if (point <= 33)
+            else if (point <= 40)
             {
                 result = $"Your perfect pet can be a small pet such as hamster, chinchillas! They are the best choice for beginners";
             }
