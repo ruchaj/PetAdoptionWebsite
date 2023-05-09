@@ -73,6 +73,15 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(true, result1);
         }
         #endregion AddRating
+        [Test]
+        public void GetFeaturedProducts_ReturnsFourProducts()
+        {
 
+            // Act
+            var featuredProducts = TestHelper.ProductService.GetFeaturedProducts();
+
+            // Assert
+            Assert.AreEqual(4, featuredProducts.Count());
+        }
     }
 }
