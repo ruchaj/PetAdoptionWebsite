@@ -4,6 +4,14 @@
     ViewData["Title"] = "Pet Adoption";
 }
 
+<!--Uses user query to search for breed that a user asks for-->
+@{
+    string searchBreed = Request.Query["breed"];
+    var filteredPets = string.IsNullOrEmpty(searchBreed)
+        ? Model.Pets
+        : Model.Pets.Where(pet => pet.Breed.ToLower().Contains(searchBreed.ToLower()));
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -25,6 +33,12 @@
     <a asp-page="Create" class="btn btn-link">Click here to add an adoptable pet to our website</a>
 </div>
 
+<!-- Search form to filter pets based on breed, which does the search based on the searchBreed function above.-->
+<form method="get">
+    <label for="breed">Search by Breed:</label>
+    <input type="text" id="breed" name="breed" value="@searchBreed">
+    <button type="submit">Search</button>
+</form>
 
 <!--Table of available pets-->
 <table>
@@ -37,8 +51,8 @@
         </tr>
     </thead>
     <tbody>
-        <!--Headers and information-->
-        @foreach (var pet in Model.Pets)
+        <!--Headers and information, will display pets of the breed requested or all pets-->
+        @foreach (var pet in filteredPets)
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => @pet.Name)</td>
