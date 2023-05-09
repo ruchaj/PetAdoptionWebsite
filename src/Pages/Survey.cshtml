@@ -8,18 +8,19 @@
 
 
 
-@if (!string.IsNullOrEmpty(ViewData["Message"] as string))
+@if (!string.IsNullOrEmpty(Model.Message))
 {
     <h1>Result</h1>
     <div>
-        <p>@ViewData["Message"]</p>
+        <p>@Model.Message</p>
     </div>
 }
 
 else
 {
-        <h1>Survey</h1>
+    <h1>Survey</h1>
     <form method="post">
+
         <p>@Model.Question1</p>
         <input type="radio" name="q1" value="smallfish" />a) $50 - $150 <br />
         <input type="radio" name="q1" value="largefish,other" />b) $100 - $600 <br />
@@ -29,22 +30,22 @@ else
 
         <br />
         <p>@Model.Question2</p>
-            <input type="radio" name="q2" value="smallfish,largefish" /> a) 30 minutes - 1 hour per week<br />
+        <input type="radio" name="q2" value="smallfish,largefish" /> a) 30 minutes - 1 hour per week<br />
         <input type="radio" name="q2" value="cat,other" /> b) 15 minutes - 30 minutes per day<br />
         <input type="radio" name="q2" value="smalldog,mediumdog,largedog" />c) 30 minutes - 2 hours per day<br />
         <br />
-         <p>@Model.Question3</p>
+        <p>@Model.Question3</p>
         <input type="radio" name="q3" value="smallfish,largefish" /> a) 0 hours<br />
         <input type="radio" name="q3" value="other" /> b) 0 hours but providing toys and ample space to move around and play<br />
         <input type="radio" name="q3" value="cat" /> c) 10-15 minutes of playtime per day<br />
         <input type="radio" name="q3" value="smalldog,mediumdog,largedog" /> d) 30 minutes - 2 hours of playtime and exercise per day<br />
         <br />
-         <p>@Model.Question4</p>
+        <p>@Model.Question4</p>
         <input type="radio" name="q4" value="smallfish,largefish,other" /> a) No, they should be kept in their cage or tank <br />
         <input type="radio" name="q4" value="cat,smalldog,mediumdog,largedog" /> b) Yes, I am comfortable with them roaming free<br />
 
         <br />
-         <p>@Model.Question5</p>
+        <p>@Model.Question5</p>
         <input type="radio" name="q5" value="smallfish,largefish" /> a) I enjoy the soothing effect of watching my pets move around<br />
         <input type="radio" name="q5" value="other" /> b) I want a companion that can teach me about responsibility and caring for others while being easy for beginners like me to handle<br />
         <input type="radio" name="q5" value="cat" /> c) I need an independent companion that can help reduce stress and anxiety, even lower blood pressure<br />
