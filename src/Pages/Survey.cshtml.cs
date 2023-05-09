@@ -7,6 +7,7 @@ namespace ContosoCrafts.WebSite.Pages
 {
     public class SurveyModel : PageModel
     {
+        public string Message { get; set; }
         [BindProperty(Name = "q1", SupportsGet = true)]
         public string Question1Answer { get; set; }
 
@@ -28,7 +29,7 @@ namespace ContosoCrafts.WebSite.Pages
                                                 " spend annually on your pet?";
 
         public string Question2 { get; set; } = "2. How much time are you willing to spend" +
-                                                " cleaning up after your pets each day/week without" +
+                                                " cleaning up after your pets each day/week without " +
                                                 "feeling frustrated?";
 
         public string Question3 { get; set; } = "3. How much time can you dedicate to spending with your" +
@@ -82,7 +83,7 @@ namespace ContosoCrafts.WebSite.Pages
                 result = $"Your perfect pet can be a big dog! They are very protective and loyal! They are a great companion!";
             }
 
-            ViewData["Message"] = result;
+            Message = result;
 
         
         }
