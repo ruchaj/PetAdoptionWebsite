@@ -4,12 +4,24 @@
     ViewData["Title"] = "Pet Adoption";
 }
 
-<!--Uses user query to search for breed that a user asks for-->
+<!--Uses user query to search for either a breed or a cost that a user asks for-->
 @{
-    string searchBreed = Request.Query["breed"];
-    var filteredPets = string.IsNullOrEmpty(searchBreed)
-        ? Model.Pets
-        : Model.Pets.Where(pet => pet.Breed.ToLower().Contains(searchBreed.ToLower()));
+    string searchQuery = Request.Query["search"];
+    string searchBy = Request.Query["searchBy"];
+
+    var filteredPets = Model.Pets;
+
+    if (!string.IsNullOrEmpty(searchQuery))
+    {
+        if (searchBy == "cost") 
+        {
+            filteredPets = filteredPets.Where(pet => pet.Cost.ToString().Contains(searchQuery)).ToList();
+        }
+        else // searchBy == "breed" or default
+        {
+            filteredPets = filteredPets.Where(pet => pet.Breed.ToLower().Contains(searchQuery.ToLower())).ToList();
+        }
+    }
 }
 
 <!DOCTYPE html>
@@ -33,10 +45,15 @@
     <a asp-page="Create" class="btn btn-link">Click here to add an adoptable pet to our website</a>
 </div>
 
-<!-- Search form to filter pets based on breed, which does the search based on the searchBreed function above.-->
+<!-- Search form to filter pets based on breed and cost, which does the search based on the searchInput function above, through a dropdown menu format.-->
 <form method="get">
-    <label for="breed">Search by Breed:</label>
-    <input type="text" id="breed" name="breed" value="@searchBreed">
+    <label for="searchInput">Search:</label>
+    <input type="text" id="searchInput" name="search" value="@searchQuery">
+    <label for="searchBySelect">Search by:</label>
+    <select id="searchBySelect" name="searchBy">
+        <option value="breed" selected>Breed</option>
+        <option value="cost">Cost</option>
+    </select>
     <button type="submit">Search</button>
 </form>
 
