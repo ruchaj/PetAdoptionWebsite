@@ -9,9 +9,9 @@ namespace ContosoCrafts.WebSite.Pages
         /// <summary>
         /// defines class with a logger that checks whenever its accessed.
         /// </summary>
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<ContactModel> _logger;
 
-        public ContactModel(ILogger<PrivacyModel> logger)
+        public ContactModel(ILogger<ContactModel> logger)
         {
             _logger = logger;
         }
