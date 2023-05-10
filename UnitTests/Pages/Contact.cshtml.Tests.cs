@@ -1,12 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
-namespace UnitTests.Pages
+using Microsoft.Extensions.Logging;
+
+using NUnit.Framework;
+
+using Moq;
+
+using ContosoCrafts.WebSite.Pages;
+
+namespace UnitTests.Pages.Contact
 {
-    internal class Contact
+    /// <summary>
+    /// A class to test the Contact.cshtml.cs page.
+    /// </summary>
+    public class ContactTests
     {
+        #region TestSetup
+        /// <summary>
+        /// Create a public page model for ContactModel testing.
+        /// </summary>
+        public static ContactModel pageModel;
+
+        /// <summary>
+        /// Set up the tests herein.
+        /// </summary>
+        [SetUp]
+        public void TestInitialize()
+        {
+
+        }
+        #endregion TestSetup
     }
 }
