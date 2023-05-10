@@ -26,7 +26,7 @@ namespace UnitTests.Pages.AboutUs
         {
             var MockLoggerDirect = Mock.Of<ILogger<AboutUsModel>>();
 
-            pageModel = new AboutUsModel()
+            pageModel = new AboutUsModel(MockLoggerDirect)
             {
                 PageContext = TestHelper.PageContext,
                 TempData = TestHelper.TempData,
