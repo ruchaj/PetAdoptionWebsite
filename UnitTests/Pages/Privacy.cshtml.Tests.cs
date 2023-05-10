@@ -35,6 +35,9 @@ namespace UnitTests.Pages.Privacy
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        ///  Tests the OnGet method of the Privacy page.
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_ShouldReturn_True()
         {
