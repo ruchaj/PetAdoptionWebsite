@@ -1,35 +1,30 @@
 ﻿using System.Linq;
-
-
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
-
-
 using NUnit.Framework;
-
-
-
 using ContosoCrafts.WebSite.Pages.Product;
-
-
 
 namespace UnitTests.Pages.Product.Index
 {
+    /// <summary>
+    /// A class to test the Index page, which is the home page for our website.
+    /// </summary>
     public class IndexTests
     {
         #region TestSetup
-        public static PageContext pageContext; //page context for the Razor page
+        /// <summary>
+        /// Page context for the Razor page.
+        /// </summary>
+        public static PageContext pageContext;
 
+        /// <summary>
+        /// Generates a new model to test.
+        /// </summary>
+        public static AllPetsListingModel pageModel;
 
-
-        public static AllPetsListingModel pageModel; //generates a new model of AllPetsListingModel to test
-
-
-
+        /// <summary>
+        /// Initializes pageModel to include TestHelper.ProductService.
+        /// </summary>
         [SetUp]
-
-        //Initializes pageModel to include TestHelper.ProductService
         public void TestInitialize()
         {
             pageModel = new AllPetsListingModel(TestHelper.ProductService)
