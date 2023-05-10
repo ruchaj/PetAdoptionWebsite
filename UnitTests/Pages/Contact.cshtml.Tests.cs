@@ -27,6 +27,7 @@ namespace UnitTests.Pages.Contact
         [SetUp]
         public void TestInitialize()
         {
+            var MockLoggerDirect = Mock.Of<ILogger<ContactModel>>();
 
         }
         #endregion TestSetup
