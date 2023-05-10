@@ -38,6 +38,9 @@ namespace UnitTests.Pages.Privacy
         [Test]
         public void OnGet_Valid_Activity_ShouldReturn_True()
         {
+            // Arrange
+            Activity activity = new Activity("activity");
+            activity.Start();
         }
     }
 }
