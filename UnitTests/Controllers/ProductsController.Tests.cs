@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 using ContosoCrafts.WebSite.Controllers;
+using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Controllers
 {
