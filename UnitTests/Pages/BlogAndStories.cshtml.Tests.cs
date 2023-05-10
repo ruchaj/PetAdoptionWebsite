@@ -15,10 +15,10 @@ namespace UnitTests.Pages.BlogAndStories
     /// </summary>
     public class BlogAndStoriesTests
     {
+        #region TestSetup
         /// <summary>
         /// Create a public page model for BlogAndStories.
         /// </summary>
-        #region TestSetup
         public static BlogAndStoriesModel pageModel;
 
         /// <summary>
