@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Pages;
 
 namespace UnitTests.Pages.Product.Update
 {
+    /// <summary>
+    /// A class to test Update.
+    /// </summary>
     public class UpdateTests
     {
         #region TestSetup
@@ -23,6 +25,9 @@ namespace UnitTests.Pages.Product.Update
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// Testing the OnGet method.
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
@@ -38,6 +43,9 @@ namespace UnitTests.Pages.Product.Update
         #endregion OnGet
 
         #region OnPost
+        /// <summary>
+        /// Testing a valid call to the OnPost method.
+        /// </summary>
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
@@ -62,6 +70,9 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(true, result.PageName.Contains("AllPetsListing"));
         }
 
+        /// <summary>
+        /// Testing an invalid call to the OnPost method.
+        /// </summary>
         [Test]
         public void OnPost_InValid_Model_NotValid_Return_Page()
         {
