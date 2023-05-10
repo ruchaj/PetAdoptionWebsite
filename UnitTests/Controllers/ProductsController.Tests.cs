@@ -25,23 +25,6 @@ namespace UnitTests.Controllers
 
         #region
         /// <summary>
-        /// WIP.
-        /// </summary>
-        [Test]
-        public void OnGet_Valid_Should_Return_Products()
-        {
-            // Arrange
-            // Act
-            var testObject = controllerModel.Get();
-
-            // Assert
-            Assert.AreEqual(true, controllerModel.ModelState.IsValid);
-
-        }
-        #endregion
-
-        #region
-        /// <summary>
         /// Tests that all present data returns true.
         /// </summary>
         [Test]
