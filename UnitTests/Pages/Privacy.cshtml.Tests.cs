@@ -33,5 +33,11 @@ namespace UnitTests.Pages.Privacy
             };
         }
         #endregion TestSetup
+
+        #region OnGet
+        [Test]
+        public void OnGet_Valid_Activity_ShouldReturn_True()
+        {
+        }
     }
 }
