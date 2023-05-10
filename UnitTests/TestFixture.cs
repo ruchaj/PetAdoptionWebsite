@@ -1,9 +1,11 @@
 ﻿using System.IO;
-
 using NUnit.Framework;
 
 namespace UnitTests
 {
+    /// <summary>
+    /// Setting up the TextFixture class.
+    /// </summary>
     [SetUpFixture]
     public class TestFixture
     {
