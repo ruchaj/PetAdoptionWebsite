@@ -1,11 +1,7 @@
 ﻿using System.Diagnostics;
-
 using Microsoft.Extensions.Logging;
-
 using NUnit.Framework;
-
 using Moq;
-
 using ContosoCrafts.WebSite.Pages;
 
 namespace UnitTests.Pages.AboutUs
@@ -15,6 +11,9 @@ namespace UnitTests.Pages.AboutUs
     /// </summary>
     public class AboutUsTests
     {
+        /// <summary>
+        /// Generates a model for testing.
+        /// </summary>
         #region TestSetup
         public static AboutUsModel pageModel;
 
@@ -35,6 +34,9 @@ namespace UnitTests.Pages.AboutUs
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// Tests the Onget method.
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_ShouldReturn_True()
         {
