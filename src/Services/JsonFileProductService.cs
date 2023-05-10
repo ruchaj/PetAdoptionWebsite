@@ -3,27 +3,42 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-
 using ContosoCrafts.WebSite.Models;
-
 using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
+    /// <summary>
+    /// Setting up the JsonFileProductService class.
+    /// </summary>
    public class JsonFileProductService
     {
+        /// <summary>
+        /// Constructor, which initializes the WebHostEnvironment using the passed-in value.
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
 
+        /// <summary>
+        /// A get method for the WebHostEnvironment.
+        /// </summary>
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        /// <summary>
+        /// A getter for the string form of the Json file name.
+        /// </summary>
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
+        /// <summary>
+        /// A method to return all products/pets.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetProducts()
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
@@ -44,7 +59,6 @@ namespace ContosoCrafts.WebSite.Services
             var products = GetProducts().Take(4); //gets the list produced by GetProducts, and in the span of it, grabs four items and puts them in a new list.
             return products; //returns the list
         }
-
 
         /// <summary>
         /// Add rating method
@@ -97,7 +111,6 @@ namespace ContosoCrafts.WebSite.Services
 
             return true;
         }
-
 
         /// <summary>
         /// Creates a new pet using default values.
@@ -154,7 +167,6 @@ namespace ContosoCrafts.WebSite.Services
             return productData;
         }
         
-
         /// <summary>
         /// Remove the item from the system
         /// </summary>
@@ -178,7 +190,6 @@ namespace ContosoCrafts.WebSite.Services
             //return the deleted data
             return data;
         }
-
 
         /// <summary>
         /// Save All products data to storage
