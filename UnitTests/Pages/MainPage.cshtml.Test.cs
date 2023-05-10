@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using NUnit.Framework;
 using Moq;
-
 using ContosoCrafts.WebSite.Pages;
 using System.Linq;
 using Microsoft.Extensions.Logging;
@@ -11,10 +9,16 @@ using System.Diagnostics;
 
 namespace UnitTests.Pages.MainPage
 {
+    /// <summary>
+    /// A class to test the MainPage (home page).
+    /// </summary>
     public class JsonFileProductServiceTests
     {
         #region TestSetup
-        public static IndexModel pageModel; //generates a new model to test
+        /// <summary>
+        /// Generate a new model for testing.
+        /// </summary>
+        public static IndexModel pageModel;
 
         /// <summary>
         /// Set up test.
