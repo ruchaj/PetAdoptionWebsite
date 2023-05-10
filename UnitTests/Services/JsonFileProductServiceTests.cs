@@ -1,17 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using NUnit.Framework;
 using Moq;
-
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
 using System.Linq;
 namespace UnitTests.Pages.Product.AddRating
 {
+    /// <summary>
+    /// A class to test the JsonFileProductService.
+    /// </summary>
     public class JsonFileProductServiceTests
     {
         #region TestSetup
-
+        /// <summary>
+        /// Initializing the tests herein.
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -19,6 +22,9 @@ namespace UnitTests.Pages.Product.AddRating
         #endregion TestSetup
 
         #region AddRating
+        /// <summary>
+        ///  Testing adding a rating to an invalid product.
+        /// </summary>
         [Test]
         public void AddRating_InValid_Product_Null_Should_Return_False()
         {
@@ -35,6 +41,9 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result2);
         }
 
+        /// <summary>
+        /// Testing an invalid rating.
+        /// </summary>
         [Test]
         public void AddRating_InValid_()
         {
@@ -51,6 +60,9 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result2);
         }
 
+        /// <summary>
+        /// Testing a valid rating for a valid product.
+        /// </summary>
         [Test]
         public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
         {
@@ -73,6 +85,11 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(true, result1);
         }
         #endregion AddRating
+
+        #region FeaturedProducts
+        /// <summary>
+        /// Testing a call to GetFeaturedProducts, which should return four products.
+        /// </summary>
         [Test]
         public void GetFeaturedProducts_ReturnsFourProducts()
         {
@@ -83,5 +100,6 @@ namespace UnitTests.Pages.Product.AddRating
             // Assert
             Assert.AreEqual(4, featuredProducts.Count());
         }
+        #endregion FeaturedProducts
     }
 }
