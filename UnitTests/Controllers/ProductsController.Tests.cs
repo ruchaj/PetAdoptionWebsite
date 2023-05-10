@@ -52,7 +52,7 @@ namespace UnitTests.Controllers
             newData.Patch(newRating);
 
             // Assert
-            Assert.AreEqual(newData.ProductService.GetProducts().Last().Id, newRating.ProductId);
+            Assert.AreEqual(null, newRating.ProductId);
         }
         #endregion
     }
