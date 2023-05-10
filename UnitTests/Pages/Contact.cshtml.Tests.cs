@@ -29,7 +29,31 @@ namespace UnitTests.Pages.Contact
         {
             var MockLoggerDirect = Mock.Of<ILogger<ContactModel>>();
 
+            pageModel = new ContactModel(MockLoggerDirect)
+            {
+                PageContext = TestHelper.PageContext,
+                TempData = TestHelper.TempData,
+            };
         }
         #endregion TestSetup
+
+        #region OnGet
+        /// <summary>
+        /// Tests the OnGet method of the Contact page.
+        /// </summary>
+        [Test]
+        public void OnGet_Valid_Activity_ShouldReturn_True()
+        {
+            // Arrange
+            Activity activity = new Activity("activity");
+            activity.Start();
+
+            // Act
+            pageModel.OnGet();
+
+            //Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+        }
+        #endregion OnGet
     }
 }
