@@ -41,6 +41,13 @@ namespace UnitTests.Pages.Privacy
             // Arrange
             Activity activity = new Activity("activity");
             activity.Start();
+
+            // Act
+            pageModel.OnGet();
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
         }
+        #endregion OnGet
     }
 }
