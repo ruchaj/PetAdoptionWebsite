@@ -11,7 +11,7 @@ using ContosoCrafts.WebSite.Pages;
 namespace UnitTests.Pages.Privacy
 {
     /// <summary>
-    /// A class to test the Privacy.cshtml page.
+    /// A class to test the Privacy.cshtml.cs page.
     /// </summary>
     public class PrivacyTests
     {
