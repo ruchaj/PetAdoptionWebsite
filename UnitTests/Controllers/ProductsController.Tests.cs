@@ -32,7 +32,7 @@ namespace UnitTests.Controllers
         {
             // Arrange
             // Act
-            controllerModel.Get();
+            var testObject = controllerModel.Get();
 
             // Assert
             Assert.AreEqual(true, controllerModel.ModelState.IsValid);
