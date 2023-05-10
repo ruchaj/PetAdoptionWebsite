@@ -11,6 +11,10 @@ namespace ContosoCrafts.WebSite.Pages
         /// </summary>
         private readonly ILogger<PrivacyModel> _logger;
 
+        /// <summary>
+        /// Constructor for the PrivacyModel.
+        /// </summary>
+        /// <param name="logger"></param>
         public PrivacyModel(ILogger<PrivacyModel> logger)
         {
             _logger = logger;
