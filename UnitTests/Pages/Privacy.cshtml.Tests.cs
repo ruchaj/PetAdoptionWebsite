@@ -16,6 +16,9 @@ namespace UnitTests.Pages.Privacy
     public class PrivacyTests
     {
         #region TestSetup
+        /// <summary>
+        /// Create a public page model for Privacy.
+        /// </summary>
         public static PrivacyModel pageModel;
 
         /// <summary>
