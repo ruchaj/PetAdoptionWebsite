@@ -1,11 +1,16 @@
 ﻿using NUnit.Framework;
 using System.Text.Json;
 
-
 namespace ContosoCrafts.WebSite.Models.Tests
 {
+    /// <summary>
+    /// A class to test ProductModel.
+    /// </summary>
     public class ProductModelTests
     {
+        /// <summary>
+        /// Set the properties for a test subject.
+        /// </summary>
         [Test]
         public void ProductModel_SetsProperties()
         {
