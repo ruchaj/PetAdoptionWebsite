@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
-namespace UnitTests.Pages
+using Microsoft.Extensions.Logging;
+
+using NUnit.Framework;
+
+using Moq;
+
+using ContosoCrafts.WebSite.Pages;
+
+namespace UnitTests.Pages.AboutUs
 {
-    internal class AboutUs
+    /// <summary>
+    /// A class to test the AboutUs.cshtml.cs page.
+    /// </summary>
+    public class AboutUsTests
     {
     }
 }
