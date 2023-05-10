@@ -11,7 +11,7 @@ using ContosoCrafts.WebSite.Pages;
 namespace UnitTests.Pages.Error
 {
     /// <summary>
-    /// A class to test the Error.cshtml page.
+    /// A class to test the Error.cshtml.cs page.
     /// </summary>
     public class ErrorTests
     {
@@ -63,7 +63,7 @@ namespace UnitTests.Pages.Error
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
             // Arrange
-            Activity activity = new Activity("activity");
+            Activity activity = new Activity("invalid activity");
             activity.Start();
 
             // Act
