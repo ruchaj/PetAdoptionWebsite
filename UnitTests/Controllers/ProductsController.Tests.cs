@@ -11,6 +11,9 @@ namespace UnitTests.Controllers
     public class ProductsControllerTests
     {
         #region TestSetup
+        // New model for testing.
+        public static ProductsController controllerModel;
+
         /// <summary>
         /// Initialize the tests herein.
         /// </summary>
@@ -19,6 +22,23 @@ namespace UnitTests.Controllers
 
         }
         #endregion TestSetup
+
+        #region
+        /// <summary>
+        /// WIP.
+        /// </summary>
+        [Test]
+        public void OnGet_Valid_Should_Return_Products()
+        {
+            // Arrange
+            // Act
+            controllerModel.Get();
+
+            // Assert
+            Assert.AreEqual(true, controllerModel.ModelState.IsValid);
+
+        }
+        #endregion
 
         #region
         /// <summary>
