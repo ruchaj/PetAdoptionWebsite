@@ -6,8 +6,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UnitTests.Pages
 {
+    /// <summary>
+    /// A class to test the Survey page.
+    /// </summary>
     public class Survey
     {
+        /// <summary>
+        /// Test the GetPoint method.
+        /// </summary>
         [Test]
         public void GetPoint_ReturnsCorrectPoint()
         {
@@ -22,7 +28,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(28, point);
         }
 
-
+        /// <summary>
+        /// Test the OnGet method.
+        /// </summary>
         [Test]
         public void OnGet_ReturnsEmpty()
         {
@@ -45,6 +53,9 @@ namespace UnitTests.Pages
             Assert.That(model.Question5, Is.EqualTo("5. What is the reason behind your desire to have a pet?"));
         }
 
+        /// <summary>
+        /// Test question 1's output is as expected.
+        /// </summary>
         [Test]
         public void TestQuestion1Answer()
         {
@@ -59,6 +70,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, model.Question1Answer);
         }
 
+        /// <summary>
+        /// Test question 2's output is as expected.
+        /// </summary>
         [Test]
         public void TestQuestion2Answer()
         {
@@ -73,6 +87,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, model.Question2Answer);
         }
 
+        /// <summary>
+        /// Test question 3's output is as expected.
+        /// </summary>
         [Test]
         public void TestQuestion3Answer()
         {
@@ -87,6 +104,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, model.Question3Answer);
         }
 
+        /// <summary>
+        /// Test question 4's output is as expected.
+        /// </summary>
         [Test]
         public void TestQuestion4Answer()
         {
@@ -101,6 +121,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, model.Question4Answer);
         }
 
+        /// <summary>
+        /// test question 5's output is as expected.
+        /// </summary>
         [Test]
         public void TestQuestion5Answer()
         {
@@ -115,6 +138,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, model.Question5Answer);
         }
 
+        /// <summary>
+        /// Test answering question 1.
+        /// </summary>
         [Test]
         public void SetQuestion1_ShouldUpdateQuestion1Value()
         {
@@ -129,6 +155,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, survey.Question1);
         }
 
+        /// <summary>
+        /// Test answering question 2.
+        /// </summary>
         [Test]
         public void SetQuestion2_ShouldUpdateQuestion1Value()
         {
@@ -143,6 +172,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, survey.Question2);
         }
 
+        /// <summary>
+        /// Test answering question 3.
+        /// </summary>
         [Test]
         public void SetQuestion3_ShouldUpdateQuestion1Value()
         {
@@ -157,6 +189,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, survey.Question3);
         }
 
+        /// <summary>
+        /// Test answering question 4.
+        /// </summary>
         [Test]
         public void SetQuestion4_ShouldUpdateQuestion1Value()
         {
@@ -171,6 +206,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, survey.Question4);
         }
 
+        /// <summary>
+        /// Testing answering question 5.
+        /// </summary>
         [Test]
         public void SetQuestion5_ShouldUpdateQuestion1Value()
         {
@@ -185,6 +223,9 @@ namespace UnitTests.Pages
             Assert.AreEqual(expectedValue, survey.Question5);
         }
 
+        /// <summary>
+        /// Testing OnPost method when points are 40.
+        /// </summary>
         [Test]
         public void OnPost_ReturnsCorrectResult_ForPointValue40()
         {
@@ -206,7 +247,9 @@ namespace UnitTests.Pages
 
         }
 
-
+        /// <summary>
+        /// Test OnPost method when points are 25.
+        /// </summary>
         [Test]
         public void OnPost_ReturnsCorrectResult_ForPointValue25()
         {
@@ -228,10 +271,12 @@ namespace UnitTests.Pages
 
         }
 
+        /// <summary>
+        /// Test OnPost method for when points are 74.
+        /// </summary>
         [Test]
         public void OnPost_ReturnsCorrectResult_ForPointValue74()
         {
-
             // Arrange
             var surveyPageModel = new SurveyModel();
             surveyPageModel.Question1Answer = "smallfish,largefish,cat,other";
@@ -249,10 +294,12 @@ namespace UnitTests.Pages
 
         }
 
+        /// <summary>
+        /// Test OnPost method for when points are 79.
+        /// </summary>
         [Test]
         public void OnPost_ReturnsCorrectResult_ForPointValue79()
         {
-
             // Arrange
             var surveyPageModel = new SurveyModel();
             surveyPageModel.Question1Answer = "smallfish,largefish,cat,other,smalldog";
@@ -260,7 +307,6 @@ namespace UnitTests.Pages
             surveyPageModel.Question3Answer = "smallfish,largefish,cat,other,smalldog";
             surveyPageModel.Question4Answer = "smallfish,largefish,cat,other,mediumdog";
             surveyPageModel.Question5Answer = "smallfish,largefish,other,cat,smalldog";
-
 
             // Act
             surveyPageModel.OnPost();
@@ -270,10 +316,12 @@ namespace UnitTests.Pages
 
         }
 
+        /// <summary>
+        /// Test OnPost method for when points are 80.
+        /// </summary>
         [Test]
         public void OnPost_ReturnsCorrectResult_ForPointValue80()
         {
-
             // Arrange
             var surveyPageModel = new SurveyModel();
             surveyPageModel.Question1Answer = "smallfish,largefish,cat,other,smalldog,mediumdog,largedog";
@@ -282,16 +330,11 @@ namespace UnitTests.Pages
             surveyPageModel.Question4Answer = "smallfish,largefish,cat,other,mediumdog,smalldog,largedog";
             surveyPageModel.Question5Answer = "smallfish,largefish,other,cat,mediumdog,smalldog,largedog";
 
-
             // Act
             surveyPageModel.OnPost();
 
             // Assert
             Assert.AreEqual("Your perfect pet can be a big dog! They are very protective and loyal! They are a great companion!", surveyPageModel.Message);
-
         }
-
-
-
     }
 }
