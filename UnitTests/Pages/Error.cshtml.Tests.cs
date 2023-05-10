@@ -63,11 +63,14 @@ namespace UnitTests.Pages.Error
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
             // Arrange
+            Activity activity = new Activity("activity");
+            activity.Start();
 
             // Act
             pageModel.OnGet();
 
             // Reset
+            activity.Stop();
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
