@@ -1,11 +1,7 @@
 ﻿using System.Diagnostics;
-
 using Microsoft.Extensions.Logging;
-
 using NUnit.Framework;
-
 using Moq;
-
 using ContosoCrafts.WebSite.Pages;
 using Microsoft.AspNetCore.Http;
 
@@ -57,6 +53,9 @@ namespace UnitTests.Pages.Error
             Assert.AreEqual(activity.Id, pageModel.RequestId);
         }
 
+        /// <summary>
+        /// Test that a non-null/empty request ID shows a request ID.
+        /// </summary>
         [Test]
         public void ShowRequestId_RequestIdIsNotNullOrEmpty_ReturnsTrue()
         {
@@ -92,10 +91,6 @@ namespace UnitTests.Pages.Error
 
             // Assert
             Assert.AreEqual(httpContext.TraceIdentifier, pageModel.RequestId);
-
-            // Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            // Assert.AreEqual("trace", pageModel.RequestId);
-            // Assert.AreEqual(true, pageModel.ShowRequestId);
         }
         #endregion OnGet
     }
