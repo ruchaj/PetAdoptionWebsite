@@ -56,6 +56,9 @@ namespace ContosoCrafts.WebSite.Models
         [StringLength(60, MinimumLength = 1)]
         public string Category { get; set; }
 
+        //Defines the status "available/adopted" of the pets.
+        public string Status { get; set; }
+
         /// <summary>
         /// Overrides any default to turn the information into a string.
         /// </summary>
