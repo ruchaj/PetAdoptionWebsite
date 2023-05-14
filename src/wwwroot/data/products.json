@@ -13,7 +13,8 @@
       2,
       3
     ],
-    "Category": "large breeds"
+    "Category": "large breeds",
+    "Status": "available"
   },
   {
     "Id": "2",
@@ -25,7 +26,8 @@
     "Description": "Intelligent, Friendly, Devoted",
     "Cost": "$500",
     "Ratings": null,
-    "Category": "large breeds"
+    "Category": "large breeds",
+    "Status": "available"
   },
   {
     "Id": "3",
@@ -37,7 +39,8 @@
     "Description": "Dignified, Courageous, Profoundly Loyal",
     "Cost": "$400",
     "Ratings": null,
-    "Category": "medium breeds"
+    "Category": "medium breeds",
+    "Status": "available"
   },
   {
     "Id": "4",
@@ -49,7 +52,8 @@
     "Description": "Smart, Work-oriented, Exuberant",
     "Cost": "$450",
     "Ratings": null,
-    "Category": "medium breeds"
+    "Category": "medium breeds",
+    "Status": "available"
   },
   {
     "Id": "5",
@@ -61,7 +65,8 @@
     "Description": "Friendly, Gentle, Adaptable",
     "Cost": "$650",
     "Ratings": null,
-    "Category": "large breeds"
+    "Category": "large breeds",
+    "Status": "available"
   },
   {
     "Id": "6",
@@ -73,7 +78,8 @@
     "Description": "Playful, Affectionate, and Independent",
     "Cost": "$135",
     "Ratings": null,
-    "Category": "domestic"
+    "Category": "domestic",
+    "Status": "available"
   },
   {
     "Id": "7",
@@ -85,7 +91,8 @@
     "Description": "Playful, Sweet, Family-oriented, Affectionate",
     "Cost": "$230",
     "Ratings": null,
-    "Category": "domestic"
+    "Category": "domestic",
+    "Status": "available"
   },
   {
     "Id": "8",
@@ -97,7 +104,8 @@
     "Description": "Sweet, Easygoing, Gentle, Relaxed",
     "Cost": "$100",
     "Ratings": null,
-    "Category": "domestic"
+    "Category": "domestic",
+    "Status": "available"
   },
   {
     "Id": "9",
@@ -109,7 +117,8 @@
     "Description": "Sweet, Friendly, Curious, Playful",
     "Cost": "$75",
     "Ratings": null,
-    "Category": "domestic"
+    "Category": "domestic",
+    "Status": "available"
   },
   {
     "Id": "10",
@@ -121,7 +130,8 @@
     "Description": "Playful, Affectionate, Sociable, Intelligent",
     "Cost": "$100",
     "Ratings": null,
-    "Category": "domestic"
+    "Category": "domestic",
+    "Status": "available"
   },
   {
     "Id": "11",
@@ -133,7 +143,8 @@
     "Description": "Aggressive towards con-specifics",
     "Cost": "$9.99",
     "Ratings": null,
-    "Category": "small-freshwater"
+    "Category": "small-freshwater",
+    "Status": "available"
   },
   {
     "Id": "12",
@@ -145,7 +156,8 @@
     "Description": "Peaceful",
     "Cost": "$33.99",
     "Ratings": null,
-    "Category": "small-freshwater"
+    "Category": "small-freshwater",
+    "Status": "available"
   },
   {
     "Id": "13",
@@ -157,7 +169,8 @@
     "Description": "Aggressive towards con-specifics",
     "Cost": "$19.99",
     "Ratings": null,
-    "Category": "small-freshwater"
+    "Category": "small-freshwater",
+    "Status": "available"
   },
   {
     "Id": "14",
@@ -169,7 +182,8 @@
     "Description": "They are most active at dawn and dusk.",
     "Cost": "$199.99",
     "Ratings": null,
-    "Category": "other-pet"
+    "Category": "other-pet",
+    "Status": "available"
   },
   {
     "Id": "15",
@@ -181,6 +195,7 @@
     "Description": "I am a Elliot Chameleon. I can crawl *wink*. I am easy!",
     "Cost": "$50",
     "Ratings": null,
-    "Category": "other-pet"
+    "Category": "other-pet",
+    "Status": "adopted"
   }
 ]
