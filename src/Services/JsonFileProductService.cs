@@ -60,6 +60,20 @@ namespace ContosoCrafts.WebSite.Services
             return products; //returns the list
         }
 
+
+        /// <summary>
+        /// Show pets with given status.
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        public IEnumerable<ProductModel> GetProductsWithStatus(string status)
+        {
+          
+            var products = GetProducts().Where(p => p.Status == status);
+            return products;
+
+        }
+
         /// <summary>
         /// Add rating method
         /// </summary>
