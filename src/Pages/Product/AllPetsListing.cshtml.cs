@@ -30,10 +30,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
                 PetService = petService;
         }
 
-        //Gets all the pets in the allpets listing.
+        //Gets all the pets in the allpets listing with the status available.
         public void OnGet()
         {
-            Pets = PetService.GetProducts();
+            Pets = PetService.GetProductsWithStatus("available");
         }
 
     }
