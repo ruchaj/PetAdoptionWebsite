@@ -1,29 +1,34 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services;
+using System.Collections.Generic;
 
 namespace ContosoCrafts.WebSite.Pages
 {
     public class BlogAndStoriesModel : PageModel
     {
         /// <summary>
-        /// Defines class with a logger that checks whenever it is accessed.
+        /// Defines PetService for AllPetsListingModel 
         /// </summary>
-        private readonly ILogger<BlogAndStoriesModel> _logger;
+        public JsonFileProductService PetService { get; }
 
         /// <summary>
-        ///  Constructor for the BlogAndStoriesModel.
+        /// Creates a product model that specifies the Products as Pets
         /// </summary>
-        /// <param name="logger"></param>
-        public BlogAndStoriesModel(ILogger<BlogAndStoriesModel> logger)
+        public IEnumerable<ProductModel> Pets { get; private set; }
+
+        //model to initialize AllPetsListingModel
+        public BlogAndStoriesModel(JsonFileProductService petService)
         {
-            _logger = logger;
+
+            PetService = petService;
         }
 
-        /// <summary>
-        /// Gets stories of successful pet adoptions.
-        /// </summary>
+        //Gets all the pets in the allpets listing with the status available.
         public void OnGet()
         {
+            Pets = PetService.GetProductsWithStatus("adopted");
         }
     }
 }
