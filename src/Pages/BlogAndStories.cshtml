@@ -3,4 +3,46 @@
 @{
     ViewData["Title"] = "Blog and Stories";
 }
-// MT: This page will hold our "blog" AKA recently-adopted pet stories.
+<html>
+<head>
+    <style>
+        table {
+            width: 100%
+        }
+
+        td, th {
+            padding: 8px;
+        }
+    </style>
+</head>
+<header>
+    <h1>Those guys had home. Yay!!</h1>
+</header>
+<!--Button to create a new pet-->
+
+
+
+<!--Table of available pets-->
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Picture</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--Headers and information, will display pets of the breed requested or all pets-->
+        @foreach (var pet in Model.Pets)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => @pet.Name)</td>
+                <td>@Html.DisplayFor(modelItem => @pet.Description)</td>
+                <td><img src="@pet.Image" alt="Pet Image" height="200" width="200"></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+</html>
+
