@@ -7,6 +7,9 @@ using NUnit.Framework;
 using Moq;
 
 using ContosoCrafts.WebSite.Pages;
+using ContosoCrafts.WebSite.Pages.Product;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
 
 namespace UnitTests.Pages.BlogAndStories
 {
@@ -16,6 +19,12 @@ namespace UnitTests.Pages.BlogAndStories
     public class BlogAndStoriesTests
     {
         #region TestSetup
+
+        /// <summary>
+        /// Page context for the Razor page.
+        /// </summary>
+        public static PageContext pageContext;
+
         /// <summary>
         /// Create a public page model for BlogAndStories.
         /// </summary>
@@ -29,10 +38,8 @@ namespace UnitTests.Pages.BlogAndStories
         {
             var MockLoggerDirect = Mock.Of<ILogger<BlogAndStoriesModel>>();
 
-            pageModel = new BlogAndStoriesModel(MockLoggerDirect)
+            pageModel = new BlogAndStoriesModel(TestHelper.ProductService)
             {
-                PageContext = TestHelper.PageContext,
-                TempData = TestHelper.TempData,
             };
         }
         #endregion TestSetup
@@ -45,14 +52,16 @@ namespace UnitTests.Pages.BlogAndStories
         public void OnGet_Valid_Activity_ShouldReturn_True()
         {
             // Arrange
-            Activity activity = new Activity("activity");
-            activity.Start();
+            
 
             // Act
             pageModel.OnGet();
 
+
+
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, pageModel.Pets.ToList().Any());
         }
         #endregion OnGet
     }
