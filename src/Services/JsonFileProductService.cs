@@ -145,6 +145,8 @@ namespace ContosoCrafts.WebSite.Services
                 Breed = "Enter Breed",
                 Cost = "Enter Cost",
                 Image = "",
+                //status of the newly created pets are always available
+                Status="available"
             };
 
             // Get the current set, and append the new record to it.
