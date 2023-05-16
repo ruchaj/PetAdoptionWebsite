@@ -35,5 +35,16 @@ namespace ContosoCrafts.WebSite.Pages.Product
             //Take in product id
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
+
+        /// <summary>
+        /// Changes status to adopted on click.
+        /// </summary>
+        /// <param name="id"></param>
+        public void OnPost(string id)
+        {
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product.Status = "adopted";
+        }
+
     }
 }

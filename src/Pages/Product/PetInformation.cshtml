@@ -11,7 +11,19 @@
 <header>
     <h4>Pet Information</h4>
 </header>
+<style>
+    .adopt-btn {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    .btn-danger{
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
 
+</style>
 <!--Added petinfo class to body to match the css specifications for this page-->
 <body class="petinfo">
 <!--Image of pet-->
@@ -25,9 +37,15 @@
     <p>Location: @Model.Product.Location</p>
     <p>Description: @Model.Product.Description</p>
 </div>
-<!--Button for deleting activities-->
+
+<!--Button for deleting activities, and a button to adopt pet-->
     <div class="row">
         <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
+        <!--Button to adopt a pet. This will remove it from the available listing and add it to the stories.-->
+        <form method="post">
+            <input type="hidden" name="id" value="@Model.Product.Id" />
+            <button onclick = "OnPost" class="adopt-btn">Adopt Me</button>
+        </form>
     </div>
 </body>
 
