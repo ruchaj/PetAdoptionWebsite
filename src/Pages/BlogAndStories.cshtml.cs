@@ -25,7 +25,7 @@ namespace ContosoCrafts.WebSite.Pages
             PetService = petService;
         }
 
-        //Gets all the pets in the allpets listing with the status available.
+        //Gets all the pets in the allpets listing with the status adopted.
         public void OnGet()
         {
             Pets = PetService.GetProductsWithStatus("adopted");
