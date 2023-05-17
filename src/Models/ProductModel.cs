@@ -40,7 +40,8 @@ namespace ContosoCrafts.WebSite.Models
         public string Description { get; set; }
 
         //Defines how much each pet costs
-        
+        [Required]
+        [StringLength(maximumLength: 33, MinimumLength = 1, ErrorMessage = "The Cost should have a length of more than {2} and less than {1}")]
         public string Cost { get; set; }
 
         //Defines the ratings array, which will dynamically change with the ratings added to the website
