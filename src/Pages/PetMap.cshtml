@@ -1,6 +1,66 @@
 ﻿@page
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.PetMapModel
 @{
     ViewData["Title"] = "Pet Map";
 }
-// MT: This page will be where users can locate nearby pets using a map.
+@{
+    var allPets = Model.Pets;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCikCk5h-vPYJly_GsDGyHKbo8VpqUmtyU&callback=initMap" async defer></script>
+</head>
+<body>
+    <h3>Pet Locator Map</h3>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+
+    <div id="map"></div>
+
+    <script>
+        async function initMap() {
+            // Request needed libraries.
+            const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+            const { LatLng } = await google.maps.importLibrary("core");
+            // Coordinate that map loads to
+            const center = new LatLng(47.615741, -122.318216);
+            // Create map 
+            const map = new Map(document.getElementById("map"), {
+                zoom: 10,
+                center,
+                mapId: "e07e117af027c864",
+            });
+
+        
+            // Create markers for each pet
+            @foreach (var pet in Model.Pets)
+            {
+                @:var marker = new google.maps.Marker({
+                @:position: { lat: @pet.lat, lng: @pet.lng },
+                @:map: map,
+                @:title: "@pet.Name",
+                @:icon: {
+                @:url: "/data/Maplogo.svg",
+                @:scaledSize: new google.maps.Size(30, 30)}
+                @:});
+
+                @:marker.addListener('click', function () {
+                @:    alert("Name: " + "@pet.Name" + "\nBreed: " + "@pet.Breed" );
+                @:});
+            }
+        }
+        //Initialize map
+        initMap();
+    </script>
+</body>
+</html>
