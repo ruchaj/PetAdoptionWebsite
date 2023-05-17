@@ -1,28 +1,39 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Models;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace ContosoCrafts.WebSite.Pages
 {
     public class PetMapModel : PageModel
     {
-        /// <summary>
-        /// Defines class with a logger that checks whenever it is accessed.
-        /// </summary>
-        private readonly ILogger<PetMapModel> _logger;
+        //Data middle tier
+        public JsonFileProductService PetService { get; }
 
         /// <summary>
-        /// Constructor for the PetMapModel.
+        /// Creates a product model that specifies the Products as Pets
         /// </summary>
-        /// <param name="logger"></param>
-        public PetMapModel(ILogger<PetMapModel> logger)
-        {
-            _logger = logger;
-        }
+        public IEnumerable<ProductModel> Pets { get; private set; }
+
         /// <summary>
-        /// Gets the map of pets/pet adoption centers in the area specified.
+        /// Constructor
+        /// </summary>
+        /// <param name="petService"></param>
+        public PetMapModel(JsonFileProductService petService)
+        {
+            PetService = petService;
+        }
+  
+
+        /// <summary>
+        /// Get request
         /// </summary>
         public void OnGet()
         {
+            Pets = PetService.GetProductsWithStatus("available");
         }
     }
 }
