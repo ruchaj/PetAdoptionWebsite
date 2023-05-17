@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
 using ContosoCrafts.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ContosoCrafts.WebSite.Services
 {
@@ -224,6 +226,25 @@ namespace ContosoCrafts.WebSite.Services
                     products
                 );
             }
+        }
+        /// <summary>
+        /// Gets the product with the id in question, changes the status, and saves the dataset.
+        /// </summary>
+        /// <param name="id"></param>
+
+        public void updateStatus(string id)
+        {
+            //Take in product id
+            var dataSet = GetProducts();
+
+            // Get the selected data by compare with the given ProductID
+            var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
+
+            // Creat new dataset after removing the selected data
+            data.Status = "adopted";
+
+            //Save the new Dataset to the database
+            SaveData(dataSet);
         }
     }
 }
