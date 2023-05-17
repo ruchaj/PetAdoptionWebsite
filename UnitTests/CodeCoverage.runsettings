@@ -25,7 +25,18 @@
 						<!-- (Use "\." to delimit namespaces in C# or Visual Basic, "::" in C++.) -->
 						<Functions>
 							<Exclude>
-								
+								<Function>^Fabrikam\.UnitTest\..*</Function>
+								<Function>^std::.*</Function>
+								<Function>^ATL::.*</Function>
+								<Function>.*::__GetTestMethodInfo.*</Function>
+								<Function>^Microsoft::VisualStudio::CppCodeCoverageFramework::.*</Function>
+								<Function>^Microsoft::VisualStudio::CppUnitTestFramework::.*</Function>
+								<Function>.*\.Main\(.*</Function>
+								<Function>.*\.CreateHostBuilder\(.*</Function>
+								<Function>.*\.Program.*</Function>
+								<Function>.*\.Startup.*</Function>
+								<Function>.*\.IdentityHostingStartup.*</Function>
+								<Function>.*\.ConfigurationManager.*</Function>
 							</Exclude>
 						</Functions>
 					</CodeCoverage>
