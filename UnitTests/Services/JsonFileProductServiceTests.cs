@@ -4,6 +4,8 @@ using Moq;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
 using System.Linq;
+using ContosoCrafts.WebSite.Services;
+
 namespace UnitTests.Pages.Product.AddRating
 {
     /// <summary>
@@ -101,5 +103,22 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(4, featuredProducts.Count());
         }
         #endregion FeaturedProducts
+        #region Status
+
+        [Test]
+        public void UpdateStatus_Should_Update_Product_Status_To_Adopted()
+        {
+            // Arrange
+            var productId = "1";
+
+            // Act
+            TestHelper.ProductService.updateStatus(productId);
+
+            // Assert
+            var product = TestHelper.ProductService.GetProducts().Where(p => p.Id == productId).FirstOrDefault();
+            Assert.NotNull(product);
+            Assert.AreEqual("adopted", product.Status);
+        }
+        #endregion Status
     }
 }
