@@ -57,6 +57,64 @@
     <button type="submit">Search</button>
 </form>
 
+<!--HTMl styling for the breed categories. Uses all pets and gets the breeds of each,-->
+<div id="breedSection" style="display: none;">
+    <h2>All Breeds:</h2>
+    <ul>
+        @foreach (var product in Model.Pets)
+        {
+            <li><button type="button" class="filter-button" data-filter-type="breed" data-filter-value="@product.Breed">@product.Breed</button></li>
+        }
+    </ul>
+</div>
+
+<!--HTMl styling for the breed categories. Uses all pets and gets the price of each.-->
+<div id="costSection" style="display: none;">
+    <h2>All Costs:</h2>
+    <ul>
+        @foreach (var product in Model.Pets)
+        {
+            <li><button type="button" class="filter-button" data-filter-type="cost" data-filter-value="@product.Cost">@product.Cost</button></li>
+        }
+    </ul>
+</div>
+
+<!--Script to filter based on clicked element, and changes displayed categories based on which filter type is clicked.-->
+<script>
+    var breedSection = document.getElementById("breedSection");
+    var costSection = document.getElementById("costSection");
+    var filterButtons = document.getElementsByClassName("filter-button");
+
+    for (var i = 0; i < filterButtons.length; i++) {
+        filterButtons[i].addEventListener("click", function () {
+            var filterType = this.getAttribute("data-filter-type");
+            var filterValue = this.getAttribute("data-filter-value");
+
+            // Update the search input values
+            document.getElementById("searchInput").value = filterValue;
+            document.getElementById("searchBySelect").value = filterType;
+
+            // Submit the form
+            document.forms[0].submit();
+        });
+    }
+
+    searchBySelect.addEventListener("change", function () {
+        var selectedValue = searchBySelect.value;
+
+        if (selectedValue === "breed") {
+            breedSection.style.display = "block";
+            costSection.style.display = "none";
+        } else if (selectedValue === "cost") {
+            breedSection.style.display = "none";
+            costSection.style.display = "block";
+        } else {
+            breedSection.style.display = "none";
+            costSection.style.display = "none";
+        }
+    });
+</script>
+
 <!--Table of available pets-->
 <table>
     <thead>
