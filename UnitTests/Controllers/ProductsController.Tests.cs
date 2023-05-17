@@ -15,7 +15,7 @@ namespace UnitTests.Controllers
         public static ProductsController controllerModel;
 
         /// <summary>
-        /// Initialize the tests herein.
+        /// Initialize the tests here.
         /// </summary>
         public void TestInitialize()
         {
@@ -23,7 +23,7 @@ namespace UnitTests.Controllers
         }
         #endregion TestSetup
 
-        #region
+        #region GetFunction
         /// <summary>
         /// Tests that all present data returns true.
         /// </summary>
@@ -39,9 +39,33 @@ namespace UnitTests.Controllers
             // Assert
             Assert.AreEqual(newData.Id, response.Id);
         }
-        #endregion
+        #endregion GetFunction
 
-        #region
+        #region SetFunction
+        /// <summary>
+        /// Test for the set function return true.
+        /// </summary>
+        [Test]
+        public void set_Data_Should_Return_True()
+        {
+            // Arrange
+            var ratingRequest = new ProductsController.RatingRequest
+            {
+                ProductId = "20",
+                Rating = 1
+            };
+
+            // Act
+            ratingRequest.ProductId = "21";
+            ratingRequest.Rating = 5;
+
+            // Assert
+            Assert.AreEqual("21", ratingRequest.ProductId);
+            Assert.AreEqual(5, ratingRequest.Rating);
+        }
+        #endregion SetFunction
+
+        #region Addrating
         /// <summary>
         /// Tests patch for adding a valid rating.
         /// </summary>
@@ -58,6 +82,6 @@ namespace UnitTests.Controllers
             // Assert
             Assert.AreEqual(null, newRating.ProductId);
         }
-        #endregion
+        #endregion Addrating
     }
 }
