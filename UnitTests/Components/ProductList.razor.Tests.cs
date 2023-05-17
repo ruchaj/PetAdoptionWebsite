@@ -59,7 +59,6 @@ namespace UnitTests.Components
             var starButtonList = page.FindAll("span");
 
             var preVoteCountSpan = starButtonList[2];
-            var preVoteCountStr
 
         }
         #endregion SubmitRating
