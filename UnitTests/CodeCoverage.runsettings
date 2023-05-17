@@ -65,6 +65,13 @@
 								<Source>.*\.cshtml$</Source>
 							</Exclude>
 						</Sources>
+						
+						<!-- Match the company name property in the assembly: -->
+						<CompanyNames>
+							<Exclude>
+								<CompanyName>.*microsoft.*</CompanyName>
+							</Exclude>
+						</CompanyNames>
 					</CodeCoverage>
 				</Configuration>
 			</DataCollector>
