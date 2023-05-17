@@ -43,8 +43,9 @@
         <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
         <!--Button to adopt a pet. This will remove it from the available listing and add it to the stories.-->
         <form method="post">
-            <input type="hidden" name="id" value="@Model.Product.Id" />
-            <button onclick = "OnPost" class="adopt-btn">Adopt Me!</button>
+            <div class="form-group">
+                <input type="submit" value="Adopt" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </body>
