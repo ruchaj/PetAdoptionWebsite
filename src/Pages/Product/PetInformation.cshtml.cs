@@ -2,6 +2,8 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Product
@@ -34,6 +36,18 @@ namespace ContosoCrafts.WebSite.Pages.Product
         {
             //Take in product id
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+        }
+        /// <summary>
+        /// calls the Json file function onclick to update status
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IActionResult OnPost(string id)
+        {
+            //Take in product id
+            ProductService.updateStatus(id);
+            //redirects to listing without the current id
+            return RedirectToPage("./AllPetsListing");
         }
     }
 }
