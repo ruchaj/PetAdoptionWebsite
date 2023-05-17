@@ -1,60 +1,45 @@
 ﻿using System.Diagnostics;
-
 using Microsoft.Extensions.Logging;
-
 using NUnit.Framework;
-
 using Moq;
-
 using ContosoCrafts.WebSite.Pages;
+using ContosoCrafts.WebSite.Pages.Product;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
 
 namespace UnitTests.Pages.PetMap
 {
     /// <summary>
     /// A class to test the PetMap.cshtml.cs page.
     /// </summary>
-    public class PetMapTests
+    public class PetMapModelTests
     {
-        #region TestSetup
         /// <summary>
-        /// Create a public page model for PetMap.
+        /// Page model for testing.
         /// </summary>
         public static PetMapModel pageModel;
 
         /// <summary>
-        /// Set up the tests herein.
+        /// Initializes pageModel.
         /// </summary>
         [SetUp]
         public void TestInitialize()
         {
-            var MockLoggerDirect = Mock.Of<ILogger<PetMapModel>>();
-
-            pageModel = new PetMapModel(MockLoggerDirect)
-            {
-                PageContext = TestHelper.PageContext,
-                TempData = TestHelper.TempData,
-            };
-
+            pageModel = new PetMapModel(TestHelper.ProductService);
         }
-        #endregion TestSetup
 
-        #region OnGet
-        /// <summary>
-        /// Tests the OnGetmethod of the PetMap page.
-        /// </summary>
+        // Tests OnGet, checking if State is valid and that the page returns a list of pets.
         [Test]
-        public void OnGet_Valid_Activity_ShouldReturn_True()
+        public void OnGet_Valid_Should_Return_Pets()
         {
             // Arrange
-            Activity activity = new Activity("activity");
-            activity.Start();
 
             // Act
             pageModel.OnGet();
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.IsTrue(pageModel.ModelState.IsValid);
+            Assert.IsTrue(pageModel.Pets.ToList().Any());
         }
-        #endregion OnGet
     }
 }
