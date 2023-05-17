@@ -54,12 +54,16 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         //Precondition: A modified version of GetProducts() that only pulls four pets to be featured on the homepage.
-        //What the function does: Gets the list produced by getProducts, grabs four items, and returns them in a new list.
+        //What the function does: Gets the list produced by getProducts, grabs up to four of the top rated pets, and displays them.
         //Postcondition: creates a list of pets that are limited to four and returns it to be displayed.
         public IEnumerable<ProductModel> GetFeaturedProducts()
         {
-            var products = GetProducts().Take(4); //gets the list produced by GetProducts, and in the span of it, grabs four items and puts them in a new list.
-            return products; //returns the list
+            var products = GetProducts()
+                .Where(p => p.Ratings != null && p.Ratings.Any()) // Ignore products with null or empty ratings
+                .OrderByDescending(p => p.Ratings.Average()) // Order products by average rating in descending order
+                .Take(4); // Take the top 4 products with the highest average rating
+
+            return products;
         }
 
 
