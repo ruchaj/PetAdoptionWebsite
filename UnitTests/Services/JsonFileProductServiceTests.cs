@@ -104,7 +104,9 @@ namespace UnitTests.Pages.Product.AddRating
         }
         #endregion FeaturedProducts
         #region Status
-
+        /// <summary>
+        /// Testing a call to updateStatus, which should update status.
+        /// </summary>
         [Test]
         public void UpdateStatus_Should_Update_Product_Status_To_Adopted()
         {
