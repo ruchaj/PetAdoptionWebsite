@@ -19,19 +19,21 @@ namespace UnitTests.Components
 
         #endregion TestSetup
         [Test]
-        public void SelectProduct_Valid_ID_1_Should_Return_Content()
+        public void ProductList_Default_Should_Return_Content()
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "MoreInfoButton_1";
+
+            // Act
             var page = RenderComponent<ProductList>();
 
-            // Find the Button (more info)
-            var buttonList = page.FindAll("Button");
+            // Get the pets returned
+            var result = page.Markup;
 
-            // Find the pet that matches the ID looking for and click it
-            var button = buttonList.First(m => m.Outer)
+            // Assert
+            Assert.AreEqual(true, result.Contains("Wolfie"));
         }
+   
 
     }
 }
