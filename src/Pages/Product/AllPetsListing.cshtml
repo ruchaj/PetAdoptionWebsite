@@ -13,7 +13,7 @@
 
     if (!string.IsNullOrEmpty(searchQuery))
     {
-        if (searchBy == "cost") 
+        if (searchBy == "cost") // searchBy == "cost"
         {
             filteredPets = filteredPets.Where(pet => pet.Cost.ToString().Contains(searchQuery)).ToList();
         }

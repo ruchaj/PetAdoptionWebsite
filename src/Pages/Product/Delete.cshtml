@@ -28,7 +28,12 @@
             <input asp-for="Product.Description" class="form-control" />
             <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
-
+        <!--create the group for the cost-->
+        <div class="form-group">
+            <label asp-for="Product.Cost" class="control-label"></label>
+            <input asp-for="Product.Cost" class="form-control" />
+            <span asp-validation-for="Product.Cost" class="text-danger"></span>
+        </div>
 
         <!--create the group for the Image-->
         <div class="form-group">
@@ -41,6 +46,7 @@
         <h1>Warning! This action cannot be undo! Confirm Delete of this item?</h1>
         <div class="form-group">
             <input type="submit" value="Delete" class="btn btn-primary" />
+            <a asp asp-page="./AllPetsListing">After deleting, you will be returned to Pet Adoption</a>
         </div>
     </form>
 

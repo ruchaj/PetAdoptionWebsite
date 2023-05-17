@@ -15,12 +15,11 @@ namespace ContosoCrafts.WebSite.Models
 
         //Defines the name given to a pet
         [Required]
-        [StringLength(60, MinimumLength = 1)]
+        [StringLength(maximumLength: 33, MinimumLength = 1, ErrorMessage = "The Title should have a length of more than {2} and less than {1}")]
         public string Name { get; set; }
 
         //Defines the age of a pet
-        [Required]
-        [StringLength(25, MinimumLength = 1)]
+      
         public string Age { get; set; }
 
         //Gets the JsonPropertyName image that can be uploaded for a pet, and defines the image
@@ -28,32 +27,29 @@ namespace ContosoCrafts.WebSite.Models
         public string Image { get; set; }
 
         //Defines the Breed of the pet
-        [Required]
-        [StringLength(60, MinimumLength = 2)]
+    
         public string Breed { get; set; }
 
         //Defines the Location of the pet, which can be filtered for
-        [Required]
-        [StringLength(200, MinimumLength = 2)]
+  
         public string Location { get; set; }
 
         //Defines the description of each pet
         [Required]
-        [StringLength(1000, MinimumLength = 2)]
+        [StringLength(maximumLength: 33, MinimumLength = 1, ErrorMessage = "The Description should have a length of more than {2} and less than {1}")]
         public string Description { get; set; }
 
         //Defines how much each pet costs
         [Required]
-        [StringLength(1000000, MinimumLength = 1)]
+        [StringLength(maximumLength: 33, MinimumLength = 1, ErrorMessage = "The Cost should have a length of more than {2} and less than {1}")]
         public string Cost { get; set; }
 
         //Defines the ratings array, which will dynamically change with the ratings added to the website
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
-        [StringLength(5)]
+        
         public int[] Ratings { get; set; }
 
         //Defines the category of the pets such as dogs, cat, fishes or other smaller pets. 
-        [StringLength(60, MinimumLength = 1)]
+        
         public string Category { get; set; }
 
         //Defines the status "available/adopted" of the pets.
