@@ -18,6 +18,11 @@ namespace UnitTests.Components
         public void TestInitialize() { }
 
         #endregion TestSetup
+
+        #region DefaultProductList
+        /// <summary>
+        /// A unit test to verify the default product list exists
+        /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
         {
@@ -33,7 +38,8 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(true, result.Contains("Wolfie"));
         }
-   
+        #endregion DefaultProductList
+
 
     }
 }
