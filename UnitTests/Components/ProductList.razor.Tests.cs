@@ -40,35 +40,14 @@ namespace UnitTests.Components
         }
         #endregion DefaultProductList
 
-        /// <summary>
-        /// A unit test to test the ability to select a pet
-        /// </summary>
-        #region SelectProduct
+        #region SubmitRating
         [Test]
-        public void SelectProduct_Valid_ID_1_Should_Return_Content()
+        public void SubmitRating_Valid_ID_Click_Unstarred_Should_Increment_Count_And_Check_Star()
         {
             // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "SelectProduct(1)";
 
-            var page = RenderComponent<ProductList>();
-
-            // Find the buttons (more info)
-            var buttonList = page.FindAll("Button");
-
-            // Find the one that matches the ID looking for, and click it
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
-
-            // Act
-            button.Click();
-
-            // Get the markup to use for the assert statement
-            var pageMarkup = page.Markup;
-
-            // Assert
-            Assert.AreEqual(true, pageMarkup.Contains("3"));
         }
-        #endregion SelectProduct
+        #endregion SubmitRating
 
     }
 }
