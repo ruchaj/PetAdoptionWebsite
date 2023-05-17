@@ -14,7 +14,9 @@
       3
     ],
     "Category": "large breeds",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.628186",
+    "lng": "-122.353320"
   },
   {
     "Id": "2",
@@ -27,7 +29,9 @@
     "Cost": "$500",
     "Ratings": null,
     "Category": "large breeds",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.605923",
+    "lng": "-122.194581"
   },
   {
     "Id": "3",
@@ -40,7 +44,9 @@
     "Cost": "$400",
     "Ratings": null,
     "Category": "medium breeds",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.618013",
+    "lng": "-122.335167"
   },
   {
     "Id": "4",
@@ -53,7 +59,9 @@
     "Cost": "$450",
     "Ratings": null,
     "Category": "medium breeds",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.472832",
+    "lng": "-122.215598"
   },
   {
     "Id": "5",
@@ -66,7 +74,9 @@
     "Cost": "$650",
     "Ratings": null,
     "Category": "large breeds",
-    "Status": "available"
+    "Status": "available",
+    "lat": "30.243304",
+    "lng": "-97.814863"
   },
   {
     "Id": "6",
@@ -79,7 +89,9 @@
     "Cost": "$135",
     "Ratings": null,
     "Category": "domestic",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.617076",
+    "lng": "-122.297446"
   },
   {
     "Id": "7",
@@ -92,7 +104,9 @@
     "Cost": "$230",
     "Ratings": null,
     "Category": "domestic",
-    "Status": "available"
+    "Status": "available",
+    "lat": "40.719574",
+    "lng": "-74.073216"
   },
   {
     "Id": "8",
@@ -105,7 +119,9 @@
     "Cost": "$100",
     "Ratings": null,
     "Category": "domestic",
-    "Status": "available"
+    "Status": "available",
+    "lat": "38.663474",
+    "lng": "-90.225067"
   },
   {
     "Id": "9",
@@ -118,7 +134,9 @@
     "Cost": "$75",
     "Ratings": null,
     "Category": "domestic",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.657185",
+    "lng": "-122.313478"
   },
   {
     "Id": "10",
@@ -131,7 +149,10 @@
     "Cost": "$100",
     "Ratings": null,
     "Category": "domestic",
-    "Status": "available"
+    "Status": "available",
+    "lat": "32.839122",
+    "lng": "-117.150244"
+
   },
   {
     "Id": "11",
@@ -144,7 +165,9 @@
     "Cost": "$9.99",
     "Ratings": null,
     "Category": "small-freshwater",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.643452",
+    "lng": "-122.401129"
   },
   {
     "Id": "12",
@@ -157,7 +180,9 @@
     "Cost": "$33.99",
     "Ratings": null,
     "Category": "small-freshwater",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.638855",
+    "lng": "-122.350446"
   },
   {
     "Id": "13",
@@ -170,7 +195,9 @@
     "Cost": "$19.99",
     "Ratings": null,
     "Category": "small-freshwater",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.683599",
+    "lng": "-122.103789"
   },
   {
     "Id": "14",
@@ -183,7 +210,9 @@
     "Cost": "$199.99",
     "Ratings": null,
     "Category": "other-pet",
-    "Status": "available"
+    "Status": "available",
+    "lat": "47.475059",
+    "lng": "-122.259064"
   },
   {
     "Id": "15",
@@ -196,6 +225,8 @@
     "Cost": "$50",
     "Ratings": null,
     "Category": "other-pet",
-    "Status": "adopted"
+    "Status": "adopted",
+    "lat": "47.568454",
+    "lng": "-122.295386"
   }
 ]

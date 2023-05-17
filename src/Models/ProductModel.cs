@@ -59,6 +59,12 @@ namespace ContosoCrafts.WebSite.Models
         //Defines the status "available/adopted" of the pets.
         public string Status { get; set; }
 
+        //Defines latitude
+        public string lat { get; set; }
+
+        //Defines longitude
+        public string lng { get; set; }
+
         /// <summary>
         /// Overrides any default to turn the information into a string.
         /// </summary>
