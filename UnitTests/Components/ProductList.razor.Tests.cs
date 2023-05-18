@@ -42,27 +42,58 @@ namespace UnitTests.Components
 
         #region SubmitRating
         [Test]
-        public void SubmitRating_ValidID_ClickStarred_ShouldIncrementCount_AndCheckStar()
+        public void SubmitRating_ValidID_ClickStarred_ShouldIncrementCount_AndLeaveStarCheckRemaining()
         {
+            // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var id = "MoreInfoButton_1";
-
             var page = RenderComponent<ProductList>();
-
             var buttonList = page.FindAll("Button");
 
+            // Locate the 'more info' button for ID = 1, Wolfie (who has 3 ratings/votes)
             var button = buttonList.First(m => m.OuterHtml.Contains(id));
             button.Click();
 
+            // Get the markup of the page after clicking 'more info' for Wolfie
             var buttonMarkup = page.Markup;
 
+            // Get the star buttons (for the votes)
             var starButtonList = page.FindAll("span");
 
+            // Get vote count
             var preVoteCountSpan = starButtonList[1];
             var preVoteCountString = preVoteCountSpan.OuterHtml;
 
-            Assert.AreEqual(true, preVoteCountString.Contains("3 Votes"));
+            // Get the last star item from the list
+            var starButton = starButtonList.Last(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star checked"));
 
+            // Save the html as is, to compare to post-submitting a rating
+            var preStarChange = starButton.OuterHtml;
+
+            // Act
+
+            // Click the star button
+            starButton.Click();
+
+            // Get the markup for assert
+            buttonMarkup = page.Markup;
+
+            // Get the Star Buttons
+            starButtonList = page.FindAll("span");
+
+            // Get vote count
+            var postVoteCountSpan = starButtonList[1];
+            var postVoteCountString = postVoteCountSpan.OuterHtml;
+
+            // Get the last starred item from the list
+            starButton = starButtonList.Last(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star checked"));
+
+            // Save the html as is, as the post-submit view
+            var postStarChange = starButton.OuterHtml;
+
+            Assert.AreEqual(true, preVoteCountString.Contains("3 Votes"));
+            Assert.AreEqual(true, postVoteCountString.Contains("4 Votes"));
+            Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
         #endregion SubmitRating
 
