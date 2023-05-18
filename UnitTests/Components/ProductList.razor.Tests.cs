@@ -42,10 +42,10 @@ namespace UnitTests.Components
 
         #region SubmitRating
         [Test]
-        public void SubmitRating_ValidID_ClickUnstarred_ShouldIncrementCount_AndCheckStar()
+        public void SubmitRating_ValidID_ClickStarred_ShouldIncrementCount_AndCheckStar()
         {
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "MoreInfoButton_2";
+            var id = "MoreInfoButton_1";
 
             var page = RenderComponent<ProductList>();
 
@@ -58,7 +58,10 @@ namespace UnitTests.Components
 
             var starButtonList = page.FindAll("span");
 
-            var preVoteCountSpan = starButtonList[2];
+            var preVoteCountSpan = starButtonList[1];
+            var preVoteCountString = preVoteCountSpan.OuterHtml;
+
+            Assert.AreEqual(true, preVoteCountString.Contains("3 Votes"));
 
         }
         #endregion SubmitRating
