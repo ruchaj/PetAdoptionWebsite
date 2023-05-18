@@ -26,7 +26,7 @@ namespace UnitTests.Pages.Product.Update
 
         #region OnGet
         /// <summary>
-        /// Testing the OnGet method.
+        /// Testing the OnGet method with a valid product.
         /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
@@ -41,6 +41,24 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual("Wolfie", pageModel.Product.Name);
             Assert.AreEqual("Create", pageModel.titlePage);
         }
+        /// <summary>
+        /// Testing the OnGet method with a valid product.
+        /// </summary>
+        [Test]
+        public void OnGet_InValid_Should_Return_Products()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("", "Create");
+            var result = (RedirectToPageResult)pageModel.OnGet("", "Create");
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("/InvalidItem", result.PageName);
+        }
+
+
         #endregion OnGet
 
         #region OnPost
