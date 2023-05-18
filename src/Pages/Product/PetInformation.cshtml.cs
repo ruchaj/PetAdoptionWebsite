@@ -32,10 +32,16 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Get request
         /// </summary>
         /// <param name="id"></param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
             //Take in product id
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            if (Product == null)
+            {
+                return RedirectToPage("/InvalidItem");
+            }
+
+            return Page();
         }
         /// <summary>
         /// calls the Json file function onclick to update status
