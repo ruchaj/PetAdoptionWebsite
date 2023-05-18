@@ -49,15 +49,15 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "MoreInfoButton_2";
+            var id = "MoreInfoButton_8";
             var page = RenderComponent<ProductList>();
             var buttonList = page.FindAll("Button");
 
-            // Locate and click the 'more info' button for ID = 2, Gamma (who has 2 ratings/votes)
+            // Locate and click the 'more info' button for ID = 8, Button (who has 2 ratings/votes)
             var button = buttonList.First(m => m.OuterHtml.Contains(id));
             button.Click();
 
-            // Get the markup of the page after clicking 'more info' for Gamma
+            // Get the markup of the page after clicking 'more info' for the pet
             var buttonMarkup = page.Markup;
 
             // Get the star buttons (for the votes)
@@ -67,14 +67,14 @@ namespace UnitTests.Components
             var preVoteCountSpan = starButtonList[1];
             var preVoteCountString = preVoteCountSpan.OuterHtml;
 
-            // Get the first star item from the list (should not be checked bc Gamma has 0 votes)
+            // Get the first star item from the list (should not be checked bc this pet has 0 votes)
             var starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star"));
 
             // Save the html as the pre-change view of votes
             var preStarChange = starButton.OuterHtml;
 
             // Act
-            //Click the star button to submit a rating for Gamma
+            //Click the star button to submit a rating for this pet
             starButton.Click();
 
             // Get the markup to use for the assert
