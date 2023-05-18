@@ -59,12 +59,21 @@ namespace ContosoCrafts.WebSite.Services
         public IEnumerable<ProductModel> GetFeaturedProducts()
         {
             var products = GetProducts()
-                .Where(p => p.Ratings != null && p.Ratings.Any()) // Ignore products with null or empty ratings
-                .OrderByDescending(p => p.Ratings.Average()) // Order products by average rating in descending order
-                .Take(4); // Take the top 4 products with the highest average rating
+                .Where(p => p.Ratings != null && p.Ratings.Any())
+                .OrderByDescending(p => p.Ratings.Average())
+                .Take(1); // Take the highest rated pet
+
+            var random = new Random();
+            var additionalPets = GetProducts()
+                .Where(p => p.Ratings == null && p.Id != products.First().Id) // Exclude the highest rated pet
+                .OrderBy(p => random.Next()) // Order randomly
+                .Take(3); // Take three additional random pets
+
+            products = products.Concat(additionalPets); // Combine the highest rated pet and additional pets
 
             return products;
         }
+
 
 
         /// <summary>
