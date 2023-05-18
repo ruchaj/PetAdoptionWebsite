@@ -2,9 +2,13 @@
 @using ContosoCrafts.WebSite.Services
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.UpdateModel
-@if (ViewData["title"] == null)
+@if (Model.titlePage == null)
 {
     ViewData["title"] = "Update";
+}
+else
+{
+    ViewData["title"] = "Create";
 }
 
 <!-- header -->
