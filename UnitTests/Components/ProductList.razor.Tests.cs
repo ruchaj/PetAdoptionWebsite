@@ -42,6 +42,34 @@ namespace UnitTests.Components
 
         #region SubmitRating
         [Test]
+        public void SubmitRating_ValidID_ClickUnstarred_ShouldIncrementCount_AndCheckStars()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "MoreInfoButton_2";
+            var page = RenderComponent<ProductList>();
+            var buttonList = page.FindAll("Button");
+
+            // Locate and click the 'more info' button for ID = 2, Gamma (who has 2 ratings/votes)
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the markup of the page after clicking 'more info' for Gamma
+            var buttonMarkup = page.Markup;
+
+            // Get the star buttons (for the votes)
+            var starButtonList = page.FindAll("span");
+
+            // Get vote count
+            var preVoteCountSpan = starButtonList[1];
+            var preVoteCountString = preVoteCountSpan.OuterHtml;
+
+            // Get the first star item from the list (should not be checked bc Gamma has 0 votes)
+            var starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star"));
+
+        }
+
+        [Test]
         public void SubmitRating_ValidID_ClickStarred_ShouldIncrementCount_AndLeaveStarCheckRemaining()
         {
             // Arrange
@@ -50,7 +78,7 @@ namespace UnitTests.Components
             var page = RenderComponent<ProductList>();
             var buttonList = page.FindAll("Button");
 
-            // Locate the 'more info' button for ID = 1, Wolfie (who has 3 ratings/votes)
+            // Locate and click the 'more info' button for ID = 1, Wolfie (who has 3 ratings/votes)
             var button = buttonList.First(m => m.OuterHtml.Contains(id));
             button.Click();
 
