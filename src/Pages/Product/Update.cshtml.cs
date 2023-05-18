@@ -30,9 +30,11 @@ namespace ContosoCrafts.WebSite.Pages
         /// Load data
         /// </summary>
         /// <param name="id"></param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id, string title)
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            ViewData["title"] = title;
+            return Page();
         }
 
         /// <summary>
