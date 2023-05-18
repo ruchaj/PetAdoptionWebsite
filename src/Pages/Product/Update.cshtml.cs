@@ -13,6 +13,7 @@ namespace ContosoCrafts.WebSite.Pages
         // Data middletier
         public JsonFileProductService ProductService { get; }
 
+        public string titlePage { get; set; }
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -30,10 +31,10 @@ namespace ContosoCrafts.WebSite.Pages
         /// Load data
         /// </summary>
         /// <param name="id"></param>
-        public IActionResult OnGet(string id, string title)
+        public IActionResult OnGet(string id, string titlepage)
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
-            ViewData["title"] = title;
+            titlePage = titlepage;
             return Page();
         }
 
