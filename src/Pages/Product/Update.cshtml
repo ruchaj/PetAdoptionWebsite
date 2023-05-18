@@ -2,10 +2,13 @@
 @using ContosoCrafts.WebSite.Services
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.UpdateModel
-@{
+@if (ViewData["title"] == null)
+{
+    ViewData["title"] = "Update";
 }
+
 <!-- header -->
-<h1>Update</h1>
+<h1>@ViewData["title"]</h1>
 
 <div class="container">
     <!-- update form -->
