@@ -35,10 +35,16 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Loads the Data
         /// </summary>
         /// <param name="id"></param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
             //The product is selected based on the given Id
-            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id)); 
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            if (Product == null)
+            {
+                return RedirectToPage("/InvalidItem");
+            }
+
+            return Page();
         }
 
         /// <summary>
