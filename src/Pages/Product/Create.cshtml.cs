@@ -25,7 +25,8 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public IActionResult OnGet()
         {
             Product = ProductService.CreateData();
-            return RedirectToPage("./Update", new { Id = Product.Id });
+            ViewData["title"] = "Create";
+            return RedirectToPage("./Update", new { Id = Product.Id, title = ViewData["title"] });
         }
     }
 }
