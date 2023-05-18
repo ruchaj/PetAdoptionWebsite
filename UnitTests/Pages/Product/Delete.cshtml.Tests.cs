@@ -49,6 +49,23 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Gamma", pageModel.Product.Name);
         }
+
+        /// <summary>
+        /// Testing the OnGet method with a valid product.
+        /// </summary>
+        [Test]
+        public void OnGet_InValid_Should_Return_Products()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("");
+            var result = (RedirectToPageResult)pageModel.OnGet("");
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("/InvalidItem", result.PageName);
+        }
         #endregion OnGet
 
         #region OnPostAsync
