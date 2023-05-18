@@ -34,6 +34,11 @@ namespace ContosoCrafts.WebSite.Pages
         public IActionResult OnGet(string id, string titlepage)
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            if (Product == null)
+            {
+                return RedirectToPage("/InvalidItem");
+            }
+
             titlePage = titlepage;
             return Page();
         }
