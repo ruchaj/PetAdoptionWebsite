@@ -10,18 +10,7 @@ namespace UnitTests.Controllers
     /// </summary>
     public class ProductsControllerTests
     {
-        #region TestSetup
-        // New model for testing.
-        public static ProductsController controllerModel;
-
-        /// <summary>
-        /// Initialize the tests here.
-        /// </summary>
-        public void TestInitialize()
-        {
-
-        }
-        #endregion TestSetup
+        
 
         #region GetFunction
         /// <summary>
