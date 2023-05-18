@@ -34,11 +34,12 @@ namespace UnitTests.Pages.Product.Update
             // Arrange
 
             // Act
-            pageModel.OnGet("1");
+            pageModel.OnGet("1","Create");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Wolfie", pageModel.Product.Name);
+            Assert.AreEqual("Create", pageModel.titlePage);
         }
         #endregion OnGet
 
