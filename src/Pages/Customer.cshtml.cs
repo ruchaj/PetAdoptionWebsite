@@ -40,7 +40,7 @@ namespace ContosoCrafts.WebSite.Pages
             //if the checkbox is clicked, read the information of the customer.
             if ($"{isDisplay}" == "on")
             {
-                Message = $"{name}, " + $"{phone}, " + $"{story}, " + $"{isDisplay}, ";
+                Message = $"{name}," + $"{phone}," + $"{story}," + $"{isDisplay},";
             }
             
             Debug.WriteLine(Message);
