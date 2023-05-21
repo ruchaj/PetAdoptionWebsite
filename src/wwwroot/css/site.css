@@ -13,6 +13,64 @@ for details on configuring this project to bundle and minify static web assets. 
     -webkit-transform-style: preserve-3d;
 }
 
+/* Form container */
+.customer-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+/* Form fields */
+.customer-form-group {
+    margin-bottom: 15px;
+}
+
+.customer-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.customer-form-group input,
+.customer-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Checkbox and label in the same row */
+.customer-display-group {
+    display: flex;
+    align-items: center;
+}
+
+.customer-display-group label {
+    font-weight: bold;
+}
+
+.customer-display-group input {
+    
+    margin-left:20px;
+}
+
+/* Submit button */
+.customer-submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .customer-submit-button:hover {
+        background-color: #45a049;
+    }
+
 .card-columns .card-body {
     height: 100px;
     font-family: 'Nunito', sans-serif;
