@@ -53,7 +53,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             //Take in product id
             ProductService.updateStatus(id);
             //redirects to listing without the current id
-            return RedirectToPage("./AllPetsListing");
+            return RedirectToPage("/Customer");
         }
     }
 }
