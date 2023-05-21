@@ -67,6 +67,8 @@ namespace ContosoCrafts.WebSite
                 //     return context.Response.WriteAsync(json);
                 // });
             });
+            //app.UseStatusCodePages("text/html", "<h1>Error! Status Code {0}</h1>");
+            app.UseStatusCodePagesWithRedirects("/errors/{0}");
         }
     }
 }
