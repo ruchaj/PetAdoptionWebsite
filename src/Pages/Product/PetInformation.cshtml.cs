@@ -43,17 +43,6 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
             return Page();
         }
-        /// <summary>
-        /// calls the Json file function onclick to update status
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IActionResult OnPost(string id)
-        {
-            //Take in product id
-            ProductService.updateStatus(id);
-            //redirects to listing without the current id
-            return RedirectToPage("/Customer");
-        }
+        
     }
 }
