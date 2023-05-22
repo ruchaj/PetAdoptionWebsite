@@ -31,11 +31,11 @@ namespace ContosoCrafts.WebSite.Pages
         public string isDisplay { get; set; }
 
         /// <summary>
-        /// Defines PetService for AllPetsListingModel 
+        /// Defines PetService for CustomerModel 
         /// </summary>
         public JsonFileProductService PetService { get; }
 
-        //model to initialize AllPetsListingModel
+        //model to initialize CustomerModel
         public CustomerModel(JsonFileProductService petService)
         {
 
@@ -56,7 +56,6 @@ namespace ContosoCrafts.WebSite.Pages
             {
                 return RedirectToPage("/InvalidItem");
             }
-            PetService.updateStatus(id);
             return Page();
         }
 
@@ -65,10 +64,11 @@ namespace ContosoCrafts.WebSite.Pages
         /// </summary>
         public IActionResult OnPost(string id)
         {
-            
+            PetService.updateStatus(id);
+
             Message = $"{name}," + $"{phone}," + $"{story}," + $"{isDisplay}";
+
             
-            Debug.WriteLine(id + " - " + Message);
             PetService.updateCustomer(id, Message);
 
             return RedirectToPage("/BlogAndStories");
