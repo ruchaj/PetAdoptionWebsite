@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -54,6 +55,8 @@ namespace ContosoCrafts.WebSite.Models
 
         //Defines the status "available/adopted" of the pets.
         public string Status { get; set; }
+
+        public List<CommentModel> Comments { get; set; } = new List<CommentModel>();
 
         //Defines latitude
         public string lat { get; set; }
