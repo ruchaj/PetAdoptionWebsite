@@ -56,7 +56,11 @@ namespace ContosoCrafts.WebSite.Models
         //Defines the status "available/adopted" of the pets.
         public string Status { get; set; }
 
+        //Defines the comments of the pets.
         public List<CommentModel> Comments { get; set; } = new List<CommentModel>();
+
+        //Defines the customerinfo if applicable
+        public string Customer { get; set; }
 
         //Defines latitude
         public string Lat { get; set; }
