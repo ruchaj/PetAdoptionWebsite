@@ -31,6 +31,7 @@ namespace ContosoCrafts.WebSite.Models.Tests
             // Act
             string json = product.ToString();
             var deserializedProduct = JsonSerializer.Deserialize<ProductModel>(json);
+            product.InitializeLatAndLng();
 
             // Assert
             Assert.AreEqual("123", deserializedProduct.Id);
@@ -43,6 +44,10 @@ namespace ContosoCrafts.WebSite.Models.Tests
             Assert.AreEqual("$50", deserializedProduct.Cost);
             Assert.AreEqual(new int[] { 4, 5 }, deserializedProduct.Ratings);
             Assert.AreEqual("Cats", deserializedProduct.Category);
+            Assert.AreEqual("0.0", product.Lat); 
+            Assert.AreEqual("0.0", product.Lng);
         }
+
+        
     }
 }
