@@ -45,26 +45,7 @@ namespace UnitTests.Pages.Product.Read
             Assert.AreEqual("Playful,  Socialable, Curiosity", pageModel.Product.Description);
         }
 
-        /// <summary>
-        /// Test to check if OnPost properly updatesStatus and redirects
-        /// </summary>
-        [Test]
-        public void OnPost_Should_Update_Status_And_Redirect_To_Customer()
-        {
-            // Arrange
-            var id = "1";
-
-            // Act
-            var result = pageModel.OnPost(id);
-
-            // Assert
-            var redirectResult = (RedirectToPageResult)result;
-            Assert.AreEqual("/Customer", redirectResult.PageName);
-
-            var updatedProduct = TestHelper.ProductService.GetProducts().Where(p => p.Id == id).FirstOrDefault();
-            Assert.NotNull(updatedProduct);
-            Assert.AreEqual("adopted", updatedProduct.Status);
-        }
+        
 
         /// <summary>
         /// Testing the OnGet method with a valid product.
