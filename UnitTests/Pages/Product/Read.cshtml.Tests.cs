@@ -49,7 +49,7 @@ namespace UnitTests.Pages.Product.Read
         /// Test to check if OnPost properly updatesStatus and redirects
         /// </summary>
         [Test]
-        public void OnPost_Should_Update_Status_And_Redirect_To_AllPetsListing()
+        public void OnPost_Should_Update_Status_And_Redirect_To_Customer()
         {
             // Arrange
             var id = "1";
@@ -59,7 +59,7 @@ namespace UnitTests.Pages.Product.Read
 
             // Assert
             var redirectResult = (RedirectToPageResult)result;
-            Assert.AreEqual("./AllPetsListing", redirectResult.PageName);
+            Assert.AreEqual("/Customer", redirectResult.PageName);
 
             var updatedProduct = TestHelper.ProductService.GetProducts().Where(p => p.Id == id).FirstOrDefault();
             Assert.NotNull(updatedProduct);
