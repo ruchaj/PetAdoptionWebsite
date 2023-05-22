@@ -1,0 +1,239 @@
+﻿.checked {
+    color: orange;
+}
+
+.fa-star {
+    cursor: pointer;
+}
+
+/* switch mode button */
+.switch-button {
+    background-color: darkred;
+    color: white;
+    /* Add any other desired styles */
+}
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+.card-columns .card:hover .card-img {
+    opacity: 1;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* Form container */
+.customer-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #3f3f3f;
+    border-radius: 5px;
+}
+
+/* Form fields */
+.customer-form-group {
+    margin-bottom: 15px;
+}
+
+    .customer-form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .customer-form-group input,
+    .customer-form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+/* Checkbox and label in the same row */
+.customer-display-group {
+    display: flex;
+    align-items: center;
+}
+
+    .customer-display-group label {
+        font-weight: bold;
+    }
+
+    .customer-display-group input {
+        margin-left: 20px;
+    }
+
+/* Submit button */
+.customer-submit-button {
+    background-color: darkred;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .customer-submit-button:hover {
+        background-color: #b57472;
+    }
+
+.card-columns .card-body {
+    height: 100px;
+    font-family: 'Nunito', sans-serif;
+    background: #282828;
+}
+
+.card-columns .card-img {
+    height: 330px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: .8;
+}
+
+.modal .card-img {
+    height: 500px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.card-columns .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
+}
+
+.card-footer {
+    background: #282828;
+}
+
+/*Adds background color, uniform font, and some font styling to the petinfo pages.*/
+.petinfo {
+    background-color: #282828;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    font-family: 'Yellowtail', cursive;
+    font-size: xx-large;
+    text-align: center;
+    word-break: break-all;
+}
+/*Adds a style element for the card columns, centering them on the page and displaying them as only two per row*/
+.card-columns {
+    display: flex-grid;
+    column-count: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Provide sufficient contrast against white background */
+a:link, a:visited {
+    color: lightpink;
+}
+
+a:hover {
+    color: darkred;
+}
+
+.btn-primary {
+    color: white;
+    background-color: darkred;
+    border-color: #252152;
+}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #b57472;
+        border-color: #e9a8a6;
+    }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: darkred;
+    border-color: indianred;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #121212;
+    color: white;
+}
+
+    body a {
+        color: papayawhip;
+    }
+
+p {
+    font-family: 'Nunito', sans-serif;
+    color: white;
+}
+
+h1 {
+    font-family: 'Nunito', sans-serif;
+    color: white;
+}
+
+ul {
+    font-family: 'Nunito', sans-serif;
+    color: white;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    font-family: 'Nunito', sans-serif;
+}
+/*Backgrounds*/
+.bg-navbar {
+    background: #3f3f3f;
+}
+
+.bg-footer {
+    background: #3f3f3f;
+}
