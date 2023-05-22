@@ -88,6 +88,10 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
+
+
+
+
         /// <summary>
         /// Add rating method
         /// </summary>
@@ -258,6 +262,28 @@ namespace ContosoCrafts.WebSite.Services
 
             // Creat new dataset after removing the selected data
             data.Status = "adopted";
+
+            //Save the new Dataset to the database
+            SaveData(dataSet);
+        }
+
+
+        /// <summary>
+        /// Gets the product with the given id, changes the customer information, and saves the dataset.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="customer"></param>
+
+        public void updateCustomer(string id, string customer)
+        {
+            //Take in product id
+            var dataSet = GetProducts();
+
+            // Get the selected data by compare with the given ProductID
+            var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
+
+            // Creat new dataset after removing the selected data
+            data.Customer = customer;
 
             //Save the new Dataset to the database
             SaveData(dataSet);
