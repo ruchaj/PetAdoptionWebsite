@@ -31,6 +31,23 @@ namespace UnitTests.Pages.BlogAndStories
         public static BlogAndStoriesModel pageModel;
 
         /// <summary>
+        /// Test Message's getter setter works as expected.
+        /// </summary>
+        [Test]
+        public void Test_validMessage_should_returnvalue()
+        {
+            // Arrange
+
+            var expectedValue = "Test value";
+
+            // Act
+            pageModel.Message = expectedValue;
+
+            // Assert
+            Assert.AreEqual(expectedValue, pageModel.Message);
+        }
+
+        /// <summary>
         /// Set up the tests herein.
         /// </summary>
         [SetUp]
