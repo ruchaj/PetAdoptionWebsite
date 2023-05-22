@@ -45,7 +45,7 @@ namespace ContosoCrafts.WebSite.Pages
             
             Debug.WriteLine(Message);
 
-            return RedirectToPage("/BlogAndStories");
+            return RedirectToPage("/BlogAndStories", new { message = Message });
         }
     }
 }
