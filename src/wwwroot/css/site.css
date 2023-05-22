@@ -182,8 +182,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #fce5b6;
 }
 p {
     font-family: 'Nunito', sans-serif;
