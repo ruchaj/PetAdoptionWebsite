@@ -45,11 +45,10 @@
     <div class="row">
         <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Delete</a>
         <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Update</a>
+        <a asp-page="Customer" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Adopt</a>
 
-        <!--Button to adopt a pet. This will remove it from the available listing and add it to the stories.-->
-        <form method="post">
-           <input type="submit" value="Adopt" class="btn adopt-btn" />
-        </form>
+
+
     </div>
 </body>
 
