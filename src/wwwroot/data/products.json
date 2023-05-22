@@ -16,6 +16,7 @@
     "Category": "large breeds",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.628186",
     "Lng": "-122.353320"
   },
@@ -32,6 +33,7 @@
     "Category": "large breeds",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.605923",
     "Lng": "-122.194581"
   },
@@ -48,6 +50,7 @@
     "Category": "medium breeds",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.618013",
     "Lng": "-122.335167"
   },
@@ -64,6 +67,7 @@
     "Category": "medium breeds",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.472832",
     "Lng": "-122.215598"
   },
@@ -80,6 +84,7 @@
     "Category": "large breeds",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "30.243304",
     "Lng": "-97.814863"
   },
@@ -96,6 +101,7 @@
     "Category": "domestic",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.617076",
     "Lng": "-122.297446"
   },
@@ -112,6 +118,7 @@
     "Category": "domestic",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "40.719574",
     "Lng": "-74.073216"
   },
@@ -128,6 +135,7 @@
     "Category": "domestic",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "38.663474",
     "Lng": "-90.225067"
   },
@@ -144,6 +152,7 @@
     "Category": "domestic",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.657185",
     "Lng": "-122.313478"
   },
@@ -160,6 +169,7 @@
     "Category": "domestic",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "32.839122",
     "Lng": "-117.150244"
   },
@@ -176,6 +186,7 @@
     "Category": "small-freshwater",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.643452",
     "Lng": "-122.401129"
   },
@@ -192,6 +203,7 @@
     "Category": "small-freshwater",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.638855",
     "Lng": "-122.350446"
   },
@@ -208,6 +220,7 @@
     "Category": "small-freshwater",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.683599",
     "Lng": "-122.103789"
   },
@@ -224,6 +237,7 @@
     "Category": "other-pet",
     "Status": "available",
     "Comments": [],
+    "Customer": null,
     "Lat": "47.475059",
     "Lng": "-122.259064"
   },
@@ -240,6 +254,7 @@
     "Category": "other-pet",
     "Status": "adopted",
     "Comments": [],
+    "Customer": "Nana,123-456-7891,I adopted Crawler because he is just too cute,on",
     "Lat": "47.568454",
     "Lng": "-122.295386"
   }
