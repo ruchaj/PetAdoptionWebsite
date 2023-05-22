@@ -46,7 +46,7 @@
             @foreach (var pet in Model.Pets)
             {
                 @:var marker = new google.maps.Marker({
-                @:position: { lat: @pet.lat, lng: @pet.lng },
+                @:position: { lat: @pet.Lat, lng: @pet.Lng },
                 @:map: map,
                 @:title: "@pet.Name",
                 @:icon: {
