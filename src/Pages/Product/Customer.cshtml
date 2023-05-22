@@ -1,0 +1,34 @@
+﻿@page "{id}"
+@model ContosoCrafts.WebSite.Pages.CustomerModel
+@{
+}
+
+<h1>Adoption Form</h1>
+
+<div class="customer-form-container">
+    <form method="post">
+        <div class="customer-form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" required />
+        </div>
+
+        <div class="customer-form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+            <small>Format: XXX-XXX-XXXX</small>
+        </div>
+
+        <div class="customer-form-group">
+            <label for="story">Adoption Success Story:</label>
+            <textarea id="story" name="SuccessStory" rows="4" cols="40"></textarea>
+        </div>
+
+        <div class="customer-display-group">
+            <label for="display">Display on Blogs and Stories page</label>
+            <input type="checkbox" id="display" name="Display" />
+            
+        </div>
+
+        <button type="submit" class="customer-submit-button">Submit</button>
+    </form>
+</div>
