@@ -56,12 +56,6 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <returns></returns>
         public IActionResult OnPost()
         {
-            //If the state is not valid, it will return to the previous page!
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             //The delete function is being called to delete the product with the passed ProductId
             ProductService.DeleteData(Product.Id);
 
