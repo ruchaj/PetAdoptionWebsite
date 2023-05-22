@@ -3,11 +3,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace ContosoCrafts.WebSite.Pages
 {
     public class BlogAndStoriesModel : PageModel
     {
+
+        public string Message { get; set; }
         /// <summary>
         /// Defines PetService for AllPetsListingModel 
         /// </summary>
@@ -26,9 +30,18 @@ namespace ContosoCrafts.WebSite.Pages
         }
 
         //Gets all the pets in the allpets listing with the status adopted.
-        public void OnGet()
+        /// <summary>
+        /// Load data
+        /// </summary>
+        /// <param name="message"></param>
+        public IActionResult OnGet(string message)
         {
             Pets = PetService.GetProductsWithStatus("adopted");
+
+            Message = message;
+            Debug.WriteLine(Message + "Blog and story");
+            return Page();
         }
+       
     }
 }
