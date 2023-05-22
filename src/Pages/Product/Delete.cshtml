@@ -11,45 +11,43 @@
 <h1>Delete</h1>
 
 <div class="container">
-    <!--Create the form for deleteting-->
+    <!--Create the form for deleting-->
     <form method="post">
         <!--target the HTML div element-->
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @Html.HiddenFor(x => x.Product.Id)
+
         <!--create the group for the name-->
         <div class="form-group">
             <label asp-for="Product.Name" class="control-label"></label>
-            <input asp-for="Product.Name" class="form-control" />
-            <span asp-validation-for="Product.Name" class="text-danger"></span>
+            <input asp-for="Product.Name" class="form-control" disabled />
         </div>
+
         <!--create the group for the description-->
         <div class="form-group">
             <label asp-for="Product.Description" class="control-label"></label>
-            <input asp-for="Product.Description" class="form-control" />
-            <span asp-validation-for="Product.Description" class="text-danger"></span>
+            <input asp-for="Product.Description" class="form-control" disabled />
         </div>
+
         <!--create the group for the cost-->
         <div class="form-group">
             <label asp-for="Product.Cost" class="control-label"></label>
-            <input asp-for="Product.Cost" class="form-control" />
-            <span asp-validation-for="Product.Cost" class="text-danger"></span>
+            <input asp-for="Product.Cost" class="form-control" disabled />
         </div>
 
         <!--create the group for the Image-->
         <div class="form-group">
             <label asp-for="Product.Image" class="control-label"></label>
-            <input asp-for="Product.Image" class="form-control" />
-            <span asp-validation-for="Product.Image" class="text-danger"></span>
+            <input asp-for="Product.Image" class="form-control" disabled />
         </div>
 
         <!--create the warning for the users-->
-        <h1>Warning! This action cannot be undo! Confirm Delete of this item?</h1>
+        <h1>Warning! This action cannot be undone! Confirm Delete of this item?</h1>
         <div class="form-group">
-            <input type="submit" value="Delete" class="btn btn-primary" />
+            <input type="submit" value="Delete" class="btn btn-primary" asp-page-handler="OnPost" />
             <a asp asp-page="./AllPetsListing">After deleting, you will be returned to Pet Adoption</a>
         </div>
     </form>
-
 </div>
 
 @section Scripts {
