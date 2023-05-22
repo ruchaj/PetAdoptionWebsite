@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Redhawks Pet Rescue</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <!--link stylesheet darkmode.css for darkmode and site.css for lightmode-->
+    <link rel="stylesheet" href="~/css/darkmode.css" id="darkMode" disabled />
+    <link rel="stylesheet" href="~/css/site.css" id="lightMode" />
     <link href="https://fonts.googleapis.com/css?family=Yellowtail&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <!--link stylesheet darkmode.css-->
-    <link rel="stylesheet" href="~/css/darkmode.css" id="darkMode" />
+
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-navbar border-bottom box-shadow mb-3">
             <div class="container">
-                <img src="/data/Petlogo.svg"/>
+                <img src="/data/Petlogo.svg" />
                 <a class="navbar-link" asp-area="" asp-page="/Index">Home Page</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -28,17 +29,31 @@
                 <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
 
                 <!--Button for light and dark mode-->
-                <button onclick="switchMode()">Switch mode</button>
+                <button class="switch-button" onclick="switchMode()">Switch mode</button>
                 <script>
+                    // Function to switch modes
                     function switchMode() {
                         var element = document.body;
                         element.classList.toggle("dark");
+                        var lightMode = document.getElementById("lightMode");
                         var darkMode = document.getElementById("darkMode");
-                        darkMode.disabled = !darkMode.disabled; 
+                        var isDarkMode = element.classList.contains("dark");
+                        lightMode.disabled = isDarkMode;
+                        darkMode.disabled = !isDarkMode;
+                        // Set theme to current mode
+                        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+                    }
+                    //Check current mode if light or dark
+                    var currMode = localStorage.getItem("theme");
+                    if (currMode === "dark") {
+                        // Set the dark mode
+                        document.body.classList.add("dark");
+                        document.getElementById("darkMode").disabled = false;
+                        document.getElementById("lightMode").disabled = true;
                     }
                 </script>
 
-                
+
             </div>
         </nav>
     </header>
@@ -50,8 +65,8 @@
 
     <footer class="border-top footer text-muted bg-footer">
         <div class="container">
-            &copy; 2023 Redhawks Pet Rescue - <a asp-area="" asp-page="/Privacy">Privacy Policy</a> | 
-            <a asp-area="" asp-page="/AboutUs">About Us</a> | 
+            &copy; 2023 Redhawks Pet Rescue - <a asp-area="" asp-page="/Privacy">Privacy Policy</a> |
+            <a asp-area="" asp-page="/AboutUs">About Us</a> |
             <a asp-area="" asp-page="/Contact">Contact Us</a>
 
         </div>
