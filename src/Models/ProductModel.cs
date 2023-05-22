@@ -59,10 +59,10 @@ namespace ContosoCrafts.WebSite.Models
         public List<CommentModel> Comments { get; set; } = new List<CommentModel>();
 
         //Defines latitude
-        public string lat { get; set; }
+        public string Lat { get; set; }
 
         //Defines longitude
-        public string lng { get; set; }
+        public string Lng { get; set; }
 
         /// <summary>
         /// Overrides any default to turn the information into a string.
@@ -70,6 +70,12 @@ namespace ContosoCrafts.WebSite.Models
         /// <returns></returns>
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
 
+        // Initializes the Lat and Lng as 0.0 if null
+        public void InitializeLatAndLng()
+        {
+            Lat ??= "0.0";
+            Lng ??= "0.0";
+        }
 
     }
 }
