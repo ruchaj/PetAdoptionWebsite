@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model ContosoCrafts.WebSite.Pages.BlogAndStoriesModel
 @{
     ViewData["Title"] = "Blog and Stories";
@@ -16,7 +16,7 @@
     </style>
 </head>
 <header>
-    <h1>Those guys had home. Yay!!</h1>
+    <h1>Those guys have had home. Yay!!</h1>
 </header>
 <!--Button to create a new pet-->
 
@@ -28,6 +28,7 @@
         <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Story</th>
             <th>Picture</th>
         </tr>
     </thead>
@@ -38,6 +39,21 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => @pet.Name)</td>
                 <td>@Html.DisplayFor(modelItem => @pet.Description)</td>
+                
+                @if (@pet.Customer != null)
+                {
+                    string modifiedCustomer = @pet.Customer.Remove(@pet.Customer.Length - 3)+".";
+                    string[] customerParts = @pet.Customer.Split(',');
+                    string lastElement = customerParts.Last();
+                    if (lastElement == "on")
+                    {
+                        <td>@Html.DisplayFor(modelItem => modifiedCustomer)</td>
+                    }
+                    else
+                    {
+                        <td>Anonymous</td>
+                    }
+                }
                 <td><img src="@pet.Image" alt="Pet Image" height="200" width="200"></td>
             </tr>
         }
