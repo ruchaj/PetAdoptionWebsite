@@ -160,5 +160,69 @@ namespace UnitTests.Components
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
         #endregion SubmitRatingExistingVotes
+
+        #region AddComments
+        [Test]
+        public void AddCommentButton_ShouldShowInputAndSaveCommentButton()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var component = RenderComponent<ProductList>();
+            var id = "1";
+
+            // Find the Buttons (more info)
+            var buttonList = component.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the markup of the page post the Click action
+            var buttonMarkup = component.Markup;
+
+            // Act
+            component.Find("#AddComment").Click();
+
+            // Assert
+            Assert.IsNotNull(component.Find("input[type=text]"));
+            Assert.IsNotNull(component.Find("button.btn.btn-success"));
+        }
+
+        /// <summary>
+        /// Tests the functionality of saving a comment by clicking the Save Comment button.
+        /// It verifies that a new comment is added to the list of comments after the Save Comment
+        /// button is clicked. 
+        /// </summary>
+        [Test]
+        public void SaveCommentButton_ShouldAddNewCommentToList()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var component = RenderComponent<ProductList>();
+            var id = "1";
+
+            // Find the Buttons (more info)
+            var buttonList = component.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+            component.Find("#AddComment").Click();
+            var input = component.Find("input[type=text]");
+            var saveButton = component.Find("button.btn.btn-success");
+
+            // Act
+
+            // simulate entering a new comment
+            input.Change("This is a new comment");
+
+            // simulate Save Comment button click
+            saveButton.Click();
+
+            // Assert
+            Assert.IsTrue(component.Markup.Contains("This is a new comment"));
+        }
+
+        #endregion Add Comments
     }
 }
