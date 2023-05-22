@@ -8,30 +8,42 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="https://fonts.googleapis.com/css?family=Yellowtail&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <!--link stylesheet darkmode.css-->
+    <link rel="stylesheet" href="~/css/darkmode.css" id="darkMode" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-navbar border-bottom box-shadow mb-3">
             <div class="container">
                 <img src="/data/Petlogo.svg"/>
-                <a class="navbar-link text-dark" asp-area="" asp-page="/Index">Home Page</a>
+                <a class="navbar-link" asp-area="" asp-page="/Index">Home Page</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="nav-link text-dark" asp-area="" asp-page="/PetMap">Pet Map</a>
-                <a class="nav-link text-dark" asp-area="" asp-page="/Product/AllPetsListing">Pet Adoption</a>
-                <a class="nav-link text-dark" asp-area="" asp-page="/BlogAndStories">Blog And Stories</a>
-                <a class="nav-link text-dark" asp-area="" asp-page="/Survey">Survey</a>
+                <a class="nav-link" asp-area="" asp-page="/PetMap">Pet Map</a>
+                <a class="nav-link" asp-area="" asp-page="/Product/AllPetsListing">Pet Adoption</a>
+                <a class="nav-link" asp-area="" asp-page="/BlogAndStories">Blog And Stories</a>
+                <a class="nav-link" asp-area="" asp-page="/Survey">Survey</a>
                 
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-
+                            <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
+
+                <!--Button for light and dark mode-->
+                <button onclick="switchMode()">Switch mode</button>
+                <script>
+                    function switchMode() {
+                        var element = document.body;
+                        element.classList.toggle("dark");
+                        var darkMode = document.getElementById("darkMode");
+                        darkMode.disabled = !darkMode.disabled; 
+                    }
+                </script>
 
                 
             </div>
