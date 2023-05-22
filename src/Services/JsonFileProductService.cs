@@ -161,8 +161,8 @@ namespace ContosoCrafts.WebSite.Services
                 Image = "",
                 //status of the newly created pets are always available
                 Status="available",
-                lat = "",
-                lng = ""
+                Lat ="0.0",
+                Lng = "0.0"
             };
 
             // Get the current set, and append the new record to it.
@@ -191,8 +191,8 @@ namespace ContosoCrafts.WebSite.Services
             productData.Name = data.Name;
             productData.Ratings = data.Ratings;
             productData.Image = data.Image;
-            productData.lat= data.lat;
-            productData.lng= data.lng;
+            productData.Lat= data.Lat;
+            productData.Lng= data.Lng;
 
             //Save
             SaveData(products);
