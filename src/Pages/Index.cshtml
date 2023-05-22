@@ -8,7 +8,7 @@
 <h1>Girls in Tech</h1>
 
 <!--Link to AllPetsListing page-->
-    <center><a class="nav-link text-dark" asp-area="" asp-page="/Product/AllPetsListing"> <h2>Click Here to View All Available Pet</h2> </a></center>
+    <center><a class="nav-link" asp-area="" asp-page="/Product/AllPetsListing"> <h2>Click Here to View All Available Pet</h2> </a></center>
 @(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 
 
