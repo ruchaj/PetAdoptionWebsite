@@ -34,14 +34,15 @@ namespace ContosoCrafts.WebSite.Pages
         /// Load data
         /// </summary>
         /// <param name="message"></param>
-        public IActionResult OnGet(string message)
+        public IActionResult OnGet()
         {
             Pets = PetService.GetProductsWithStatus("adopted");
 
-            Message = message;
-            Debug.WriteLine(Message + "Blog and story");
             return Page();
         }
+
+
+     
        
     }
 }
