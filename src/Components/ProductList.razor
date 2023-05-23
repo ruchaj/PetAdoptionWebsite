@@ -5,7 +5,7 @@
 
 @*This function keeps the original design of showing name, image, and breed from previous sprint, but modifies it to pull the pets from featured pets*@
 <div class="card-columns">
-@foreach (var product in ProductService.GetFeaturedProducts())
+@foreach (var product in ProductService.GetProducts())
 {
     <div class="card">
         <div class="card-img" style="background-image: url('@product.Image');">
