@@ -4,9 +4,9 @@
     {
         Undefined = 0,
         Fish = 1,
-        Other = 5,
-        Cat = 130,
-        Dog = 55,
+        Other = 2,
+        Cat = 3,
+        Dog = 4,
     }
 
     public static class ProductTypeEnumExtensions
