@@ -25,7 +25,6 @@ namespace ContosoCrafts.WebSite.Models.Tests
                 Description = "A fluffy cat",
                 Cost = "$50",
                 Ratings = new int[] { 4, 5 },
-                Category = "Cats"
             };
 
             // Act
@@ -43,7 +42,6 @@ namespace ContosoCrafts.WebSite.Models.Tests
             Assert.AreEqual("A fluffy cat", deserializedProduct.Description);
             Assert.AreEqual("$50", deserializedProduct.Cost);
             Assert.AreEqual(new int[] { 4, 5 }, deserializedProduct.Ratings);
-            Assert.AreEqual("Cats", deserializedProduct.Category);
             Assert.AreEqual("0.0", product.Lat); 
             Assert.AreEqual("0.0", product.Lng);
         }
