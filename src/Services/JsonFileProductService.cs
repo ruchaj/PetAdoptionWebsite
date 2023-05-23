@@ -162,6 +162,7 @@ namespace ContosoCrafts.WebSite.Services
                 Age = "Enter Age",
                 Breed = "Enter Breed",
                 Cost = "Enter Cost",
+                ProductType=0,
                 Image = "",
                 //status of the newly created pets are always available
                 Status="available",
@@ -193,6 +194,7 @@ namespace ContosoCrafts.WebSite.Services
             productData.Age = data.Age;
             productData.Breed = data.Breed;
             productData.Name = data.Name;
+            productData.ProductType = data.ProductType;
             productData.Ratings = data.Ratings;
             productData.Image = data.Image;
             productData.Lat= data.Lat;
