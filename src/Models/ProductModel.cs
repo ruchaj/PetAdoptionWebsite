@@ -37,7 +37,7 @@ namespace ContosoCrafts.WebSite.Models
 
         //Defines the description of each pet
         [Required]
-        [StringLength(maximumLength: 33, MinimumLength = 1, ErrorMessage = "The Description should have a length of more than {2} and less than {1}")]
+        [StringLength(maximumLength: 100, MinimumLength = 1, ErrorMessage = "The Description should have a length of more than {2} and less than {1}")]
         public string Description { get; set; }
 
         //Defines how much each pet costs
@@ -50,8 +50,9 @@ namespace ContosoCrafts.WebSite.Models
         public int[] Ratings { get; set; }
 
         //Defines the category of the pets such as dogs, cat, fishes or other smaller pets. 
-        
-        public string Category { get; set; }
+        public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
+
+      
 
         //Defines the status "available/adopted" of the pets.
         public string Status { get; set; }
