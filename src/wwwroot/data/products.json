@@ -13,8 +13,8 @@
     "Status": "available",
     "Comments": [],
     "Customer": null,
-    "Lat": null,
-    "Lng": null
+    "Lat": "47.586982",
+    "Lng": "-122.304998"
   },
   {
     "Id": "2",
@@ -30,8 +30,8 @@
     "Status": "available",
     "Comments": [],
     "Customer": null,
-    "Lat": null,
-    "Lng": null
+    "Lat": "47.607811",
+    "Lng": "-122.156284"
   },
   {
     "Id": "3",
@@ -115,8 +115,8 @@
     "Status": "available",
     "Comments": [],
     "Customer": null,
-    "Lat": null,
-    "Lng": null
+    "Lat": "39.884642",
+    "Lng": "-74.758115"
   },
   {
     "Id": "8",
