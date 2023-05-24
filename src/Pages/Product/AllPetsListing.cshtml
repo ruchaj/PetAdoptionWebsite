@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Pet Adoption";
 }
-
 <!--Uses user query to search for either a breed or a cost that a user asks for-->
 @{
     string searchQuery = Request.Query["search"];
@@ -22,7 +21,6 @@
         }
     }
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +42,7 @@
     <a asp-page="Create" class="btn btn-link">Click here to add an adoptable pet to our website</a>
 </div>
 
-<!-- Search form to filter pets based on breed and cost, which does the search based on the searchInput function above, through a dropdown menu format.-->
+<!--Search form to filter pets based on breed and cost, which does the search based on the searchInput function above, through a dropdown menu format.-->
 <form method="get">
     <label for="searchInput">Search:</label>
     <input type="text" id="searchInput" name="search" value="@searchQuery">
@@ -56,7 +54,7 @@
     <button type="submit">Search</button>
 </form>
 
-<!--HTMl styling for the breed categories. Uses all pets and gets the breeds of each,-->
+<!--HTMl styling for the breed categories. Uses all pets and gets the breeds of each.-->
 <div id="breedSection" style="display: none;">
     <h2>All Breeds:</h2>
     <ul>
@@ -67,7 +65,7 @@
     </ul>
 </div>
 
-<!--HTMl styling for the breed categories. Uses all pets and gets the price of each.-->
+<!--HTMl styling for the cost categories. Uses all pets and gets the price of each.-->
 <div id="costSection" style="display: none;">
     <h2>All Costs:</h2>
     <ul>
@@ -97,7 +95,6 @@
             document.forms[0].submit();
         });
     }
-
     searchBySelect.addEventListener("change", function () {
         var selectedValue = searchBySelect.value;
 
