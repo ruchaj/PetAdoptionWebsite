@@ -4,18 +4,11 @@
     ViewData["Title"] = "Pet Adoption";
 }
 
-
-
 <!--Uses user query to search for either a breed or a cost that a user asks for-->
 @{
     string searchQuery = Request.Query["search"];
     string searchBy = Request.Query["searchBy"];
-
-
-
     var filteredPets = Model.Pets;
-
-
 
     if (!string.IsNullOrEmpty(searchQuery))
     {
@@ -30,35 +23,26 @@
     }
 }
 
-
-
 <!DOCTYPE html>
-
-
-
 <html>
 <head>
     <style>
-                    table {
-                            width: 100%            
+        table {
+            width: 100%;
         }
-
-                    td, th {
-                            padding: 8px;
-
+        td, th {
+            padding: 8px;
         }
-
     </style>
 </head>
 <header>
     <h1>All available pets:</h1>
 </header>
+
 <!--Button to create a new pet-->
 <div class="container">
     <a asp-page="Create" class="btn btn-link">Click here to add an adoptable pet to our website</a>
 </div>
-
-
 
 <!-- Search form to filter pets based on breed and cost, which does the search based on the searchInput function above, through a dropdown menu format.-->
 <form method="get">
@@ -72,8 +56,6 @@
     <button type="submit">Search</button>
 </form>
 
-
-
 <!--HTMl styling for the breed categories. Uses all pets and gets the breeds of each,-->
 <div id="breedSection" style="display: none;">
     <h2>All Breeds:</h2>
@@ -84,8 +66,6 @@
         }
     </ul>
 </div>
-
-
 
 <!--HTMl styling for the breed categories. Uses all pets and gets the price of each.-->
 <div id="costSection" style="display: none;">
@@ -98,40 +78,28 @@
     </ul>
 </div>
 
-
-
 <!--Script to filter based on clicked element, and changes displayed categories based on which filter type is clicked.-->
 <script>
     var breedSection = document.getElementById("breedSection");
     var costSection = document.getElementById("costSection");
     var filterButtons = document.getElementsByClassName("filter-button");
 
-
-
     for (var i = 0; i < filterButtons.length; i++) {
         filterButtons[i].addEventListener("click", function () {
             var filterType = this.getAttribute("data-filter-type");
             var filterValue = this.getAttribute("data-filter-value");
 
-
-
             // Update the search input values
             document.getElementById("searchInput").value = filterValue;
             document.getElementById("searchBySelect").value = filterType;
-
-
 
             // Submit the form
             document.forms[0].submit();
         });
     }
 
-
-
     searchBySelect.addEventListener("change", function () {
         var selectedValue = searchBySelect.value;
-
-
 
         if (selectedValue === "breed") {
             breedSection.style.display = "block";
@@ -147,8 +115,6 @@
     );
 </script>
 
-
-
 <!--Table of available pets-->
 <table>
     <thead>
@@ -161,6 +127,7 @@
         </tr>
     </thead>
     <tbody>
+
         <!--Headers and information, will display pets of the breed requested or all pets, and shows thet types of each pet.-->
         @foreach (var pet in filteredPets)
         {
@@ -172,11 +139,13 @@
                 <td><a asp-page="PetInformation" asp-route-id="@pet.Id">Read</a></td>
                 <td><a asp-page="Update" asp-route-id="@pet.Id">Update</a></td>
             </tr>
+
             <!--Uses the pet's product type, matches it with the breed, and displays the appropriate icon.-->
             <script>
                 var productType = '@pet.ProductType'; //matches to the pet in question
                 var newProduct = document.createElement("i"); //creates a new element to hold the images.
-                //Uses pet enum types as cases and displays the image.
+                
+                // Uses pet enum types as cases and displays the image.
                 switch (productType) {
                     case "Fish":
                         newProduct.innerHTML = '<img src="/data/icons8-fish-50.png" alt="Small Freshwater, Large Saltwater">'; // Fish icon
@@ -194,17 +163,11 @@
                         newProduct.innerHTML = '<img src="/data/icons8-question-mark-50.png" alt="Unknown">'; // Question mark icon (if undefined)
                         break;
                 }
-
-
-
                 var productTypeElement = document.getElementById("productType_@pet.Id"); //makes sure that the element being assigned 
                 productTypeElement.innerHTML = ""; // Clear the content of the productType element (won't show the type text)
                 productTypeElement.appendChild(newProduct); // Append the created icon element to the pet type
             </script>
         }
-
-
-
     </tbody>
 </table>
 </html>
