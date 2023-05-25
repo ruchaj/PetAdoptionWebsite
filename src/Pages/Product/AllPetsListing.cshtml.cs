@@ -14,6 +14,17 @@ namespace ContosoCrafts.WebSite.Pages.Product
     public class AllPetsListingModel : PageModel
     {
         /// <summary>
+        /// Defines Password for AllPetsListingModel 
+        /// </summary>
+        public string Password {get;set;}
+
+        /// <summary>
+        ///Get the user's input for AllPetsListingModel 
+        /// </summary>
+        [BindProperty(Name = "password", SupportsGet = true)]
+        public string UserInput { get;set;}
+
+        /// <summary>
         /// Defines PetService for AllPetsListingModel 
         /// </summary>
         public JsonFileProductService PetService { get; }
@@ -31,9 +42,18 @@ namespace ContosoCrafts.WebSite.Pages.Product
         }
 
         //Gets all the pets in the allpets listing with the status available.
-        public void OnGet()
+        public IActionResult OnGet(string password)
         {
+            Password = password;
             Pets = PetService.GetProductsWithStatus("available");
+            return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            Password = $"{UserInput}";
+            return RedirectToPage("./AllPetsListing", new { password = Password }) ;
+            
         }
 
     }
