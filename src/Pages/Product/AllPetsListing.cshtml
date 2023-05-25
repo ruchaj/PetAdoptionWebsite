@@ -23,14 +23,16 @@
 }
 <!DOCTYPE html>
 <html>
+    <!--Format the table that holds pet information-->
     <style>
-        <!--Format the table that holds pet information-->
         .styled-table {
             border-collapse: collapse;
             margin: 25px 0;
             font-size: 0.9em;
             font-family: sans-serif;
             width: 100%;
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
 
@@ -50,16 +52,16 @@
             border-bottom: 1px solid #ffffff;
         }
 
-        table {
-            width: 100%;
-            margin: 25px 0;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #fff2d7;
         }
-        td, th {
-            padding: 15px 12px;
+
+        .styled-table tbody tr:nth-of-type(odd) {
+            background-color: #fff9ec;
         }
     </style>
 
+    <!--Page header-->
     <header>
     <h1>All available pets:</h1>
     </header>
@@ -151,8 +153,8 @@
                 <th>Update Information</th>
             </tr>
         </thead>
-        <tbody>
 
+        <tbody>
             <!--Headers and information, will display pets of the breed requested or all pets, and shows thet types of each pet.-->
             @foreach (var pet in filteredPets)
             {
