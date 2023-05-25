@@ -26,6 +26,24 @@ namespace UnitTests.Pages.Product.Read
             {
             };
         }
+
+
+        /// <summary>
+        /// Test userInput is as expected.
+        /// </summary>
+        [Test]
+        public void Test_validPhone_should_returnvalue()
+        {
+            // Arrange
+
+            var expectedValue = "Test value";
+
+            // Act
+            pageModel.UserInput = expectedValue;
+
+            // Assert
+            Assert.AreEqual(expectedValue, pageModel.UserInput);
+        }
         #endregion TestSetup
 
         #region OnGet
@@ -38,7 +56,7 @@ namespace UnitTests.Pages.Product.Read
             // Arrange
 
             // Act
-            pageModel.OnGet("1");
+            pageModel.OnGet("1","seattleu");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
@@ -56,8 +74,8 @@ namespace UnitTests.Pages.Product.Read
             // Arrange
 
             // Act
-            pageModel.OnGet("");
-            var result = (RedirectToPageResult)pageModel.OnGet("");
+            pageModel.OnGet("", "");
+            var result = (RedirectToPageResult)pageModel.OnGet("","");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
