@@ -8,7 +8,11 @@
     "Location": "Seatte, WA",
     "Description": "Playful,  Socialable, Curiosity",
     "Cost": "$500",
-    "Ratings": null,
+    "Ratings": [
+      5,
+      2,
+      3
+    ]
     "ProductType": 4,
     "Status": "available",
     "Comments": [],
