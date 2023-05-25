@@ -41,10 +41,14 @@
     <p>Description: @Model.Product.Description</p>
 </div>
 
+
 <!--Button for deleting and updating activities, and a button to adopt pet-->
     <div class="row">
-        <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Delete</a>
-        <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Update</a>
+        @if (Model.Password == "seattleu")
+        {
+            <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Delete</a>
+            <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Update</a>
+        }
         <a asp-page="Customer" asp-route-id="@Model.Product.Id" class="btn adopt-btn">Adopt</a>
 
 
