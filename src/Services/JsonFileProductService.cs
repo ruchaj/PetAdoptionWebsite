@@ -196,6 +196,7 @@ namespace ContosoCrafts.WebSite.Services
             productData.Name = data.Name;
             productData.ProductType = data.ProductType;
             productData.Ratings = data.Ratings;
+            productData.Comments = data.Comments;
             productData.Image = data.Image;
             productData.Lat= productData.Lat;
             productData.Lng= productData.Lng;
