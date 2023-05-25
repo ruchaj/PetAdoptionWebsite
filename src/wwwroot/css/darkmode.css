@@ -124,6 +124,43 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
 }
+
+/* styling for table */
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+    .styled-table thead tr {
+        background-color: #B40E0E;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #ffffff;
+    }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #3f3f3f;
+        }
+
+        .styled-table tbody tr:nth-of-type(odd) {
+            background-color: #282828;
+        }
+
 /*Adds a style element for the card columns, centering them on the page and displaying them as only two per row*/
 .card-columns {
     display: flex-grid;
