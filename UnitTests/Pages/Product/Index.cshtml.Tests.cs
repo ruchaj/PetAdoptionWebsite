@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
+using ContosoCrafts.WebSite.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UnitTests.Pages.Product.Index
 {
@@ -32,6 +34,40 @@ namespace UnitTests.Pages.Product.Index
             };
         }
 
+        /// <summary>
+        /// Test password's output is as expected.
+        /// </summary>
+        [Test]
+        public void Test_validName_should_returnvalue()
+        {
+            // Arrange
+
+            var expectedValue = "Test value";
+
+            // Act
+            pageModel.Password = expectedValue;
+
+            // Assert
+            Assert.AreEqual(expectedValue, pageModel.Password);
+        }
+
+        /// <summary>
+        /// Test userInput is as expected.
+        /// </summary>
+        [Test]
+        public void Test_validPhone_should_returnvalue()
+        {
+            // Arrange
+
+            var expectedValue = "Test value";
+
+            // Act
+            pageModel.UserInput = expectedValue;
+
+            // Assert
+            Assert.AreEqual(expectedValue, pageModel.UserInput);
+        }
+
 
 
         #endregion TestSetup
@@ -47,7 +83,7 @@ namespace UnitTests.Pages.Product.Index
 
 
             // Act
-            pageModel.OnGet();
+            pageModel.OnGet("seattleu");
 
 
 
@@ -56,5 +92,25 @@ namespace UnitTests.Pages.Product.Index
             Assert.AreEqual(true, pageModel.Pets.ToList().Any());
         }
         #endregion OnGet
-    }
+
+        /// <summary>
+        /// Testing a valid call to the OnPost method.
+        /// </summary>
+        [Test]
+        public void OnPost_ReturnsRedirectToPageWithCorrectParameters()
+        {
+            // Arrange
+            var expectedUserInput = "examplePassword";
+            var expectedPassword = "";
+            var expectedPageName = "./AllPetsListing";
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expectedPageName, result.PageName);
+            Assert.AreEqual(expectedPassword, result.RouteValues["password"]);
+        }
+    }
 }
