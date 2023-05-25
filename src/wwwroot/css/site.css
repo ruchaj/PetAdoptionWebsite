@@ -13,6 +13,31 @@ for details on configuring this project to bundle and minify static web assets. 
     -webkit-transform-style: preserve-3d;
 }
 
+/*Styling for password section*/
+.textbox-pass {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.pass-form-row {
+    display: flex;
+    align-items: center;
+}
+/*Styling for password button*/
+.submit-button-pass {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
 /* Form container */
 .customer-form-container {
     max-width: 500px;
