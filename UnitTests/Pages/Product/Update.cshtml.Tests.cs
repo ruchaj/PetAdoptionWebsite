@@ -76,7 +76,7 @@ namespace UnitTests.Pages.Product.Update
                 Description = "description",
                 Age = "age",
                 Breed = "breed",
-                Image = "image",
+                Image = null,
                 Cost = "cost",
                 Location= "location"
             };
@@ -87,6 +87,7 @@ namespace UnitTests.Pages.Product.Update
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("AllPetsListing"));
+            Assert.NotNull(true, pageModel.Product.Image);
         }
 
         /// <summary>
