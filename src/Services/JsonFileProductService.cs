@@ -201,6 +201,10 @@ namespace ContosoCrafts.WebSite.Services
             productData.Lat= productData.Lat;
             productData.Lng= productData.Lng;
 
+            if(productData.Image == null)
+            {
+                productData.Image = "/data/errorlogo.svg";
+            }
             //Save
             SaveData(products);
 
