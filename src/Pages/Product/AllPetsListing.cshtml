@@ -41,6 +41,11 @@
         </div>
     </form>
 
+    @if (Model.Password != null && Model.Password != "seattleu")
+    {
+        <p style="color:red;font-weight:bold">*Warning!! Wrong Password. The modify mode is not enabled</p>
+    }
+
     <!--Button to create a new pet-->
     <div class="container">
         <a asp-page="Create" class="btn btn-link">Click here to add an adoptable pet to our website</a>
