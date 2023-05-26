@@ -42,6 +42,8 @@
                         darkMode.disabled = !isDarkMode;
                         // Set theme to current mode
                         localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+                        location.reload();
+
                     }
                     //Check current mode if light or dark
                     var currMode = localStorage.getItem("theme");
