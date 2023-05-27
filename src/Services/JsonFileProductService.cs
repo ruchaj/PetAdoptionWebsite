@@ -158,7 +158,7 @@ namespace ContosoCrafts.WebSite.Services
                 Id = System.Guid.NewGuid().ToString(),
                 Name = "Enter Name",
                 Description = "Enter Description",
-                Location = "Enter Location",
+                Location = "Seattle, WA",
                 Age = "Enter Age",
                 Breed = "Enter Breed",
                 Cost = "Enter Cost",
@@ -169,6 +169,11 @@ namespace ContosoCrafts.WebSite.Services
                 Lat ="0.0",
                 Lng = "0.0"
             };
+
+             (double latitude, double longitude) = GeocodingService.GetCoordinates(newPet.Location);
+
+            newPet.Lat = latitude.ToString();
+            newPet.Lng = longitude.ToString();
 
             // Get the current set, and append the new record to it.
             var dataSet = GetProducts();
@@ -205,6 +210,11 @@ namespace ContosoCrafts.WebSite.Services
             {
                 productData.Image = "/data/errorlogo.svg";
             }
+
+            //convert string location
+           (double latitude, double longitude) = GeocodingService.GetCoordinates(productData.Location);
+           productData.Lat = latitude.ToString();
+           productData.Lng = longitude.ToString();
             //Save
             SaveData(products);
 
