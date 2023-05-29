@@ -7,13 +7,17 @@
 @{
     string searchQuery = Request.Query["search"];
     string searchBy = Request.Query["searchBy"];
+    float maxCost = 0;
     var filteredPets = Model.Pets;
 
     if (!string.IsNullOrEmpty(searchQuery))
     {
-        if (searchBy == "cost") // searchBy == "cost"
+        if (searchBy == "cost") // searchBy == "cost" - search option that exists for people who want to see pets under a specific price
         {
-            filteredPets = filteredPets.Where(pet => pet.Cost.ToString().Contains(searchQuery)).ToList();
+            if (float.TryParse(searchQuery, out maxCost))
+            {
+                filteredPets = filteredPets.Where(pet => pet.Cost <= maxCost).ToList();
+            }
         }
         else // searchBy == "breed" or default
         {
@@ -73,8 +77,7 @@
             }
         </ul>
     </div>
-
-    <!--HTMl styling for the cost categories. Uses all pets and gets the price of each.-->
+    <!--Cost buttons for those who want to search by a specific price only.-->
     <div id="costSection" style="display: none;">
         <h2>All Costs:</h2>
         <ul>
