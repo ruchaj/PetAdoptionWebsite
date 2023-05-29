@@ -161,7 +161,7 @@ namespace ContosoCrafts.WebSite.Services
                 Location = "Seattle, WA",
                 Age = "Enter Age",
                 Breed = "Enter Breed",
-                Cost = "Enter Cost",
+                Cost = 0,
                 ProductType=0,
                 Image = "",
                 //status of the newly created pets are always available
