@@ -23,7 +23,7 @@ namespace ContosoCrafts.WebSite.Models.Tests
                 Breed = "Persian",
                 Location = "New York",
                 Description = "A fluffy cat",
-                Cost = "$50",
+                Cost = 50,
                 Ratings = new int[] { 4, 5 },
             };
 
@@ -40,7 +40,7 @@ namespace ContosoCrafts.WebSite.Models.Tests
             Assert.AreEqual("Persian", deserializedProduct.Breed);
             Assert.AreEqual("New York", deserializedProduct.Location);
             Assert.AreEqual("A fluffy cat", deserializedProduct.Description);
-            Assert.AreEqual("$50", deserializedProduct.Cost);
+            Assert.AreEqual(50, deserializedProduct.Cost);
             Assert.AreEqual(new int[] { 4, 5 }, deserializedProduct.Ratings);
             Assert.AreEqual("0.0", product.Lat); 
             Assert.AreEqual("0.0", product.Lng);
