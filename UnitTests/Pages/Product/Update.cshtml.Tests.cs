@@ -77,7 +77,7 @@ namespace UnitTests.Pages.Product.Update
                 Age = "age",
                 Breed = "breed",
                 Image = null,
-                Cost = "cost",
+                Cost = 0,
                 Location= "location"
             };
 
