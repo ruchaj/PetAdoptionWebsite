@@ -3,25 +3,36 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 
-@*This function keeps the original design of showing name, image, and breed from previous sprint, but modifies it to pull the pets from featured pets*@
-<div class="card-columns">
-@foreach (var product in ProductService.GetProducts())
-{
-    <div class="card">
-        <div class="card-img" style="background-image: url('@product.Image');">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">@product.Name/@product.Age</h5>
-            <h5 class="card-title">@product.Breed</h5>
-            
-        </div>
-        <div class="card-footer">
-            <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" id="MoreInfoButton_@product.Id"
-              data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
-            </small>
-        </div>
-    </div>
+@{
+    var productsByType = ProductService.GetProducts().GroupBy(p => p.ProductType);
 }
+<div class="card-rows">
+    @foreach (var group in productsByType)
+    {
+        <h3>@group.Key</h3>
+
+        <div class="card-group">
+            @foreach (var product in group)
+            {
+                <div class="card">
+                    <div class="card-img" style="background-image: url('@product.Image');"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name/@product.Age</h5>
+                        <h5 class="card-title">@product.Breed</h5>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfoButton_@product.Id"
+                                    data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                                More Info
+                            </button>
+                        </small>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
 </div>
 <!--Adds the petinfo class to the card, giving it the same styling as the petinfo page.-->
 @if(selectedProduct != null)
