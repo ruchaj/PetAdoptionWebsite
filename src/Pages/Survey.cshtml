@@ -4,16 +4,28 @@
 @{
     ViewData["Title"] = "Survey";
 }
+<style>
+    table {
+        width: 100%
+    }
 
-
+    td, th {
+        padding: 8px;
+    }
+</style>
 
 
 @if (!string.IsNullOrEmpty(Model.Message))
 {
     <h1>Result</h1>
-    <div>
+   
         <p>@Model.Message</p>
-    </div>
+        @foreach(var pet in Model.Pets)
+        {
+            
+            <h3>@Html.DisplayFor(modelItem => @pet.Name)</h3>
+            <img src="@pet.Image" alt="Pet Image" height="200" width="200">
+        }
 }
 
 else
