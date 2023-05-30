@@ -1,12 +1,18 @@
+using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages
 {
     public class SurveyModel : PageModel
     {
+        
+
         //Define what the final result is after the users take the survey
         public string Message { get; set; }
 
@@ -53,10 +59,29 @@ namespace ContosoCrafts.WebSite.Pages
         //place holder for question 5
         public string Question5 { get; set; } = "5. What is the reason behind your desire to have a pet?";
 
+        /// <summary>
+        /// Defines PetService for AllPetsListingModel 
+        /// </summary>
+        public JsonFileProductService PetService { get; }
+
+
+        /// <summary>
+        /// Creates a product model that specifies the Products as Pets
+        /// </summary>
+        public IEnumerable<ProductModel> Pets { get; private set; }
+
+   
+        //model to initialize AllPetsListingModel
+        public SurveyModel(JsonFileProductService petService)
+        {
+
+            PetService = petService;
+        }
 
         public void OnGet()
         {
-            //nothing to do here for now
+            
+            //nothing to do now
         }
 
 
@@ -106,6 +131,9 @@ namespace ContosoCrafts.WebSite.Pages
 
             //assign Message with result
             Message = result;
+            Pets = PetService.GetProductsWithProductType(ProductTypeEnum.Dog);
+            
+            
 
         
         }
