@@ -9,9 +9,14 @@ namespace ContosoCrafts.WebSite.Services
     {
         private const string GeocodingApiUrl = "https://maps.googleapis.com/maps/api/geocode/json";
 
+        /// <summary>
+        /// Translate string location into lat and lng
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         public static (double Latitude, double Longitude) GetCoordinates(string location)
         {
-            Debug.WriteLine("Location: "+location);
+
             string url = $"{GeocodingApiUrl}?address={Uri.EscapeDataString(location)}&key=AIzaSyAJ3rjDrbdnvWJer7FbGmIAbNdre6um3p8";
             string responseJson;
 
@@ -21,13 +26,21 @@ namespace ContosoCrafts.WebSite.Services
             }
 
             JObject response = JObject.Parse(responseJson);
+            //Debug.WriteLine(location+" "+response);
 
-            Debug.WriteLine(response);
+            if ((string)response["status"] == "ZERO_RESULTS")
+            {
+                return (0, 0);
+            }
+
 
             double latitude = (double)response["results"][0]["geometry"]["location"]["lat"];
             double longitude = (double)response["results"][0]["geometry"]["location"]["lng"];
 
+            //Debug.WriteLine(latitude + " " + longitude);
+
             return (latitude, longitude);
+
         }
     }
 }
