@@ -3,14 +3,45 @@ using Moq;
 using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
-namespace UnitTests.Pages
+
+
+namespace UnitTests.Pages.Survey
 {
+    
     /// <summary>
     /// A class to test the Survey page.
     /// </summary>
     public class Survey
     {
+        #region TestSetup
+
+        /// <summary>
+        /// Page context for the Razor page.
+        /// </summary>
+        public static PageContext pageContext;
+
+        /// <summary>
+        /// Create a public page model for BlogAndStories.
+        /// </summary>
+        public static SurveyModel pageModel;
+
+      
+
+        /// <summary>
+        /// Set up the tests herein.
+        /// </summary>
+        [SetUp]
+        public void TestInitialize()
+        {
+            var MockLoggerDirect = Mock.Of<ILogger<SurveyModel>>();
+
+            pageModel = new SurveyModel(TestHelper.ProductService)
+            {
+            };
+        }
+        #endregion TestSetup
         /// <summary>
         /// Test the GetPoint method.
         /// </summary>
@@ -18,16 +49,18 @@ namespace UnitTests.Pages
         public void GetPoint_ReturnsCorrectPoint()
         {
             // Arrange
-            var model = new SurveyModel();
+            
             var responses = new[] { "smallfish", "largefish", "cat", "smalldog", "other", "mediumdog", "largedog" };
 
             // Act
-            var point = model.GetPoint(responses);
+            var point = pageModel.GetPoint(responses);
 
             // Assert
             Assert.AreEqual(28, point);
         }
 
+
+        #region OnGet
         /// <summary>
         /// Test the OnGet method.
         /// </summary>
@@ -35,24 +68,44 @@ namespace UnitTests.Pages
         public void OnGet_ReturnsEmpty()
         {
             // Arrange
-            var model = new SurveyModel();
+
 
             // Act
-            model.OnGet();
+            pageModel.OnGet();
 
             // Assert
-            Assert.That(model.Question1Answer, Is.Null);
-            Assert.That(model.Question2Answer, Is.Null);
-            Assert.That(model.Question3Answer, Is.Null);
-            Assert.That(model.Question4Answer, Is.Null);
-            Assert.That(model.Question5Answer, Is.Null);
-            Assert.That(model.Question1, Is.EqualTo("1. In the event of unexpected expenses, what is the maximum amount you are willing to spend annually on your pet?"));
-            Assert.That(model.Question2, Is.EqualTo("2. How much time are you willing to spend cleaning up after your pets each day/week without feeling frustrated?"));
-            Assert.That(model.Question3, Is.EqualTo("3. How much time can you dedicate to spending with your pets after a busy day?"));
-            Assert.That(model.Question4, Is.EqualTo("4. Are you comfortable allowing your pet to roam free in your living space or do they need to be kept in a cage or tank?"));
-            Assert.That(model.Question5, Is.EqualTo("5. What is the reason behind your desire to have a pet?"));
+            Assert.That(pageModel.Question1Answer, Is.Null);
+            Assert.That(pageModel.Question2Answer, Is.Null);
+            Assert.That(pageModel.Question3Answer, Is.Null);
+            Assert.That(pageModel.Question4Answer, Is.Null);
+            Assert.That(pageModel.Question5Answer, Is.Null);
+            Assert.That(pageModel.Question1, Is.EqualTo("1. In the event of unexpected expenses, what is the maximum amount you are willing to spend annually on your pet?"));
+            Assert.That(pageModel.Question2, Is.EqualTo("2. How much time are you willing to spend cleaning up after your pets each day/week without feeling frustrated?"));
+            Assert.That(pageModel.Question3, Is.EqualTo("3. How much time can you dedicate to spending with your pets after a busy day?"));
+            Assert.That(pageModel.Question4, Is.EqualTo("4. Are you comfortable allowing your pet to roam free in your living space or do they need to be kept in a cage or tank?"));
+            Assert.That(pageModel.Question5, Is.EqualTo("5. What is the reason behind your desire to have a pet?"));
         }
 
+        /// <summary>
+        /// Tests the OnGet method of the BlogAndStories page.
+        /// </summary>
+        [Test]
+        public void OnGet_Valid_Activity_ShouldReturn_True()
+        {
+            // Arrange
+
+
+            // Act
+            pageModel.OnGet();
+
+
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+    
+        }
+        #endregion OnGet
+        
         /// <summary>
         /// Test question 1's output is as expected.
         /// </summary>
@@ -60,14 +113,14 @@ namespace UnitTests.Pages
         public void TestQuestion1Answer()
         {
             // Arrange
-            var model = new SurveyModel();
+         
             var expectedValue = "Test value";
 
             // Act
-            model.Question1Answer = expectedValue;
+            pageModel.Question1Answer = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, model.Question1Answer);
+            Assert.AreEqual(expectedValue, pageModel.Question1Answer);
         }
 
         /// <summary>
@@ -77,14 +130,14 @@ namespace UnitTests.Pages
         public void TestQuestion2Answer()
         {
             // Arrange
-            var model = new SurveyModel();
+
             var expectedValue = "Test value";
 
             // Act
-            model.Question2Answer = expectedValue;
+            pageModel.Question2Answer = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, model.Question2Answer);
+            Assert.AreEqual(expectedValue, pageModel.Question2Answer);
         }
 
         /// <summary>
@@ -94,14 +147,14 @@ namespace UnitTests.Pages
         public void TestQuestion3Answer()
         {
             // Arrange
-            var model = new SurveyModel();
+  
             var expectedValue = "Test value";
 
             // Act
-            model.Question3Answer = expectedValue;
+            pageModel.Question3Answer = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, model.Question3Answer);
+            Assert.AreEqual(expectedValue, pageModel.Question3Answer);
         }
 
         /// <summary>
@@ -111,14 +164,14 @@ namespace UnitTests.Pages
         public void TestQuestion4Answer()
         {
             // Arrange
-            var model = new SurveyModel();
+
             var expectedValue = "Test value";
 
             // Act
-            model.Question4Answer = expectedValue;
+            pageModel.Question4Answer = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, model.Question4Answer);
+            Assert.AreEqual(expectedValue, pageModel.Question4Answer);
         }
 
         /// <summary>
@@ -128,14 +181,14 @@ namespace UnitTests.Pages
         public void TestQuestion5Answer()
         {
             // Arrange
-            var model = new SurveyModel();
+
             var expectedValue = "Test value";
 
             // Act
-            model.Question5Answer = expectedValue;
+            pageModel.Question5Answer = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, model.Question5Answer);
+            Assert.AreEqual(expectedValue, pageModel.Question5Answer);
         }
 
         /// <summary>
@@ -145,14 +198,14 @@ namespace UnitTests.Pages
         public void SetQuestion1_ShouldUpdateQuestion1Value()
         {
             // Arrange
-            var survey = new SurveyModel();
+
             var expectedValue = "What is your favorite color?";
 
             // Act
-            survey.Question1 = expectedValue;
+            pageModel.Question1 = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, survey.Question1);
+            Assert.AreEqual(expectedValue, pageModel.Question1);
         }
 
         /// <summary>
@@ -162,14 +215,14 @@ namespace UnitTests.Pages
         public void SetQuestion2_ShouldUpdateQuestion1Value()
         {
             // Arrange
-            var survey = new SurveyModel();
+
             var expectedValue = "What is your favorite dog?";
 
             // Act
-            survey.Question2 = expectedValue;
+            pageModel.Question2 = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, survey.Question2);
+            Assert.AreEqual(expectedValue, pageModel.Question2);
         }
 
         /// <summary>
@@ -179,14 +232,14 @@ namespace UnitTests.Pages
         public void SetQuestion3_ShouldUpdateQuestion1Value()
         {
             // Arrange
-            var survey = new SurveyModel();
+       
             var expectedValue = "What is your favorite city?";
 
             // Act
-            survey.Question3 = expectedValue;
+            pageModel.Question3 = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, survey.Question3);
+            Assert.AreEqual(expectedValue, pageModel.Question3);
         }
 
         /// <summary>
@@ -196,14 +249,14 @@ namespace UnitTests.Pages
         public void SetQuestion4_ShouldUpdateQuestion1Value()
         {
             // Arrange
-            var survey = new SurveyModel();
+  
             var expectedValue = "What is your favorite flower?";
 
             // Act
-            survey.Question4 = expectedValue;
+            pageModel.Question4 = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, survey.Question4);
+            Assert.AreEqual(expectedValue, pageModel.Question4);
         }
 
         /// <summary>
@@ -213,14 +266,14 @@ namespace UnitTests.Pages
         public void SetQuestion5_ShouldUpdateQuestion1Value()
         {
             // Arrange
-            var survey = new SurveyModel();
+   
             var expectedValue = "What is your favorite food?";
 
             // Act
-            survey.Question5 = expectedValue;
+            pageModel.Question5 = expectedValue;
 
             // Assert
-            Assert.AreEqual(expectedValue, survey.Question5);
+            Assert.AreEqual(expectedValue, pageModel.Question5);
         }
 
         /// <summary>
@@ -231,19 +284,19 @@ namespace UnitTests.Pages
         {
 
             // Arrange
-            var surveyPageModel = new SurveyModel();
-            surveyPageModel.Question1Answer = "smallfish,largefish,other";
-            surveyPageModel.Question2Answer = "smallfish,largefish,other";
-            surveyPageModel.Question3Answer = "smallfish,largefish,other";
-            surveyPageModel.Question4Answer = "smallfish,largefish,other";
-            surveyPageModel.Question5Answer = "smallfish,largefish,other";
+
+            pageModel.Question1Answer = "smallfish,largefish,other";
+            pageModel.Question2Answer = "smallfish,largefish,other";
+            pageModel.Question3Answer = "smallfish,largefish,other";
+            pageModel.Question4Answer = "smallfish,largefish,other";
+            pageModel.Question5Answer = "smallfish,largefish,other";
 
 
             // Act
-            surveyPageModel.OnPost();
+            pageModel.OnPost();
 
             // Assert
-            Assert.AreEqual("Your perfect pet can be a small pet such as hamster, chinchillas! They are the best choice for beginners", surveyPageModel.Message);
+            Assert.AreEqual("Your perfect pet can be a small pet such as hamster, chinchillas! They are the best choice for beginners", pageModel.Message);
 
         }
 
@@ -255,19 +308,19 @@ namespace UnitTests.Pages
         {
 
             // Arrange
-            var surveyPageModel = new SurveyModel();
-            surveyPageModel.Question1Answer = "smallfish,largefish";
-            surveyPageModel.Question2Answer = "smallfish,largefish";
-            surveyPageModel.Question3Answer = "smallfish,largefish";
-            surveyPageModel.Question4Answer = "smallfish,largefish";
-            surveyPageModel.Question5Answer = "smallfish,largefish";
+
+            pageModel.Question1Answer = "smallfish,largefish";
+            pageModel.Question2Answer = "smallfish,largefish";
+            pageModel.Question3Answer = "smallfish,largefish";
+            pageModel.Question4Answer = "smallfish,largefish";
+            pageModel.Question5Answer = "smallfish,largefish";
 
 
             // Act
-            surveyPageModel.OnPost();
+            pageModel.OnPost();
 
             // Assert
-            Assert.AreEqual("Your perfect pet can be a fish or a lot of fishes! They are cute and very easy to take care of", surveyPageModel.Message);
+            Assert.AreEqual("Your perfect pet can be a fish or a lot of fishes! They are cute and very easy to take care of", pageModel.Message);
 
         }
 
@@ -278,19 +331,19 @@ namespace UnitTests.Pages
         public void OnPost_ReturnsCorrectResult_ForPointValue74()
         {
             // Arrange
-            var surveyPageModel = new SurveyModel();
-            surveyPageModel.Question1Answer = "smallfish,largefish,cat,other";
-            surveyPageModel.Question2Answer = "smallfish,largefish,cat";
-            surveyPageModel.Question3Answer = "smallfish,largefish,cat,other";
-            surveyPageModel.Question4Answer = "smallfish,largefish,cat,other";
-            surveyPageModel.Question5Answer = "smallfish,largefish,other,cat";
+
+            pageModel.Question1Answer = "smallfish,largefish,cat,other";
+            pageModel.Question2Answer = "smallfish,largefish,cat";
+            pageModel.Question3Answer = "smallfish,largefish,cat,other";
+            pageModel.Question4Answer = "smallfish,largefish,cat,other";
+            pageModel.Question5Answer = "smallfish,largefish,other,cat";
 
 
             // Act
-            surveyPageModel.OnPost();
+            pageModel.OnPost();
 
             // Assert
-            Assert.AreEqual("Your perfect pet can be a cat! They are calm and good companions", surveyPageModel.Message);
+            Assert.AreEqual("Your perfect pet can be a cat! They are calm and good companions", pageModel.Message);
 
         }
 
@@ -301,18 +354,18 @@ namespace UnitTests.Pages
         public void OnPost_ReturnsCorrectResult_ForPointValue79()
         {
             // Arrange
-            var surveyPageModel = new SurveyModel();
-            surveyPageModel.Question1Answer = "smallfish,largefish,cat,other,smalldog";
-            surveyPageModel.Question2Answer = "smallfish,largefish,cat,mediumdog,smalldog";
-            surveyPageModel.Question3Answer = "smallfish,largefish,cat,other,smalldog";
-            surveyPageModel.Question4Answer = "smallfish,largefish,cat,other,mediumdog";
-            surveyPageModel.Question5Answer = "smallfish,largefish,other,cat,smalldog";
+
+            pageModel.Question1Answer = "smallfish,largefish,cat,other,smalldog";
+            pageModel.Question2Answer = "smallfish,largefish,cat,mediumdog,smalldog";
+            pageModel.Question3Answer = "smallfish,largefish,cat,other,smalldog";
+            pageModel.Question4Answer = "smallfish,largefish,cat,other,mediumdog";
+            pageModel.Question5Answer = "smallfish,largefish,other,cat,smalldog";
 
             // Act
-            surveyPageModel.OnPost();
+            pageModel.OnPost();
 
             // Assert
-            Assert.AreEqual("Your perfect pet can be a small or medium dog! They are cute and fun to play with", surveyPageModel.Message);
+            Assert.AreEqual("Your perfect pet can be a small or medium dog! They are cute and fun to play with", pageModel.Message);
 
         }
 
@@ -323,18 +376,18 @@ namespace UnitTests.Pages
         public void OnPost_ReturnsCorrectResult_ForPointValue80()
         {
             // Arrange
-            var surveyPageModel = new SurveyModel();
-            surveyPageModel.Question1Answer = "smallfish,largefish,cat,other,smalldog,mediumdog,largedog";
-            surveyPageModel.Question2Answer = "smallfish,largefish,cat,mediumdog,smalldog,largedog";
-            surveyPageModel.Question3Answer = "smallfish,largefish,cat,other,mediumdog,smalldog,largedog";
-            surveyPageModel.Question4Answer = "smallfish,largefish,cat,other,mediumdog,smalldog,largedog";
-            surveyPageModel.Question5Answer = "smallfish,largefish,other,cat,mediumdog,smalldog,largedog";
+
+            pageModel.Question1Answer = "smallfish,largefish,cat,other,smalldog,mediumdog,largedog";
+            pageModel.Question2Answer = "smallfish,largefish,cat,mediumdog,smalldog,largedog";
+            pageModel.Question3Answer = "smallfish,largefish,cat,other,mediumdog,smalldog,largedog";
+            pageModel.Question4Answer = "smallfish,largefish,cat,other,mediumdog,smalldog,largedog";
+            pageModel.Question5Answer = "smallfish,largefish,other,cat,mediumdog,smalldog,largedog";
 
             // Act
-            surveyPageModel.OnPost();
+            pageModel.OnPost();
 
             // Assert
-            Assert.AreEqual("Your perfect pet can be a big dog! They are very protective and loyal! They are a great companion!", surveyPageModel.Message);
+            Assert.AreEqual("Your perfect pet can be a big dog! They are very protective and loyal! They are a great companion!", pageModel.Message);
         }
     }
 }
