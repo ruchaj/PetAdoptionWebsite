@@ -88,6 +88,19 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
+        /// <summary>
+        /// Show pets with given Product Type.
+        /// </summary>
+        /// <param name="productType"></param>
+        /// <returns></returns>
+        public IEnumerable<ProductModel> GetProductsWithProductType(ProductTypeEnum productType)
+        {
+
+            var products = GetProducts().Where(p => p.ProductType == productType);
+            return products;
+
+        }
+
 
 
 
