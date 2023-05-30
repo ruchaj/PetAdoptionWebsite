@@ -114,7 +114,11 @@ for details on configuring this project to bundle and minify static web assets. 
     opacity: .8;
 }
 
-
+.card-rows .card-body {
+    height: 100px;
+    font-family: 'Nunito', sans-serif;
+    background: #282828;
+}
 .card-footer {
     background: #282828;
 }
