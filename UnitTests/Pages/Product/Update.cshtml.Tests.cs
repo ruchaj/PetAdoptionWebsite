@@ -78,7 +78,7 @@ namespace UnitTests.Pages.Product.Update
                 Breed = "breed",
                 Image = null,
                 Cost = 0,
-                Location= "location"
+                Location= "Seattle,WA"
             };
 
             // Act
