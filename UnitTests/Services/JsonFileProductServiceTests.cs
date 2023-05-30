@@ -122,5 +122,24 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual("adopted", product.Status);
         }
         #endregion Status
+
+        #region PetType
+        /// <summary>
+        /// Testing a call to updateStatus, which should update status.
+        /// </summary>
+        [Test]
+        public void ReturnProductType_Should_Return_Given__ProductType()
+        {
+            // Arrange
+        
+
+            // Act
+            var products = TestHelper.ProductService.GetProductsWithProductType(ProductTypeEnum.Dog);
+
+            // Assert
+            Assert.NotNull(products);
+            Assert.AreEqual(ProductTypeEnum.Dog, products.FirstOrDefault().ProductType);
+        }
+        #endregion PetType
     }
 }
