@@ -1,5 +1,8 @@
 ﻿namespace ContosoCrafts.WebSite.Models
 {
+    /// <summary>
+    /// A datastructure to declare producttype .
+    /// </summary>
     public enum ProductTypeEnum
     {
         Undefined = 0,
@@ -11,6 +14,10 @@
 
     public static class ProductTypeEnumExtensions
     {
+        /// <summary>
+        /// A class to display producttype .
+        /// </summary>
+        /// <param name="data"></param>
         public static string DisplayName(this ProductTypeEnum data)
         {
             return data switch
