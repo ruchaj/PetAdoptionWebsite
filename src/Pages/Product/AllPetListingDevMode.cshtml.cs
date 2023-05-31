@@ -41,7 +41,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
             PetService = petService;
         }
 
-        //Gets all the pets in the allpets listing with the status available.
+        /// <summary>
+        /// A class to handle OnGet() .
+        /// </summary>
         public IActionResult OnGet(string password)
         {
             Password = password;
