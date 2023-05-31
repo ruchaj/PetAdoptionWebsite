@@ -22,6 +22,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         // The data to show.
         public ProductModel Product;
+
+        /// <summary>
+        /// A class to handle OnGet() .
+        /// </summary>
         public IActionResult OnGet()
         {
             Product = ProductService.CreateData();
