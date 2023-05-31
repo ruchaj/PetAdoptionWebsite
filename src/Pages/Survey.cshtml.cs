@@ -78,10 +78,12 @@ namespace ContosoCrafts.WebSite.Pages
             PetService = petService;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            
-            //nothing to do now
+
+            Pets = PetService.GetProductsWithStatus("adopted");
+
+            return Page();
         }
 
 
@@ -109,7 +111,7 @@ namespace ContosoCrafts.WebSite.Pages
             string petType = null;
 
             //result is displayed based on point values.
-            if(point >=1&&point<= 25)
+            if(point<= 25)
             {
                 result = $"Your perfect pet can be a fish or a lot of fishes! They are cute and very easy to take care of";
                 petType = "fish";
