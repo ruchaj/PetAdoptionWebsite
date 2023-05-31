@@ -78,6 +78,9 @@ namespace ContosoCrafts.WebSite.Pages
             PetService = petService;
         }
 
+        /// <summary>
+        /// A class to handle the OnGet()
+        /// </summary>
         public IActionResult OnGet()
         {
 
