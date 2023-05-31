@@ -96,7 +96,7 @@ namespace ContosoCrafts.WebSite.Services
         public IEnumerable<ProductModel> GetProductsWithProductType(ProductTypeEnum productType)
         {
 
-            var products = GetProducts().Where(p => p.ProductType == productType);
+            var products = GetProductsWithStatus("available").Where(p => p.ProductType == productType);
             return products;
 
         }
