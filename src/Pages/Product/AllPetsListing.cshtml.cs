@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 // MT: This page will show all available pets.
@@ -44,7 +46,8 @@ namespace ContosoCrafts.WebSite.Pages.Product
         //Gets all the pets in the allpets listing with the status available.
         public IActionResult OnGet(string password)
         {
-            Password = password;
+          
+            Password=password;
             Pets = PetService.GetProductsWithStatus("available");
             return Page();
         }
@@ -52,8 +55,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public IActionResult OnPost()
         {
             Password = $"{UserInput}";
-            return RedirectToPage("./AllPetsListing", new { password = Password }) ;
-            
+            if (Password == "seattleu") return RedirectToPage("./AllPetListingDevMode",new { password = Password });
+            return RedirectToPage("./AllPetsListing", new {password=Password});
+
         }
 
     }
