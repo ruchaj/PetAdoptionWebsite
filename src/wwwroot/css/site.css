@@ -82,9 +82,17 @@ for details on configuring this project to bundle and minify static web assets. 
     font-weight: bold;
 }
 
-.customer-display-group input {
+/* name and picture of pet in survey page in the same row */
+.survey-display {
+    display: flex;
+    align-items: center;
+    align-content:center;
     
-    margin-left:20px;
+}
+
+
+.customer-display-group input {
+    margin-left: 20px;
 }
 
 /* Submit button */
