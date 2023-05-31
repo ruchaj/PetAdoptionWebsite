@@ -8,6 +8,10 @@ using System.Diagnostics;
 public class GeocodingServiceTests
 {
 
+    /// <summary>
+    /// A class to test if validCoordinates are returned if valid location passed
+    /// </summary>
+
     [Test]
     public void GetCoordinates_ValidLocation_ReturnsCoordinates()
     {
@@ -26,12 +30,17 @@ public class GeocodingServiceTests
         Assert.AreEqual(longitude, -122.3320708);
     }
 
+    /// <summary>
+    /// A class to test if the function return default coordinate(0,0) if invalid location passed
+    /// </summary>
+
+
     [Test]
     public void GetCoordinates_InvalidLocation_ReturnsDefaultCoordinates()
     {
         // Arrange
         string location = "Invalid Location";
-        string expectedResponse = "{\"result\": null}";
+
 
         // Act
         (double latitude, double longitude) = GeocodingService.GetCoordinates(location);
