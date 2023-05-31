@@ -75,6 +75,9 @@ namespace UnitTests.Pages.Product.Index
 
         //Tests onGet, checking if State is valid and that the page returns a list of pets
         #region OnGet
+        /// <summary>
+        /// A class to test if OnGet() function return Product if a valid password passed
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
