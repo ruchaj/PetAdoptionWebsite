@@ -22,15 +22,28 @@
         <p>@Model.Message</p>
         <br />
         <p>Please adopt these guys if you can!</p>
-        <div class="survey-display">
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!--Headers and information, will display pets of the breed requested or all pets, and shows thet types of each pet.-->
             @foreach (var pet in Model.Pets)
             {
-
-                <h3>@Html.DisplayFor(modelItem => @pet.Name)</h3>
-                <br />
-                <img src="@pet.Image" alt="Pet Image" height="200" width="200">
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => pet.Name)</td>
+                    <td><img src="@pet.Image" alt="Pet Image" height="400" width="500"></td>
+                    <td>@Html.DisplayFor(modelItem => pet.Description)</td>
+                 </tr>
             }
-        </div>
+        </tbody>
+    </table>
 }
 
 else
