@@ -106,36 +106,59 @@ namespace ContosoCrafts.WebSite.Pages
 
             //initialize result as null value
             string result = null;
+            string petType = null;
 
             //result is displayed based on point values.
-            if(point <= 25)
+            if(point >=1&&point<= 25)
             {
                 result = $"Your perfect pet can be a fish or a lot of fishes! They are cute and very easy to take care of";
+                petType = "fish";
             }
             else if (point <= 40)
             {
                 result = $"Your perfect pet can be a small pet such as hamster, chinchillas! They are the best choice for beginners";
+                petType = "other";
             }
             else if (point <= 74)
             {
                 result = $"Your perfect pet can be a cat! They are calm and good companions";
+                petType = "cat";
             }
             else if (point <= 79)
             {
                 result = $"Your perfect pet can be a small or medium dog! They are cute and fun to play with";
+                petType = "dog";
             }
             else if(point >= 80)
             {
                 result = $"Your perfect pet can be a big dog! They are very protective and loyal! They are a great companion!";
+                petType = "dog";
             }
+
 
             //assign Message with result
             Message = result;
-            Pets = PetService.GetProductsWithProductType(ProductTypeEnum.Dog);
-            
-            
+            if (petType == "fish")
+            {
+                Pets = PetService.GetProductsWithProductType(ProductTypeEnum.Fish);
+            }
+            else if (petType == "other")
+            {
+                Pets = PetService.GetProductsWithProductType(ProductTypeEnum.Other);
+            }
+            else if (petType == "cat")
+            {
+                Pets = PetService.GetProductsWithProductType(ProductTypeEnum.Cat);
+            }
+            else if (petType == "dog")
+            {
+                Pets = PetService.GetProductsWithProductType(ProductTypeEnum.Dog);
+            }
+          
 
-        
+
+
+
         }
 
 
