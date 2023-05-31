@@ -44,7 +44,6 @@
             <input type="submit" value="Submit" class="submit-button-pass"> 
         </div>
     </form>
-
     @if (Model.Password != null && Model.Password != "seattleu")
     {
         <p style="color:red;font-weight:bold">*Warning!! Wrong Password. The modify mode is not enabled</p>
@@ -133,10 +132,7 @@
                 <th>Cost</th>
                 <th>Location</th>
                 <th>Read More</th>
-                @if (Model.Password == "seattleu")
-                {
-                        <th>Update Information</th>
-                }
+     
         </tr>
         </thead>
 
@@ -149,11 +145,8 @@
                     <td id="productType_@pet.Id">@Html.DisplayFor(modelItem => pet.ProductType)</td>
                     <td>@Html.DisplayFor(modelItem => pet.Cost)</td>
                     <td>@Html.DisplayFor(modelItem => pet.Location)</td>
-                    <td><a asp-page="PetInformation" asp-route-id="@pet.Id" asp-route-password="@Model.Password">Read</a></td>
-                    @if (Model.Password == "seattleu")
-                    {
-                            <td><a asp-page="Update" asp-route-id="@pet.Id">Update</a></td>
-                    }
+                    <td><a asp-page="PetInformation" asp-route-id="@pet.Id">Read</a></td>
+                   
             </tr>
 
                 <!--Uses the pet's product type, matches it with the breed, and displays the appropriate icon.-->
