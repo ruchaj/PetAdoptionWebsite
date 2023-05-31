@@ -302,8 +302,8 @@ ul {
     background: linear-gradient(110deg, #fff 30%, #f5ddb8 60%);
 }
 .bg-footer {
-    background: -webkit-linear-gradient(110deg, #fce5b6 60%, #c93e34 60%);
-    background: -o-linear-gradient(110deg, #fce5b6 60%, #c93e34 60%);
-    background: -moz-linear-gradient(110deg, #fce5b6 60%, #c93e34 60%);
-    background: linear-gradient(110deg, #fce5b6 60%, #c93e34b 60%);
+    background: -webkit-linear-gradient(110deg, #fff 20%, #f5ddb8 70%);
+    background: -o-linear-gradient(110deg, #fff 20%, #f5ddb8 70%);
+    background: -moz-linear-gradient(110deg, #fff 20%, #f5ddb8 70%);
+    background: linear-gradient(110deg, #fff 20%, #f5ddb8 70%);
 }
