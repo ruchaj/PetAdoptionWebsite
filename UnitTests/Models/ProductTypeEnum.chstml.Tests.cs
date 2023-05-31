@@ -10,6 +10,11 @@ namespace UnitTests.Models
 {
     public class ProductTypeEnumTests
     {
+        /// <summary>
+        /// A class to test if the function return relevant producttype
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="expectedDisplayName"></param>
         [TestCase(ProductTypeEnum.Fish, "Small Freshwater, Large Saltwater")]
         [TestCase(ProductTypeEnum.Other, "Other Pets")]
         [TestCase(ProductTypeEnum.Cat, "Cats")]
