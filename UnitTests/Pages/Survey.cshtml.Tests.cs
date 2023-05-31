@@ -4,8 +4,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-
-
+using System.Linq;
 
 namespace UnitTests.Pages.Survey
 {
@@ -102,7 +101,8 @@ namespace UnitTests.Pages.Survey
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-    
+            Assert.AreEqual(true, pageModel.Pets.ToList().Any());
+
         }
         #endregion OnGet
         
