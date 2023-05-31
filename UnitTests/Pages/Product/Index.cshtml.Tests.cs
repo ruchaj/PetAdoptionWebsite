@@ -4,6 +4,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
 using Microsoft.AspNetCore.Mvc;
+using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Product.Index
 {
@@ -100,12 +101,41 @@ namespace UnitTests.Pages.Product.Index
         public void OnPost_ReturnsRedirectToPageWithCorrectParameters()
         {
             // Arrange
-            var expectedUserInput = "examplePassword";
+        
+
             var expectedPassword = "";
             var expectedPageName = "./AllPetsListing";
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expectedPageName, result.PageName);
+            Assert.AreEqual(expectedPassword, result.RouteValues["password"]);
+        }
+
+
+
+        /// <summary>
+        /// Testing a valid call to the OnPost method.
+        /// </summary>
+        [Test]
+        public void OnPost_ReturnsRedirectToPageInDevModeWithCorrectParameters()
+        {
+            // Arrange
+            
+            
+            var password = "seattleu";
+            var userInput = password;
+            pageModel.UserInput = userInput;
+
+            var expectedPassword = "seattleu";
+            var expectedPageName = "./AllPetListingDevMode";
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+         
 
             // Assert
             Assert.IsNotNull(result);
