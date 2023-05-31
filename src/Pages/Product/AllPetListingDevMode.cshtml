@@ -1,0 +1,174 @@
+﻿@page
+@model ContosoCrafts.WebSite.Pages.Product.AllPetsListingModel
+@{
+    ViewData["Title"] = "Pet Adoption";
+}
+<!--Uses user query to search for either a breed or a cost that a user asks for-->
+@{
+    string searchQuery = Request.Query["search"];
+    string searchBy = Request.Query["searchBy"];
+    float maxCost = 0;
+    var filteredPets = Model.Pets;
+
+    if (!string.IsNullOrEmpty(searchQuery))
+    {
+        if (searchBy == "cost") // searchBy == "cost" - search option that exists for people who want to see pets under a specific price
+        {
+            if (float.TryParse(searchQuery, out maxCost))
+            {
+                filteredPets = filteredPets.Where(pet => pet.Cost <= maxCost).ToList();
+            }
+        }
+        else // searchBy == "breed" or default
+        {
+            filteredPets = filteredPets.Where(pet => pet.Breed.ToLower().Contains(searchQuery.ToLower())).ToList();
+        }
+    }
+}
+<!DOCTYPE html>
+<html>
+<!--Format the table that holds pet information-->
+<style>
+
+</style>
+
+<!--Page header-->
+<header>
+    <h1>All available pets:</h1>
+    <h2>@Model.Password</h2>
+</header>
+
+<!--Button to create a new pet-->
+<div class="container">
+    <a asp-page="Create" class="btn btn-link">Click here to add an adoptable pet to our website</a>
+</div>
+
+<!--Search form to filter pets based on breed and cost, which does the search based on the searchInput function above, through a dropdown menu format.-->
+<form method="get">
+    <label for="searchInput">Search:</label>
+    <input type="text" id="searchInput" name="search" value="@searchQuery">
+    <label for="searchBySelect">Search by:</label>
+    <select id="searchBySelect" name="searchBy">
+        <option value="breed" selected>Breed</option>
+        <option value="cost">Cost</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+<!--HTMl styling for the breed categories. Uses all pets and gets the breeds of each.-->
+<div id="breedSection" style="display: none;">
+    <h2>All Breeds:</h2>
+    <ul>
+        @foreach (var product in Model.Pets)
+        {
+            <li><button type="button" class="filter-button" data-filter-type="breed" data-filter-value="@product.Breed">@product.Breed</button></li>
+        }
+    </ul>
+</div>
+<!--Cost buttons for those who want to search by a specific price only.-->
+<div id="costSection" style="display: none;">
+    <h2>All Costs:</h2>
+    <ul>
+        @foreach (var product in Model.Pets)
+        {
+            <li><button type="button" class="filter-button" data-filter-type="cost" data-filter-value="@product.Cost">@product.Cost</button></li>
+        }
+    </ul>
+</div>
+
+<!--Script to filter based on clicked element, and changes displayed categories based on which filter type is clicked.-->
+<script>
+    var breedSection = document.getElementById("breedSection");
+    var costSection = document.getElementById("costSection");
+    var filterButtons = document.getElementsByClassName("filter-button");
+
+    for (var i = 0; i < filterButtons.length; i++) {
+        filterButtons[i].addEventListener("click", function () {
+            var filterType = this.getAttribute("data-filter-type");
+            var filterValue = this.getAttribute("data-filter-value");
+
+            // Update the search input values
+            document.getElementById("searchInput").value = filterValue;
+            document.getElementById("searchBySelect").value = filterType;
+
+            // Submit the form
+            document.forms[0].submit();
+        });
+    }
+    searchBySelect.addEventListener("change", function () {
+        var selectedValue = searchBySelect.value;
+
+        if (selectedValue === "breed") {
+            breedSection.style.display = "block";
+            costSection.style.display = "none";
+        } else if (selectedValue === "cost") {
+            breedSection.style.display = "none";
+            costSection.style.display = "block";
+        } else {
+            breedSection.style.display = "none";
+            costSection.style.display = "none";
+        }
+    }
+    );
+</script>
+
+<!--Table of available pets-->
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Cost</th>
+            <th>Location</th>
+            <th>Read More</th>
+            <th>Update Information</th>
+           
+        </tr>
+    </thead>
+
+    <tbody>
+        <!--Headers and information, will display pets of the breed requested or all pets, and shows thet types of each pet.-->
+        @foreach (var pet in filteredPets)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => pet.Name)</td>
+                <td id="productType_@pet.Id">@Html.DisplayFor(modelItem => pet.ProductType)</td>
+                <td>@Html.DisplayFor(modelItem => pet.Cost)</td>
+                <td>@Html.DisplayFor(modelItem => pet.Location)</td>
+                <td><a asp-page="PetInformation" asp-route-id="@pet.Id" asp-route-password="@Model.Password">Read</a></td>
+                <td><a asp-page="Update" asp-route-id="@pet.Id">Update</a></td>
+                
+            </tr>
+
+            <!--Uses the pet's product type, matches it with the breed, and displays the appropriate icon.-->
+            <script>
+                var productType = '@pet.ProductType'; //matches to the pet in question
+                var newProduct = document.createElement("i"); //creates a new element to hold the images.
+
+                // Uses pet enum types as cases and displays the image.
+                switch (productType) {
+                    case "Fish":
+                        newProduct.innerHTML = '<img src="/data/icons8-fish-50.png" alt="Small Freshwater, Large Saltwater">'; // Fish icon
+                        break;
+                    case "Other":
+                        newProduct.innerHTML = '<img src="/data/icons8-hamster-24.png" alt="Other Pets">'; // Hamster icon
+                        break;
+                    case "Cat":
+                        newProduct.innerHTML = '<img src="/data/icons8-cat-head-50.png" alt="Cats">'; // Cat icon
+                        break;
+                    case "Dog":
+                        newProduct.innerHTML = '<img src="/data/icons8-dog-50.png" alt="Dogs">'; // Dog icon
+                        break;
+                    default:
+                        newProduct.innerHTML = '<img src="/data/icons8-question-mark-50.png" alt="Unknown">'; // Question mark icon (if undefined)
+                        break;
+                }
+                var productTypeElement = document.getElementById("productType_@pet.Id"); //makes sure that the element being assigned 
+                productTypeElement.innerHTML = ""; // Clear the content of the productType element (won't show the type text)
+                productTypeElement.appendChild(newProduct); // Append the created icon element to the pet type
+            </script>
+        }
+    </tbody>
+</table>
+</html>
+
