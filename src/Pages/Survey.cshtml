@@ -20,12 +20,17 @@
     <h1>Result</h1>
    
         <p>@Model.Message</p>
-        @foreach(var pet in Model.Pets)
-        {
-            
-            <h3>@Html.DisplayFor(modelItem => @pet.Name)</h3>
-            <img src="@pet.Image" alt="Pet Image" height="200" width="200">
-        }
+        <br />
+        <p>Please adopt these guys if you can!</p>
+        <div class="survey-display">
+            @foreach (var pet in Model.Pets)
+            {
+
+                <h3>@Html.DisplayFor(modelItem => @pet.Name)</h3>
+                <br />
+                <img src="@pet.Image" alt="Pet Image" height="200" width="200">
+            }
+        </div>
 }
 
 else
