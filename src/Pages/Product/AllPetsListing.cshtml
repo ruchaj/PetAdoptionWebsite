@@ -109,16 +109,8 @@
         searchBySelect.addEventListener("change", function () {
             var selectedValue = searchBySelect.value;
 
-            if (selectedValue === "breed") {
-                breedSection.style.display = "block";
-                costSection.style.display = "none";
-            } else if (selectedValue === "cost") {
-                breedSection.style.display = "none";
-                costSection.style.display = "block";
-            } else {
-                breedSection.style.display = "none";
-                costSection.style.display = "none";
-            }
+        breedSection.style.display = "none";
+        costSection.style.display = "none";
         }
         );
     </script>
