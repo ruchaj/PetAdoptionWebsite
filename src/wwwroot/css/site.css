@@ -225,6 +225,7 @@ a {
 .btn-primary {
     color: #fff;
     background-color: darkred;
+    font-family: 'Lucinda Console', monospace;
     border-color: #252152;
 }
 .btn-primary:hover {
