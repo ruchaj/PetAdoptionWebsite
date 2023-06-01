@@ -40,6 +40,7 @@ for details on configuring this project to bundle and minify static web assets. 
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'Lucida Console', monospace;
     margin-left: 20px;
 }
 
@@ -154,7 +155,7 @@ for details on configuring this project to bundle and minify static web assets. 
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
     width: 100%;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
